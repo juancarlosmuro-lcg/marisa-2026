@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Familia Marisa · Análisis de ejecución 2023–2029 | London Consulting Group</title>
+<meta name="description" content="Pieza de inteligencia estratégica preparada para Familia Marisa.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  London Consulting Group México · Pieza de inteligencia de cuenta
+  Cuenta: Familia Marisa (Pastelerías Marisa · Tía Lola · Dolce Natura · Oslo)
+  Arquitectura: hub + 13 vistas navegables por hash. Un solo archivo autocontenido.
+  Tipografía secundaria oficial (DIN 2014) no incrustada por licencia:
+  cambiar --font-numeric cuando se tengan los archivos retail.
+-->
+<style>
+:root{
+  --gd:#085E54; --g:#03B585; --mint:#BAF4E9; --cream:#F2EEEB;
+  --g900:#073E38; --g800:#085E54; --g700:#0A7568; --g600:#039271;
+  --g500:#03B585; --g400:#2FCB9E; --g300:#7FE0C0; --g200:#BAF4E9; --g100:#DFF9F0;
+  --lime:#C9E265; --lime-soft:#DFF0A0;
+  --n0:#FFFEFC; --n50:#F2EEEB; --n100:#E9E3DC; --n200:#DCD4C9; --n300:#C2B8AB;
+  --n400:#9A9086; --n500:#756C63; --n600:#574F49; --n700:#3D3733; --n800:#272320; --n900:#171512;
+  --warn:#C98A1F; --warn-bg:#FBEED9; --err:#C0503F; --info:#2E7FB8; --info-bg:#E1EEF7;
+  --font:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --font-numeric:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --pad:32px; --max:1220px;
+  --r-sm:8px; --r-md:14px; --r-lg:20px; --r-xl:28px; --r-pill:999px;
+  --mesh-soft:radial-gradient(circle at 78% 22%, rgba(201,226,101,.75) 0%, transparent 55%),
+              radial-gradient(circle at 20% 80%, rgba(186,244,233,.85) 0%, transparent 58%),
+              linear-gradient(140deg,#0E6157 0%, #16A588 100%);
+  --mesh:radial-gradient(circle at 22% 18%, var(--lime) 0%, transparent 52%),
+         radial-gradient(circle at 80% 78%, var(--mint) 0%, transparent 55%),
+         linear-gradient(135deg,#0B4F48 0%, var(--g500) 100%);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--g900);color:var(--n800);font-family:var(--font);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{margin:0;line-height:1.08;letter-spacing:-.025em;font-weight:800}
+p{margin:0 0 16px}
+a{color:var(--g700);text-decoration:none}
+svg{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+
+/* ROUTER */
+.view{display:none;min-height:100vh;min-height:100dvh}
+.view.on{display:block;animation:fade .38s cubic-bezier(.16,1,.3,1)}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* HUB */
+#hub{background:var(--g900);color:var(--cream);position:relative;overflow:hidden}
+#hub::before{content:"";position:absolute;top:-25%;right:-15%;width:75vw;height:75vw;max-width:900px;max-height:900px;background:var(--mesh);border-radius:50%;filter:blur(60px);opacity:.28;pointer-events:none}
+#hub::after{content:"";position:absolute;bottom:-30%;left:-20%;width:60vw;height:60vw;max-width:700px;max-height:700px;background:radial-gradient(circle,var(--g500) 0%,transparent 65%);border-radius:50%;filter:blur(70px);opacity:.22;pointer-events:none}
+.hub-in{position:relative;z-index:2;padding:56px 0 72px}
+.hub-top{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:64px;flex-wrap:wrap}
+.mark{display:flex;align-items:center;gap:16px}
+.mark svg{height:19px;width:auto}
+.mark .claim{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--g300);font-weight:700}
+.hub-meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,238,235,.45);font-weight:700;text-align:right}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--g300);margin-bottom:22px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--lime);flex:none}
+.eyebrow.dk{color:var(--g600)}
+.eyebrow.dk::before{background:var(--g500)}
+.hub-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.chip{font-size:12px;font-weight:700;padding:6px 15px;border-radius:var(--r-pill);border:1px solid rgba(242,238,235,.22);color:var(--g300)}
+#hub h1{font-size:clamp(34px,6.6vw,74px);max-width:16ch;margin-bottom:26px;letter-spacing:-.035em}
+#hub h1 em{font-style:normal;background:linear-gradient(100deg,var(--lime),var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hub-lede{font-size:clamp(16px,2vw,20px);max-width:58ch;color:rgba(242,238,235,.82);line-height:1.6}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:56px 0 64px}
+.kpi{background:rgba(255,254,252,.06);border:1px solid rgba(242,238,235,.14);border-radius:var(--r-lg);padding:22px}
+.kpi .n{font-family:var(--font-numeric);font-size:clamp(30px,3.6vw,44px);font-weight:300;letter-spacing:-.03em;color:var(--n0);line-height:1;display:block}
+.kpi .n sup{font-size:.42em;font-weight:400;vertical-align:super;margin-left:2px;color:var(--g300)}
+.kpi .l{font-size:13px;color:var(--g300);margin-top:12px;display:block;line-height:1.4;font-weight:600}
+.kpi .s{font-size:11px;color:rgba(242,238,235,.38);margin-top:5px;display:block}
+.idx-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+.idx-head h2{font-size:22px;color:var(--cream)}
+.idx-hint{font-size:12px;color:rgba(242,238,235,.42)}
+.idx{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tile{position:relative;display:block;background:rgba(255,254,252,.05);border:1px solid rgba(242,238,235,.13);border-radius:var(--r-lg);padding:20px;cursor:pointer;text-align:left;color:inherit;font-family:inherit;overflow:hidden;transition:transform .28s cubic-bezier(.16,1,.3,1),background .28s,border-color .28s}
+.tile::after{content:"";position:absolute;right:-40px;bottom:-40px;width:130px;height:130px;border-radius:50%;background:var(--mesh);opacity:0;transition:opacity .35s;filter:blur(14px)}
+.tile:hover{transform:translateY(-4px);background:rgba(255,254,252,.1);border-color:rgba(201,226,101,.45)}
+.tile:hover::after{opacity:.5}
+.tile .tn{font-family:var(--font-numeric);font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--lime);display:block;margin-bottom:12px;position:relative;z-index:1}
+.tile .tt{font-size:16px;font-weight:700;color:var(--n0);line-height:1.28;letter-spacing:-.015em;display:block;margin-bottom:8px;position:relative;z-index:1}
+.tile .td{font-size:12.5px;color:rgba(242,238,235,.58);line-height:1.5;display:block;position:relative;z-index:1}
+.tile.wide{grid-column:span 2}
+.tile.cta-tile{background:linear-gradient(135deg,var(--g600),var(--g500));border-color:transparent}
+.tile.cta-tile .tn{color:var(--g900)}
+.tile.cta-tile .td{color:rgba(7,62,56,.75)}
+.tile.cta-tile:hover{background:linear-gradient(135deg,var(--g500),var(--g400))}
+
+/* SECTION CHROME */
+.view.sec{background:var(--cream);color:var(--n800)}
+.bar{position:sticky;top:0;z-index:70;background:rgba(242,238,235,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--n200)}
+.bar-in{max-width:var(--max);margin:0 auto;padding:12px var(--pad);display:flex;align-items:center;gap:16px}
+.back{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:var(--g700);background:none;border:1px solid var(--n200);border-radius:var(--r-pill);padding:8px 16px;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .2s,border-color .2s}
+.back:hover{background:var(--g100);border-color:var(--g300)}
+.back svg{height:11px;width:auto}
+.bar-title{font-size:13px;font-weight:700;color:var(--n500);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-title b{color:var(--g600);font-family:var(--font-numeric);letter-spacing:.1em;margin-right:8px}
+.bar-nav{display:flex;gap:6px}
+.nbtn{width:34px;height:34px;border-radius:50%;border:1px solid var(--n200);background:none;cursor:pointer;display:grid;place-items:center;color:var(--n500);transition:background .2s,color .2s,border-color .2s}
+.nbtn:hover{background:var(--g800);color:var(--cream);border-color:var(--g800)}
+.nbtn:disabled{opacity:.28;cursor:default}
+.nbtn:disabled:hover{background:none;color:var(--n500);border-color:var(--n200)}
+.nbtn svg{height:11px}
+.sec-body{padding:64px 0 40px}
+.sec-head{max-width:70ch;margin-bottom:48px}
+.sec-head h2{font-size:clamp(28px,4.4vw,46px);max-width:20ch;margin-bottom:20px}
+.sec-head .lede{font-size:clamp(16px,1.9vw,20px);color:var(--n500);line-height:1.6}
+.footnav{border-top:1px solid var(--n200);margin-top:56px;padding:28px 0 56px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.fn-btn{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--g800);background:none;border:none;cursor:pointer;font-family:inherit;padding:8px 0}
+.fn-btn:hover{color:var(--g600)}
+.fn-btn.next{background:var(--g800);color:var(--cream);border-radius:var(--r-pill);padding:12px 24px}
+.fn-btn.next:hover{background:var(--g900);color:var(--cream)}
+
+/* COMPONENTES */
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.tabcard .tab{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:7px 18px 9px;border-radius:var(--r-md) var(--r-md) 0 0;margin-left:2px;position:relative;top:1px}
+.tabcard .body{border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);padding:26px}
+.tabcard .body h3{font-size:19px;margin-bottom:12px;letter-spacing:-.015em}
+.tabcard .body p{font-size:15px;line-height:1.62;margin-bottom:0}
+.tabcard .body p+p{margin-top:12px}
+.tc-mint .tab{background:var(--mint);color:var(--g800)}
+.tc-mint .body{background:var(--mint);color:var(--g900)}
+.tc-dark .tab{background:#0F4A43;color:var(--g300)}
+.tc-dark .body{background:#0F4A43;color:rgba(242,238,235,.86)}
+.tc-dark .body h3{color:var(--n0)}
+.tc-cream .tab{background:var(--n0);color:var(--g700)}
+.tc-cream .body{background:var(--n0);color:var(--n700);border:1px solid var(--n200);border-top:none}
+.tc-lime .tab{background:var(--lime-soft);color:#4A5A17}
+.tc-lime .body{background:var(--lime-soft);color:#3D4A12}
+.card{background:var(--n0);border:1px solid var(--n200);border-radius:var(--r-lg);padding:26px}
+.card h3{font-size:18px;margin-bottom:12px;letter-spacing:-.015em}
+.card p{font-size:15px;color:var(--n500);line-height:1.6;margin-bottom:0}
+.card p+p{margin-top:12px}
+.stat{border-radius:var(--r-md);padding:24px 26px}
+.stat .n{font-family:var(--font-numeric);font-size:clamp(42px,6vw,72px);font-weight:300;letter-spacing:-.04em;line-height:.9;display:block}
+.stat .n sup{font-size:.34em;font-weight:500;vertical-align:super;margin-left:3px}
+.stat .l{font-size:13.5px;font-weight:700;margin-top:16px;display:block;line-height:1.35}
+.stat .s{font-size:11.5px;margin-top:6px;display:block;line-height:1.45;opacity:.72}
+.stat.mint{background:var(--mint);color:var(--g900)}
+.stat.cream{background:var(--n0);color:var(--g800);border:1px solid var(--n200)}
+.stat.deep{background:var(--g800);color:var(--cream)}
+.stat.deep .n{color:var(--n0)}
+.stat.deep .s{color:rgba(242,238,235,.62)}
+.stat.lime{background:var(--lime-soft);color:#3D4A12}
+.callout{background:var(--g100);border:1px solid var(--g300);border-radius:var(--r-lg);padding:30px;margin-top:28px}
+.callout h3{font-size:19px;margin-bottom:12px;color:var(--g800)}
+.callout p{font-size:15px;color:var(--g900);margin-bottom:0;line-height:1.65}
+.callout p+p{margin-top:12px}
+.callout.warn{background:var(--warn-bg);border-color:#E8C079}
+.callout.warn h3{color:#8A5D10}
+.callout.warn p{color:#5C3F0B}
+.callout.mesh{background:var(--mesh-soft);border:none}
+.callout.mesh h3,.callout.mesh p{color:var(--n0)}
+.panel{background:var(--g800);color:var(--cream);border-radius:var(--r-xl);padding:36px;position:relative;overflow:hidden}
+.panel::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:var(--mesh);opacity:.3;filter:blur(30px)}
+.panel>*{position:relative;z-index:1}
+.panel h3{color:var(--n0)}
+.tl{position:relative;padding-left:46px}
+.tl::before{content:"";position:absolute;left:10px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--g500),var(--mint))}
+.tli{position:relative;padding-bottom:34px}
+.tli:last-child{padding-bottom:0}
+.tli::before{content:"";position:absolute;left:-42px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--cream);border:3px solid var(--g500)}
+.tli.key::before{background:var(--lime);border-color:var(--lime)}
+.tld{font-family:var(--font-numeric);font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--g600);display:block;margin-bottom:6px}
+.tli h4{font-size:17px;margin-bottom:7px;font-weight:700}
+.tli p{font-size:14.5px;color:var(--n500);margin:0;line-height:1.55}
+.quote{background:var(--n0);border:1px solid var(--n200);border-left:3px solid var(--g500);border-radius:var(--r-lg);padding:28px}
+.quote blockquote{margin:0 0 16px;font-size:19px;line-height:1.45;font-weight:600;letter-spacing:-.015em;color:var(--n800)}
+.quote .at{font-size:12px;color:var(--n400);line-height:1.5}
+.quote .at strong{color:var(--g700);display:block;font-size:14px;margin-bottom:3px}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r-lg);border:1px solid var(--n200);background:var(--n0)}
+table{border-collapse:collapse;width:100%;min-width:780px;font-size:14px}
+th,td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--n200)}
+thead th{background:var(--g800);color:var(--cream);font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;border:none}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.hl{background:var(--g100)}
+td.na{color:var(--n400);font-style:italic}
+th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap}
+.note{font-size:12.5px;color:var(--n400);margin-top:14px;line-height:1.55}
+.viz{background:var(--n0);border:1px solid var(--n200);border-radius:var(--r-lg);padding:28px}
+.viz.dark{background:var(--g800);border-color:transparent}
+.viz h3{font-size:17px;margin-bottom:6px}
+.viz.dark h3{color:var(--n0)}
+.viz .sub{font-size:12px;color:var(--n400);margin-bottom:22px}
+.viz.dark .sub{color:rgba(242,238,235,.5)}
+.flow{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.fs{flex:1 1 118px;min-width:0;background:var(--n50);border-radius:var(--r-sm);padding:11px 13px}
+.fs .k{font-size:9.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--g600);display:block;margin-bottom:4px}
+.fs .t{font-size:12px;color:var(--n700);line-height:1.42;display:block}
+.fs.out{background:var(--mint)}
+.fs.out .k{color:var(--g700)}
+.hyp{background:var(--n0);border:1px solid var(--n200);border-radius:var(--r-lg);overflow:hidden}
+.hyp .hh{padding:24px;background:var(--n50);border-bottom:1px solid var(--n200)}
+.hyp .hn{font-family:var(--font-numeric);font-size:11.5px;font-weight:800;letter-spacing:.12em;color:var(--g600);display:block;margin-bottom:8px}
+.hyp .hh h3{font-size:17px;line-height:1.35}
+.hyp .hb{padding:24px;display:grid;gap:18px;grid-template-columns:repeat(2,1fr)}
+.hf .k{font-size:9.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--n400);display:block;margin-bottom:6px}
+.hf .v{font-size:14px;color:var(--n500);line-height:1.55;display:block}
+.scen{border-top:3px solid var(--g500)}
+.scen.b{border-top-color:var(--n400)}
+.scen.c{border-top-color:var(--warn)}
+.scen .st{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--n400);margin-bottom:10px}
+.scen .means{margin-top:18px;padding-top:18px;border-top:1px dashed var(--n300)}
+.scen .means .k{font-size:9.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--g600);display:block;margin-bottom:8px}
+.src{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--n200);font-size:14px}
+.src:last-child{border-bottom:none}
+.src .d{font-family:var(--font-numeric);font-size:11.5px;font-weight:800;color:var(--g600);letter-spacing:.06em;padding-top:3px}
+.src .t{color:var(--n500);line-height:1.5;min-width:0}
+.src .t strong{color:var(--n800);font-weight:600}
+.src .t a{word-break:break-word;font-size:12px;color:var(--n400)}
+.src .t a:hover{color:var(--g700)}
+.cred{background:rgba(255,254,252,.07);border:1px solid rgba(242,238,235,.16);border-radius:var(--r-lg);padding:24px}
+.cred .n{font-family:var(--font-numeric);font-size:clamp(28px,3.4vw,40px);font-weight:300;color:var(--lime);display:block;line-height:1;letter-spacing:-.03em}
+.cred .l{font-size:14px;color:var(--n0);font-weight:700;margin-top:14px;display:block;line-height:1.35}
+.cred .s{font-size:12px;color:rgba(242,238,235,.55);margin-top:6px;display:block;line-height:1.5}
+.ctabox{background:var(--mesh-soft);border-radius:var(--r-xl);padding:clamp(32px,5vw,64px);color:var(--n0)}
+.ctabox h2{font-size:clamp(26px,4.2vw,44px);margin-bottom:22px;max-width:18ch;color:var(--n0)}
+.ctabox p{font-size:17px;color:rgba(255,254,252,.92);max-width:62ch}
+.btn{display:inline-block;background:var(--g900);color:var(--mint);font-weight:800;font-size:15px;padding:16px 34px;border-radius:var(--r-pill);margin-top:16px}
+.btn:hover{background:#052E29;color:var(--mint)}
+.btn.ghost{background:rgba(255,254,252,.15);color:var(--n0);margin-left:10px}
+.btn.ghost:hover{background:rgba(255,254,252,.26);color:var(--n0)}
+.sign{margin-top:38px;padding-top:26px;border-top:1px solid rgba(255,254,252,.28);font-size:14px;color:rgba(255,254,252,.78);line-height:1.6}
+.sign strong{color:var(--n0);display:block;font-size:16px}
+.tg{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:5px;margin-bottom:12px}
+.tg-f{background:var(--g100);color:var(--g700)}
+.tg-s{background:var(--info-bg);color:var(--info)}
+.tg-h{background:var(--warn-bg);color:var(--warn)}
+.tg-i{background:var(--n100);color:var(--n600)}
+
+@media (max-width:1040px){.idx{grid-template-columns:repeat(2,1fr)}.kpis{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){
+  :root{--pad:20px}
+  .idx{grid-template-columns:1fr}.tile.wide{grid-column:span 1}
+  .kpis,.g2,.g3,.g4{grid-template-columns:1fr}
+  .hyp .hb{grid-template-columns:1fr}
+  .src{grid-template-columns:1fr;gap:4px}
+  .hub-in{padding:36px 0 56px}.sec-body{padding:44px 0 32px}.hub-top{margin-bottom:44px}
+  .btn{display:block;text-align:center}.btn.ghost{margin-left:0;margin-top:10px}
+  .bar-title{display:none}
+  .tl{padding-left:34px}.tli::before{left:-32px}
+}
+@media (prefers-reduced-motion:reduce){.view.on{animation:none}.tile{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HUB ═══════════ -->
+<section class="view on" id="hub">
+  <div class="wrap hub-in">
+    <div class="hub-top">
+      <div class="mark">
+        <svg viewBox="0 0 1568 252" aria-label="London Consulting Group"><g fill="#7FE0C0"><path d="M0 0 L0 252 L228 252 Z"/><circle cx="365" cy="126" r="112"/><path d="M500 0 L720 0 L720 248 Z"/><path d="M832 12 A114 114 0 0 1 832 240 Z"/><circle cx="1167" cy="126" r="112"/><path d="M1310 0 L1530 0 L1530 248 Z"/></g></svg>
+        <span class="claim">Shape Your Business</span>
+      </div>
+      <span class="hub-meta">Documento preparado para<br>Familia Marisa · Sep 2026</span>
+    </div>
+
+    <div class="eyebrow">Análisis de ejecución 2023 – 2029</div>
+    <div class="hub-chips">
+      <span class="chip">Pastelerías Marisa</span><span class="chip">Tía Lola</span>
+      <span class="chip">Dolce Natura</span><span class="chip">Oslo</span>
+    </div>
+    <h1>Resolvieron cómo producir a escala sin industrializar. <em>2027 pondrá a prueba otra cosa.</em></h1>
+    <p class="hub-lede">Doce secciones, cada una de dos minutos de lectura. Empiece por donde quiera: la tesis, el benchmark o las hipótesis que proponemos validar.</p>
+
+    <div class="kpis">
+      <div class="kpi"><span class="n">113</span><span class="l">Puntos de venta nacionales</span><span class="s">Periódico AM · sep 2025</span></div>
+      <div class="kpi"><span class="n">1,300</span><span class="l">Colaboradores</span><span class="s">El Español · ene 2026</span></div>
+      <div class="kpi"><span class="n">60<sup>mil</sup></span><span class="l">Piezas producidas por semana</span><span class="s">El Español · ene 2026</span></div>
+      <div class="kpi"><span class="n">4</span><span class="l">Marcas con posicionamiento propio</span><span class="s">El Informador · mar 2024</span></div>
+    </div>
+
+    <div class="idx-head">
+      <h2>Índice</h2>
+      <span class="idx-hint">Un clic para entrar · Esc o “Volver” para regresar</span>
+    </div>
+
+    <div class="idx">
+      <button class="tile" data-go="s01"><span class="tn">01</span><span class="tt">La tesis</span><span class="td">Por qué el cuello de botella se movió de la planta a la red</span></button>
+      <button class="tile" data-go="s02"><span class="tn">02</span><span class="tt">Cinco hallazgos</span><span class="td">Lo que los últimos 36 meses dejaron sobre la mesa</span></button>
+      <button class="tile" data-go="s03"><span class="tn">03</span><span class="tt">El mercado cambió</span><span class="td">Insumos, consumidor y jornada laboral · 2023–2026</span></button>
+      <button class="tile" data-go="s04"><span class="tn">04</span><span class="tt">La compañía cambió</span><span class="td">Línea de tiempo y cobertura reportada</span></button>
+      <button class="tile" data-go="s05"><span class="tn">05</span><span class="tt">Marcas y geografía</span><span class="td">Cuatro carriles, una capacidad instalada</span></button>
+      <button class="tile" data-go="s06"><span class="tn">06</span><span class="tt">Benchmark</span><span class="td">Contra quién y en qué variables</span></button>
+      <button class="tile" data-go="s07"><span class="tn">07</span><span class="tt">Señales de liderazgo</span><span class="td">Lo que la dirección ya dijo en público</span></button>
+      <button class="tile" data-go="s08"><span class="tn">08</span><span class="tt">Implicaciones</span><span class="td">Cuatro capacidades que se vuelven críticas</span></button>
+      <button class="tile" data-go="s09"><span class="tn">09</span><span class="tt">IA y agentes</span><span class="td">Cuatro aplicaciones con un problema real detrás</span></button>
+      <button class="tile" data-go="s10"><span class="tn">10</span><span class="tt">Outlook 2026–2029</span><span class="td">Base, aceleración y presión</span></button>
+      <button class="tile" data-go="s11"><span class="tn">11</span><span class="tt">Hipótesis y prediagnóstico</span><span class="td">Qué proponemos validar y cómo</span></button>
+      <button class="tile" data-go="s12"><span class="tn">12</span><span class="tt">Metodología y fuentes</span><span class="td">Todo lo afirmado es rastreable · Credenciales LCG</span></button>
+      <button class="tile cta-tile wide" data-go="s13"><span class="tn">→</span><span class="tt">Validar la hipótesis en 30 minutos</span><span class="td">Conversación de intercambio, sin agenda comercial</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 01 ═══════════ -->
+<section class="view sec" id="s01">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>01</b>La tesis</span>
+    <span class="bar-nav"><button class="nbtn" disabled><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s02"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">01 · La tesis</div>
+    <div class="sec-head">
+      <h2>No es un análisis de mercado. Es un análisis de su arquitectura de ejecución.</h2>
+      <p class="lede">Tres hechos, en orden, explican por qué preparamos este documento y por qué ahora.</p>
+    </div>
+
+    <div class="grid g3">
+      <div class="tabcard tc-mint"><span class="tab">Lo resuelto</span><div class="body">
+        <h3>La eficiencia dentro de la planta</h3>
+        <p>Estaciones especializadas, <em>kitting</em>, estandarización de movimientos con lógica Lean Sigma tomada de la industria automotriz. Este documento no propone nada sobre ese frente: ya funciona.</p>
+      </div></div>
+      <div class="tabcard tc-dark"><span class="tab">Lo que cambió</span><div class="body">
+        <h3>La operación se volvió una red</h3>
+        <p>De una marca en una ciudad a cuatro marcas, dos estados y formatos heterogéneos: calle, plaza, aeropuerto, central camionera y expendios. Cada formato tiene su propia curva de demanda.</p>
+      </div></div>
+      <div class="tabcard tc-lime"><span class="tab">Lo que llega</span><div class="body">
+        <h3>El 1 de enero de 2027</h3>
+        <p>La reducción de jornada retira dos horas semanales por año hasta 2030, sin reducir salario. Toca directamente el recurso sobre el que descansa la promesa artesanal.</p>
+      </div></div>
+    </div>
+
+    <div class="panel" style="margin-top:32px">
+      <div class="grid g2" style="align-items:center;gap:36px">
+        <div>
+          <div class="eyebrow">Core business hypothesis</div>
+          <h3 style="font-size:clamp(22px,3vw,32px);line-height:1.25;margin-bottom:20px;letter-spacing:-.025em">El cuello de botella migró de la producción a la coordinación de la red.</h3>
+          <p style="color:rgba(242,238,235,.84);font-size:16px;margin-bottom:14px">La empresa domina la eficiencia dentro de la planta. Lo que 2027 pondrá a prueba es la eficiencia <em>entre</em> la planta y 113 puntos de cuatro marcas — la decisión diaria de qué producir, para dónde, cuánto y a qué precio — justo cuando la reforma laboral empiece a restar horas disponibles al recurso más escaso.</p>
+          <p style="color:var(--lime);font-size:16px;font-weight:700;margin-bottom:0">2026 es el único año del calendario sin reducción obligatoria.</p>
+        </div>
+        <div>
+          <svg viewBox="0 0 400 300" aria-label="El cuello de botella se desplaza de la planta hacia la red">
+            <defs>
+              <linearGradient id="gPlant" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7FE0C0"/><stop offset="1" stop-color="#039271"/></linearGradient>
+              <linearGradient id="gNet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9E265"/><stop offset="1" stop-color="#BAF4E9"/></linearGradient>
+            </defs>
+            <circle cx="96" cy="150" r="58" fill="url(#gPlant)" opacity=".92"/>
+            <text x="96" y="146" text-anchor="middle" font-family="Manrope" font-size="14" font-weight="700" fill="#073E38">Planta</text>
+            <text x="96" y="165" text-anchor="middle" font-family="Manrope" font-size="10" fill="#073E38" opacity=".75">resuelto</text>
+            <path d="M160 150 L232 150" stroke="#C9E265" stroke-width="2" stroke-dasharray="5 5"/>
+            <path d="M226 144 L236 150 L226 156 Z" fill="#C9E265"/>
+            <circle cx="300" cy="150" r="74" fill="url(#gNet)" opacity=".95"/>
+            <text x="300" y="146" text-anchor="middle" font-family="Manrope" font-size="15" font-weight="800" fill="#073E38">Red</text>
+            <text x="300" y="166" text-anchor="middle" font-family="Manrope" font-size="10" fill="#073E38" opacity=".8">113 puntos · 4 marcas</text>
+            <g fill="#BAF4E9" opacity=".55"><circle cx="300" cy="52" r="5"/><circle cx="366" cy="86" r="5"/><circle cx="380" cy="184" r="5"/><circle cx="326" cy="244" r="5"/><circle cx="238" cy="222" r="5"/><circle cx="222" cy="92" r="5"/></g>
+            <text x="200" y="286" text-anchor="middle" font-family="Manrope" font-size="10.5" fill="#BAF4E9" opacity=".6">La restricción se desplazó aguas abajo</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s02">Cinco hallazgos →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 02 ═══════════ -->
+<section class="view sec" id="s02">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>02</b>Cinco hallazgos</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s01"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s03"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">02 · Key findings</div>
+    <div class="sec-head">
+      <h2>Cinco lecturas de los últimos 36 meses</h2>
+      <p class="lede">Cada tarjeta lleva su clasificación: hecho respaldado o señal que aún no demuestra una conclusión.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="tabcard tc-cream"><span class="tab">01 · HECHO</span><div class="body">
+        <h3>El crecimiento salió de Jalisco y funcionó</h3>
+        <p>León pasó de nueve a once sucursales entre marzo de 2024 y octubre de 2025. La fundadora lo describió públicamente como “nuestro gran experimento para ver cómo nos va fuera del Estado”, y anticipó Querétaro, San Luis Potosí y Aguascalientes.</p>
+      </div></div>
+      <div class="tabcard tc-cream"><span class="tab">02 · HECHO</span><div class="body">
+        <h3>La mejora continua ya está instalada — en la planta</h3>
+        <p>Lean Sigma, trabajo por estaciones y <em>kitting</em> están descritos públicamente como el método que sostiene más de 60,000 piezas semanales sin premezclas ni saborizantes artificiales. El sistema existe. La pregunta es hasta dónde llega aguas abajo.</p>
+      </div></div>
+      <div class="tabcard tc-mint"><span class="tab">03 · SEÑAL</span><div class="body">
+        <h3>La merma ya tiene canal, pero no necesariamente sistema</h3>
+        <p>Los expendios convierten producto imperfecto o próximo a fecha óptima en rotación. Es una respuesta comercial inteligente. No hay información pública sobre cómo se decide qué enviar, cuánto y a qué precio: ahí se define si el canal recupera margen o solo volumen.</p>
+      </div></div>
+      <div class="tabcard tc-cream"><span class="tab">04 · HECHO</span><div class="body">
+        <h3>La categoría se contrajo en volumen mientras subía en precio</h3>
+        <p>NielsenIQ (octubre 2025): los hogares gastaron 8% más en pan y redujeron 5% el volumen, con menos visitas y productos más pequeños. CANAINPA estimó alzas de 12% a 25% en costos de producción.</p>
+      </div></div>
+      <div class="tabcard tc-dark" style="grid-column:1/-1"><span class="tab">05 · HECHO</span><div class="body">
+        <h3>La institucionalización ya está nombrada por la propia dirección</h3>
+        <p>Marisa Lazo ha declarado que una empresa que nace en casa “para que sobreviva tiene forzosamente que institucionalizarse”, y que sus hijas Inés y María José Arregui Lazo trabajan en la compañía preparando la transición. En 2026 describió haber establecido “un equipo enfocado en la expansión” para decidir “con criterios más consistentes”. El diagnóstico organizacional no hay que venderlo: ya está hecho desde adentro. Lo que sigue es el mecanismo.</p>
+      </div></div>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s03">El mercado cambió →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 03 ═══════════ -->
+<section class="view sec" id="s03">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>03</b>El mercado cambió</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s02"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s04"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">03 · Evolución del mercado · 2023 – 2026 YTD</div>
+    <div class="sec-head">
+      <h2>Tres fuerzas simultáneas sobre la misma categoría</h2>
+      <p class="lede">El costo de los insumos dejó de ser estable, el consumidor cambió de patrón de compra y el marco laboral se movió de forma estructural.</p>
+    </div>
+
+    <div class="grid g4">
+      <div class="stat mint"><span class="n">8<sup>%</sup></span><span class="l">Más gasto de los hogares en pan</span><span class="s">Variación anual · NielsenIQ, oct 2025</span></div>
+      <div class="stat cream"><span class="n">−5<sup>%</sup></span><span class="l">Volumen de compra</span><span class="s">Menos visitas, piezas más chicas · NielsenIQ</span></div>
+      <div class="stat lime"><span class="n">25<sup>%</sup></span><span class="l">Alza máxima en costos de producción</span><span class="s">Rango 12–25% según región · CANAINPA</span></div>
+      <div class="stat deep"><span class="n">13<sup>%</sup></span><span class="l">Alza del salario mínimo 2026</span><span class="s">$278.80 → $315.04 diarios · STPS</span></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:14px">
+      <div class="viz">
+        <h3>Insumos de panificación</h3>
+        <p class="sub">Variación anual de precio, octubre 2025 vs. octubre 2024 · GCMA</p>
+        <svg viewBox="0 0 520 250" aria-label="Harina +6.6%, leche +4.9%, huevo +3.6%, mantequilla +2.7%, azúcar −6.4%">
+          <defs>
+            <linearGradient id="bar1" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#085E54"/><stop offset="1" stop-color="#03B585"/></linearGradient>
+            <linearGradient id="bar2" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#0A7568"/><stop offset="1" stop-color="#2FCB9E"/></linearGradient>
+            <linearGradient id="bar3" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#039271"/><stop offset="1" stop-color="#7FE0C0"/></linearGradient>
+            <linearGradient id="bar4" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#2FCB9E"/><stop offset="1" stop-color="#C9E265"/></linearGradient>
+            <linearGradient id="bar5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C0503F"/><stop offset="1" stop-color="#E5A091"/></linearGradient>
+          </defs>
+          <line x1="40" y1="176" x2="500" y2="176" stroke="#DCD4C9"/>
+          <line x1="40" y1="120" x2="500" y2="120" stroke="#E9E3DC" stroke-dasharray="3 4"/>
+          <line x1="40" y1="64" x2="500" y2="64" stroke="#E9E3DC" stroke-dasharray="3 4"/>
+          <g font-family="Manrope">
+            <path d="M62 176 V50 a26 26 0 0 1 52 0 V176 Z" fill="url(#bar1)"/>
+            <text x="88" y="38" text-anchor="middle" font-size="14" font-weight="800" fill="#039271">+6.6%</text>
+            <text x="88" y="196" text-anchor="middle" font-size="11" fill="#756C63">Harina</text>
+            <path d="M156 176 V74 a26 26 0 0 1 52 0 V176 Z" fill="url(#bar2)"/>
+            <text x="182" y="62" text-anchor="middle" font-size="14" font-weight="800" fill="#039271">+4.9%</text>
+            <text x="182" y="196" text-anchor="middle" font-size="11" fill="#756C63">Leche</text>
+            <path d="M250 176 V98 a26 26 0 0 1 52 0 V176 Z" fill="url(#bar3)"/>
+            <text x="276" y="86" text-anchor="middle" font-size="14" font-weight="800" fill="#039271">+3.6%</text>
+            <text x="276" y="196" text-anchor="middle" font-size="11" fill="#756C63">Huevo</text>
+            <path d="M344 176 V116 a26 26 0 0 1 52 0 V176 Z" fill="url(#bar4)"/>
+            <text x="370" y="104" text-anchor="middle" font-size="14" font-weight="800" fill="#039271">+2.7%</text>
+            <text x="370" y="196" text-anchor="middle" font-size="11" fill="#756C63">Mantequilla</text>
+            <path d="M438 176 V220 a26 26 0 0 0 52 0 V176 Z" fill="url(#bar5)"/>
+            <text x="464" y="240" text-anchor="middle" font-size="14" font-weight="800" fill="#C0503F">−6.4%</text>
+            <text x="464" y="168" text-anchor="middle" font-size="11" fill="#756C63">Azúcar</text>
+          </g>
+        </svg>
+        <p class="note">Cinco de los seis insumos base subieron en el mismo periodo.</p>
+      </div>
+
+      <div class="viz dark">
+        <h3>Reducción de jornada: calendario obligatorio</h3>
+        <p class="sub">Horas semanales máximas · Reforma publicada en el DOF, 2026</p>
+        <svg viewBox="0 0 520 250" aria-label="48 horas en 2026, 46 en 2027, 44 en 2028, 42 en 2029, 40 en 2030">
+          <defs><linearGradient id="area" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#073E38"/><stop offset="55%" stop-color="#03B585"/><stop offset="100%" stop-color="#C9E265"/></linearGradient></defs>
+          <path d="M60 60 L170 90 L280 120 L390 150 L480 180 L480 206 L60 206 Z" fill="url(#area)" opacity=".92"/>
+          <polyline points="60,60 170,90 280,120 390,150 480,180" fill="none" stroke="#FFFEFC" stroke-width="2" opacity=".9"/>
+          <g fill="#FFFEFC"><circle cx="60" cy="60" r="5"/><circle cx="170" cy="90" r="5"/><circle cx="280" cy="120" r="5"/><circle cx="390" cy="150" r="5"/><circle cx="480" cy="180" r="5"/></g>
+          <g font-family="Manrope" fill="#FFFEFC">
+            <text x="60" y="44" text-anchor="middle" font-size="16" font-weight="300">48</text>
+            <text x="170" y="74" text-anchor="middle" font-size="16" font-weight="300">46</text>
+            <text x="280" y="104" text-anchor="middle" font-size="16" font-weight="300">44</text>
+            <text x="390" y="134" text-anchor="middle" font-size="16" font-weight="300">42</text>
+            <text x="480" y="164" text-anchor="middle" font-size="16" font-weight="300">40</text>
+          </g>
+          <g font-family="Manrope" font-size="11" fill="#BAF4E9" opacity=".75">
+            <text x="60" y="228" text-anchor="middle">2026</text>
+            <text x="170" y="228" text-anchor="middle" font-weight="800" fill="#C9E265">2027</text>
+            <text x="280" y="228" text-anchor="middle">2028</text>
+            <text x="390" y="228" text-anchor="middle">2029</text>
+            <text x="480" y="228" text-anchor="middle">2030</text>
+          </g>
+          <text x="170" y="244" text-anchor="middle" font-family="Manrope" font-size="9.5" font-weight="700" fill="#C9E265" letter-spacing="1">INICIA</text>
+        </svg>
+        <p class="note" style="color:rgba(242,238,235,.55)">Sin reducción de sueldos ni prestaciones durante la transición.</p>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <h3>Por qué esto pesa más en un modelo artesanal que en uno industrial</h3>
+      <p>Una planta automatizada absorbe una reducción de jornada con turnos y capacidad instalada. Un modelo que rompe huevos uno a uno, ralla zanahoria y pica fruta la absorbe con <strong>horas-persona</strong>. Entre 2027 y 2030 se retiran ocho horas semanales por colaborador sin poder ajustar salario. Sobre una plantilla del orden de 1,300 personas, esa es la variable de costo estructural más grande del periodo — y la única cuyo calendario ya está publicado.</p>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s04">La compañía cambió →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 04 ═══════════ -->
+<section class="view sec" id="s04">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>04</b>La compañía cambió</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s03"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s05"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">04 · Evolución de la compañía · 2023 – 2026 YTD</div>
+    <div class="sec-head">
+      <h2>Qué hizo Familia Marisa en el mismo periodo</h2>
+      <p class="lede">Construido exclusivamente con declaraciones públicas de la dirección y notas de prensa verificables. Las fechas son las de publicación de cada fuente.</p>
+    </div>
+
+    <div class="grid g2" style="align-items:start;gap:32px">
+      <div class="tl">
+        <div class="tli"><span class="tld">Marzo 2024</span><h4>Sucursal 107 en el Aeropuerto de Guadalajara</h4><p>Apertura en Sala B y anuncio de una segunda unidad. Un formato nuevo: alto tráfico, ticket de impulso, ventanas de consumo cortas.</p></div>
+        <div class="tli"><span class="tld">Marzo 2024</span><h4>Crecimiento moderado por el ciclo electoral</h4><p>La fundadora declara que el año se crecerá “con más cautela”, y reconoce la necesidad de sostener el desarrollo de 2023.</p></div>
+        <div class="tli key"><span class="tld">Marzo 2024</span><h4>Nueva planta para Dolce Natura</h4><p>“Estamos por terminar la construcción… con maquinaria más grande y en otro parque industrial.” Sería la séptima instalación. No se identificó comunicación pública posterior sobre su puesta en marcha.</p></div>
+        <div class="tli"><span class="tld">2024</span><h4>Oslo se consolida como cuarta marca</h4><p>Llega a tres tiendas en la zona metropolitana. El portafolio queda en cuatro posicionamientos separados por precio y categoría.</p></div>
+        <div class="tli"><span class="tld">Diciembre 2024</span><h4>Paola Lazo dirige Fundación Marisa</h4><p>Separación de responsabilidades entre el brazo social y la operación, consistente con un proceso de ordenamiento institucional.</p></div>
+        <div class="tli key"><span class="tld">Septiembre 2025</span><h4>113 puntos de venta a nivel nacional</h4><p>Dato publicado con motivo del Foro de Proveeduría Automotriz en León, donde anuncia el paso de nueve a once sucursales en esa ciudad.</p></div>
+        <div class="tli"><span class="tld">Enero 2026</span><h4>Se hace público el método operativo</h4><p>Lean Sigma, estaciones, kitting, monitoreo de venta casi en tiempo real, canal de expendios y lógica de cuatro marcas como carriles separados.</p></div>
+        <div class="tli key"><span class="tld">Mar – May 2026</span><h4>Se publica la reforma de jornada</h4><p>Reforma constitucional el 3 de marzo, reforma a la LFT el 1 de mayo. 2026 queda como año de transición.</p></div>
+      </div>
+
+      <div class="viz">
+        <h3>Cobertura reportada públicamente</h3>
+        <p class="sub">Conteos de distintas fuentes y fechas · no constituyen una serie homogénea</p>
+        <svg viewBox="0 0 460 250" aria-label="90 sin fecha, 107 en marzo 2024, 113 en septiembre 2025, más de 100 en enero 2026">
+          <defs>
+            <linearGradient id="c1" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#C2B8AB"/><stop offset="1" stop-color="#DCD4C9"/></linearGradient>
+            <linearGradient id="c2" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#085E54"/><stop offset="1" stop-color="#03B585"/></linearGradient>
+            <linearGradient id="c3" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#039271"/><stop offset="1" stop-color="#C9E265"/></linearGradient>
+            <linearGradient id="c4" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#7FE0C0"/><stop offset="1" stop-color="#BAF4E9"/></linearGradient>
+          </defs>
+          <line x1="34" y1="186" x2="440" y2="186" stroke="#DCD4C9"/>
+          <line x1="34" y1="126" x2="440" y2="126" stroke="#E9E3DC" stroke-dasharray="3 4"/>
+          <line x1="34" y1="66" x2="440" y2="66" stroke="#E9E3DC" stroke-dasharray="3 4"/>
+          <g font-family="Manrope" font-size="10" fill="#9A9086"><text x="28" y="190" text-anchor="end">0</text><text x="28" y="130" text-anchor="end">60</text><text x="28" y="70" text-anchor="end">120</text></g>
+          <g font-family="Manrope">
+            <path d="M56 186 V96 a23 23 0 0 1 46 0 V186 Z" fill="url(#c1)"/>
+            <text x="79" y="86" text-anchor="middle" font-size="14" font-weight="800" fill="#756C63">90</text>
+            <text x="79" y="206" text-anchor="middle" font-size="10" fill="#756C63">s/fecha</text>
+            <path d="M156 186 V73 a23 23 0 0 1 46 0 V186 Z" fill="url(#c2)"/>
+            <text x="179" y="63" text-anchor="middle" font-size="14" font-weight="800" fill="#039271">107</text>
+            <text x="179" y="206" text-anchor="middle" font-size="10" fill="#756C63">mar 2024</text>
+            <path d="M256 186 V65 a23 23 0 0 1 46 0 V186 Z" fill="url(#c3)"/>
+            <text x="279" y="55" text-anchor="middle" font-size="14" font-weight="800" fill="#039271">113</text>
+            <text x="279" y="206" text-anchor="middle" font-size="10" fill="#756C63">sep 2025</text>
+            <path d="M356 186 V83 a23 23 0 0 1 46 0 V186 Z" fill="url(#c4)"/>
+            <text x="379" y="73" text-anchor="middle" font-size="13" font-weight="800" fill="#039271">+100</text>
+            <text x="379" y="206" text-anchor="middle" font-size="10" fill="#756C63">ene 2026</text>
+          </g>
+          <g font-family="Manrope" font-size="9" fill="#9A9086">
+            <text x="79" y="222" text-anchor="middle">Top Learning</text>
+            <text x="179" y="222" text-anchor="middle">El Informador</text>
+            <text x="279" y="222" text-anchor="middle">Periódico AM</text>
+            <text x="379" y="222" text-anchor="middle">El Español</text>
+          </g>
+        </svg>
+        <p class="note"><strong>Nota metodológica.</strong> No existe una cifra pública consistente y fechada de la red. Los conteos varían según qué marcas incluye cada fuente. Presentamos el rango en lugar de construir una tendencia que la evidencia no sostiene.</p>
+      </div>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s05">Marcas y geografía →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 05 ═══════════ -->
+<section class="view sec" id="s05">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>05</b>Marcas y geografía</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s04"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s06"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">05 · Arquitectura de portafolio y huella</div>
+    <div class="sec-head">
+      <h2>Cuatro marcas, una capacidad instalada</h2>
+      <p class="lede">La lógica declarada públicamente es elegante: en lugar de estirar una sola etiqueta hacia abajo y erosionar la marca principal, se crearon carriles separados.</p>
+    </div>
+
+    <div class="grid g2" style="align-items:start;gap:24px">
+      <div class="viz dark">
+        <h3>Mapa de posicionamiento declarado</h3>
+        <p class="sub">Ubicación cualitativa según declaraciones públicas · no dimensionado por venta</p>
+        <svg viewBox="0 0 480 400" aria-label="Marisa medio-alto en pastelería, Tía Lola accesible, Dolce Natura premium en helados, Oslo económico">
+          <defs>
+            <radialGradient id="bMarisa" cx="30%" cy="25%"><stop offset="0" stop-color="#BAF4E9"/><stop offset="55%" stop-color="#2FCB9E"/><stop offset="100%" stop-color="#085E54"/></radialGradient>
+            <radialGradient id="bLola" cx="30%" cy="25%"><stop offset="0" stop-color="#DFF0A0"/><stop offset="60%" stop-color="#C9E265"/><stop offset="100%" stop-color="#6E8C2A"/></radialGradient>
+            <radialGradient id="bDolce" cx="30%" cy="25%"><stop offset="0" stop-color="#BAF4E9"/><stop offset="60%" stop-color="#7FE0C0"/><stop offset="100%" stop-color="#0A7568"/></radialGradient>
+            <radialGradient id="bOslo" cx="30%" cy="25%"><stop offset="0" stop-color="#DFF9F0"/><stop offset="60%" stop-color="#2FCB9E"/><stop offset="100%" stop-color="#073E38"/></radialGradient>
+          </defs>
+          <line x1="60" y1="340" x2="450" y2="340" stroke="rgba(242,238,235,.3)"/>
+          <line x1="60" y1="30" x2="60" y2="340" stroke="rgba(242,238,235,.3)"/>
+          <text x="255" y="372" text-anchor="middle" font-family="Manrope" font-size="11" fill="#BAF4E9" opacity=".7">Precio accesible →</text>
+          <text x="-185" y="42" text-anchor="middle" transform="rotate(-90)" font-family="Manrope" font-size="11" fill="#BAF4E9" opacity=".7">Pastelería ←→ Helados</text>
+          <circle cx="150" cy="105" r="66" fill="url(#bMarisa)" opacity=".95"/>
+          <text x="150" y="102" text-anchor="middle" font-family="Manrope" font-size="15" font-weight="700" fill="#073E38">Marisa</text>
+          <text x="150" y="120" text-anchor="middle" font-family="Manrope" font-size="9.5" fill="#073E38" opacity=".75">medio / alto</text>
+          <circle cx="340" cy="140" r="50" fill="url(#bLola)" opacity=".95"/>
+          <text x="340" y="138" text-anchor="middle" font-family="Manrope" font-size="14" font-weight="700" fill="#3D4A12">Tía Lola</text>
+          <text x="340" y="155" text-anchor="middle" font-family="Manrope" font-size="9.5" fill="#3D4A12" opacity=".8">accesible</text>
+          <circle cx="160" cy="268" r="47" fill="url(#bDolce)" opacity=".95"/>
+          <text x="160" y="264" text-anchor="middle" font-family="Manrope" font-size="12.5" font-weight="700" fill="#073E38">Dolce Natura</text>
+          <text x="160" y="281" text-anchor="middle" font-family="Manrope" font-size="9.5" fill="#073E38" opacity=".75">premium</text>
+          <circle cx="352" cy="278" r="38" fill="url(#bOslo)" opacity=".95"/>
+          <text x="352" y="276" text-anchor="middle" font-family="Manrope" font-size="13" font-weight="700" fill="#073E38">Oslo</text>
+          <text x="352" y="292" text-anchor="middle" font-family="Manrope" font-size="9.5" fill="#073E38" opacity=".75">económico</text>
+        </svg>
+      </div>
+
+      <div class="viz">
+        <h3>Huella geográfica declarada</h3>
+        <p class="sub">Esquema relacional, no mapa a escala · El Informador (mar 2024), Periódico AM (sep 2025)</p>
+        <svg viewBox="0 0 480 400" aria-label="Núcleo ZMG, plazas regionales y expansión a León">
+          <defs>
+            <radialGradient id="zmg" cx="32%" cy="28%"><stop offset="0" stop-color="#C9E265"/><stop offset="55%" stop-color="#03B585"/><stop offset="100%" stop-color="#085E54"/></radialGradient>
+            <radialGradient id="leon" cx="32%" cy="28%"><stop offset="0" stop-color="#BAF4E9"/><stop offset="60%" stop-color="#2FCB9E"/><stop offset="100%" stop-color="#0A7568"/></radialGradient>
+          </defs>
+          <line x1="140" y1="180" x2="380" y2="180" stroke="#C2B8AB" stroke-width="2" stroke-dasharray="6 6"/>
+          <circle cx="140" cy="180" r="76" fill="#DFF9F0"/>
+          <circle cx="140" cy="180" r="50" fill="url(#zmg)"/>
+          <text x="140" y="176" text-anchor="middle" font-family="Manrope" font-size="16" font-weight="800" fill="#FFFEFC">ZMG</text>
+          <text x="140" y="194" text-anchor="middle" font-family="Manrope" font-size="9.5" fill="#DFF9F0">núcleo</text>
+          <text x="140" y="282" text-anchor="middle" font-family="Manrope" font-size="13" font-weight="700" fill="#3D3733">Guadalajara</text>
+          <text x="140" y="300" text-anchor="middle" font-family="Manrope" font-size="10.5" fill="#756C63">Planta · aeropuerto · central</text>
+          <text x="140" y="316" text-anchor="middle" font-family="Manrope" font-size="10.5" fill="#756C63">4 marcas conviviendo</text>
+          <circle cx="262" cy="98" r="15" fill="#7FE0C0"/><text x="284" y="102" font-family="Manrope" font-size="11.5" font-weight="700" fill="#3D3733">Tepatitlán</text>
+          <line x1="168" y1="140" x2="250" y2="108" stroke="#C2B8AB"/>
+          <circle cx="262" cy="180" r="15" fill="#7FE0C0"/><text x="284" y="184" font-family="Manrope" font-size="11.5" font-weight="700" fill="#3D3733">Ajijic</text>
+          <circle cx="262" cy="258" r="15" fill="#7FE0C0"/><text x="284" y="262" font-family="Manrope" font-size="11.5" font-weight="700" fill="#3D3733">Ocotlán</text>
+          <line x1="168" y1="220" x2="250" y2="250" stroke="#C2B8AB"/>
+          <circle cx="400" cy="180" r="54" fill="#DFF9F0"/>
+          <circle cx="400" cy="180" r="34" fill="url(#leon)"/>
+          <text x="400" y="186" text-anchor="middle" font-family="Manrope" font-size="14" font-weight="800" fill="#FFFEFC">León</text>
+          <text x="400" y="256" text-anchor="middle" font-family="Manrope" font-size="12.5" font-weight="700" fill="#3D3733">Guanajuato</text>
+          <text x="400" y="274" text-anchor="middle" font-family="Manrope" font-size="10.5" fill="#756C63">9 → 11 sucursales</text>
+          <rect x="128" y="344" width="290" height="30" rx="15" fill="#F2EEEB" stroke="#DCD4C9"/>
+          <text x="273" y="363" text-anchor="middle" font-family="Manrope" font-size="10.5" font-weight="700" fill="#756C63">Siguiente: Querétaro · SLP · Aguascalientes</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:14px">
+      <div class="tabcard tc-lime"><span class="tab">HIPÓTESIS</span><div class="body">
+        <h3>Donde la arquitectura multiplica la complejidad</h3>
+        <p>Cuatro marcas implican cuatro curvas de demanda, cuatro políticas de precio, cuatro catálogos y probablemente cuatro lógicas de reposición — sobre una misma base productiva y un mismo esquema de reparto.</p>
+        <p>La decisión diaria deja de ser “cuánto pastel de zanahoria horneo” y pasa a ser “cuánto, de qué marca, para qué formato, en qué punto”. El número de decisiones crece de forma multiplicativa, no aditiva.</p>
+      </div></div>
+      <div class="tabcard tc-dark"><span class="tab">IMPLICACIÓN</span><div class="body">
+        <h3>Y donde eso se vuelve caro</h3>
+        <p>En un producto sin conservadores, cada error tiene dos salidas: <strong>faltante</strong>, que cuesta venta en el momento exacto en que el cliente vino por una ocasión especial, o <strong>sobrante</strong>, que cuesta margen aunque el canal de expendios recupere parte.</p>
+        <p>Ninguna aparece en el estado de resultados con nombre propio. Aparecen diluidas en costo de ventas y en venta perdida, que es la más difícil de ver.</p>
+      </div></div>
+    </div>
+
+    <p class="note" style="margin-top:20px">La distancia importa: un modelo sin conservadores y con vida de anaquel corta tiene un radio logístico natural. Cada plaza nueva fuera de ese radio es una decisión de arquitectura productiva, no solo de expansión comercial.</p>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s06">Benchmark →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 06 ═══════════ -->
+<section class="view sec" id="s06">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>06</b>Benchmark competitivo</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s05"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s07"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">06 · Benchmark competitivo</div>
+    <div class="sec-head">
+      <h2>Contra quién se compara y en qué variables</h2>
+      <p class="lede">Seleccionamos las variables antes que las empresas. En repostería con red propia lo que define la ecuación no es el tamaño: es cómo se financia el crecimiento, qué tan lejos viaja el producto y cuántas marcas comparten la misma planta.</p>
+    </div>
+
+    <div class="viz dark" style="margin-bottom:14px">
+      <h3>Posicionamiento cualitativo</h3>
+      <p class="sub">Derivado de las variables del benchmark · no es un scoring numérico</p>
+      <svg viewBox="0 0 700 330" aria-label="Cuadrante de dispersión geográfica contra intensidad de mano de obra">
+        <defs><radialGradient id="q" cx="30%" cy="25%"><stop offset="0" stop-color="#C9E265"/><stop offset="60%" stop-color="#03B585"/><stop offset="100%" stop-color="#085E54"/></radialGradient></defs>
+        <line x1="70" y1="270" x2="640" y2="270" stroke="rgba(242,238,235,.3)"/>
+        <line x1="70" y1="30" x2="70" y2="270" stroke="rgba(242,238,235,.3)"/>
+        <line x1="355" y1="30" x2="355" y2="270" stroke="rgba(242,238,235,.14)" stroke-dasharray="4 5"/>
+        <line x1="70" y1="150" x2="640" y2="150" stroke="rgba(242,238,235,.14)" stroke-dasharray="4 5"/>
+        <text x="355" y="302" text-anchor="middle" font-family="Manrope" font-size="11" fill="#BAF4E9" opacity=".7">Dispersión geográfica →</text>
+        <text x="-150" y="40" text-anchor="middle" transform="rotate(-90)" font-family="Manrope" font-size="11" fill="#BAF4E9" opacity=".7">Intensidad de mano de obra →</text>
+        <circle cx="200" cy="78" r="46" fill="url(#q)"/>
+        <text x="200" y="76" text-anchor="middle" font-family="Manrope" font-size="12.5" font-weight="800" fill="#073E38">Familia</text>
+        <text x="200" y="92" text-anchor="middle" font-family="Manrope" font-size="12.5" font-weight="800" fill="#073E38">Marisa</text>
+        <circle cx="545" cy="212" r="38" fill="#7FE0C0" opacity=".82"/>
+        <text x="545" y="216" text-anchor="middle" font-family="Manrope" font-size="12" font-weight="700" fill="#073E38">El Globo</text>
+        <circle cx="330" cy="128" r="34" fill="#2FCB9E" opacity=".82"/>
+        <text x="330" y="126" text-anchor="middle" font-family="Manrope" font-size="10.5" font-weight="700" fill="#073E38">La</text>
+        <text x="330" y="140" text-anchor="middle" font-family="Manrope" font-size="10.5" font-weight="700" fill="#073E38">Esperanza</text>
+        <circle cx="128" cy="196" r="28" fill="#BAF4E9" opacity=".7"/>
+        <text x="128" y="200" text-anchor="middle" font-family="Manrope" font-size="11" font-weight="700" fill="#073E38">Neufeld</text>
+      </svg>
+      <p class="note" style="color:rgba(242,238,235,.55)">El cuadrante superior izquierdo — alta intensidad de mano de obra con dispersión creciente — es el más expuesto a la reforma de jornada.</p>
+    </div>
+
+    <div class="tscroll">
+      <table>
+        <thead><tr><th>Variable</th><th>Familia Marisa</th><th>El Globo</th><th>La Esperanza</th><th>Neufeld</th></tr></thead>
+        <tbody>
+          <tr class="hl"><th class="rh">Respaldo de capital</th><td>Orgánico. Sin deuda bancaria, por declaración pública de la fundadora</td><td>Corporativo. Propiedad de Grupo Bimbo desde 2005</td><td>Familiar, con integración industrial propia</td><td class="na">Información pública no identificada</td></tr>
+          <tr><th class="rh">Escala de red</th><td>113 puntos nacionales (sep 2025)</td><td>Más de 170 tiendas en 24 ciudades</td><td>Más de 100 sucursales</td><td>31 sucursales (2021); presencia densa en ZMG en plataformas de reparto (2026)</td></tr>
+          <tr class="hl"><th class="rh">Dispersión geográfica</th><td>ZMG + plazas regionales de Jalisco + León, Gto.</td><td>Nacional, 24 ciudades</td><td>Valle de México con salida a Pachuca y Toluca</td><td>Zona Metropolitana de Guadalajara</td></tr>
+          <tr><th class="rh">Arquitectura de marca</th><td>Cuatro marcas segmentadas por precio y categoría</td><td>Marca única dentro de un portafolio corporativo mayor</td><td>Híbrido: panadería, cafetería y alimentos preparados, con marcas satélite</td><td>Marca única</td></tr>
+          <tr class="hl"><th class="rh">Base productiva</th><td>Complejo propio en parque industrial; séptima instalación anunciada en 2024</td><td>Infraestructura industrial de grupo</td><td>Planta propia en Tecámac (desde 2012)</td><td class="na">Información pública no identificada</td></tr>
+          <tr><th class="rh">Método de producto</th><td>Artesanal declarado: sin premezclas, saborizantes ni conservadores</td><td>Repostería de escala con soporte industrial</td><td>Artesanal escalado con integración vertical</td><td>Pastelería fina, catálogo amplio</td></tr>
+          <tr class="hl"><th class="rh">Canal digital</th><td>Tienda propia en Shopify con envíos, y presencia en Rappi incluyendo León</td><td>E-commerce propio con recolección en sucursal</td><td class="na">Información pública no identificada</td><td>Presencia amplia en plataformas de reparto</td></tr>
+          <tr><th class="rh">Exposición a jornada 2027–2030</th><td>Alta: modelo intensivo en mano de obra, ~1,300 colaboradores</td><td>Media: mayor automatización y respaldo corporativo</td><td>Media-alta</td><td class="na">Información pública no identificada</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Las celdas marcadas corresponden a empresas privadas sin obligación de reporte. No estimamos cifras donde no hay fuente.</p>
+
+    <div class="grid g2" style="margin-top:14px">
+      <div class="tabcard tc-mint"><span class="tab">HIPÓTESIS</span><div class="body">
+        <h3>Posición sólida, exposición asimétrica</h3>
+        <p>Familia Marisa compite con una ventaja que ningún comparable replica con facilidad: producto artesanal verificable, precio accesible y densidad afectiva de marca en su plaza natal. Pero esa ventaja está construida sobre mano de obra.</p>
+        <p>El Globo absorbe una reducción de jornada con infraestructura de grupo. Familia Marisa tendría que absorberla con organización del trabajo. Ese es el punto de asimetría — y también donde una mejora deliberada genera más diferencia relativa.</p>
+      </div></div>
+      <div class="tabcard tc-cream"><span class="tab">SEÑAL</span><div class="body">
+        <h3>Una discrepancia de canal que vale revisar</h3>
+        <p>Al momento de este análisis el sitio oficial describe “más de 50 tiendas en México”, mientras la fundadora reporta más de 100 puntos y la prensa 113. La tienda en línea corre sobre Shopify con una sola ubicación de recolección visible.</p>
+        <p>No concluimos nada sobre la operación digital. Sí sugiere que vale preguntar si el canal propio crece al ritmo de la red física, o si la prioridad de inversión ha estado — razonablemente — en el piso.</p>
+      </div></div>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s07">Señales de liderazgo →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 07 ═══════════ -->
+<section class="view sec" id="s07">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>07</b>Señales de liderazgo</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s06"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s08"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">07 · Señales de liderazgo</div>
+    <div class="sec-head">
+      <h2>Lo que la dirección ya dijo en público</h2>
+      <p class="lede">Este documento no propone un diagnóstico que contradiga a la dirección. Propone continuar uno que la propia dirección ya formuló.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="quote"><blockquote>“Para que sobreviva tiene forzosamente que institucionalizarse.”</blockquote><div class="at"><strong>Marisa Lazo, fundadora y directora</strong>Sobre las empresas familiares que nacen en casa · Expansión, 100 Mujeres</div></div>
+      <div class="quote"><blockquote>“Decidí establecer un equipo enfocado en la expansión… ahora tomamos decisiones con criterios más consistentes.”</blockquote><div class="at"><strong>Marisa Lazo, fundadora y directora</strong>Sobre la evolución operativa · Milenio, mayo 2026</div></div>
+      <div class="quote"><blockquote>“Si tú controlas todo, la gente nunca aprende a equivocarse, a solucionar, a tomar decisiones.”</blockquote><div class="at"><strong>Marisa Lazo, fundadora y directora</strong>Foro de Proveeduría Automotriz, León · Periódico AM, sep 2025</div></div>
+      <div class="quote"><blockquote>“Es un error reducir la calidad de los productos con la intención de abaratar costos. Se vende más si tienes calidad.”</blockquote><div class="at"><strong>Marisa Lazo, fundadora y directora</strong>Foro de Proveeduría Automotriz, León · Periódico AM, sep 2025</div></div>
+    </div>
+
+    <div class="grid g3" style="margin-top:14px">
+      <div class="tabcard tc-dark"><span class="tab">IMPLICACIÓN</span><div class="body">
+        <h3>La restricción de diseño está fijada</h3>
+        <p>Cualquier mejora que toque costo tiene una condición de frontera explícita: no puede pasar por bajar calidad. Eso elimina la palanca más común y obliga a buscar margen en organización del trabajo, planeación y merma.</p>
+      </div></div>
+      <div class="tabcard tc-dark"><span class="tab">IMPLICACIÓN</span><div class="body">
+        <h3>La delegación ya es política, no aspiración</h3>
+        <p>Una organización que premia ideas del piso y declara que el 80% de sus colaboradores creció cuando la fundadora soltó el control es terreno favorable para mejora continua — siempre que exista el mecanismo que convierta esas ideas en estándar.</p>
+      </div></div>
+      <div class="tabcard tc-dark"><span class="tab">IMPLICACIÓN</span><div class="body">
+        <h3>La transición generacional está en curso</h3>
+        <p>Con la segunda generación dentro de la empresa, dejar procesos documentados, indicadores estables y criterios explícitos deja de ser una mejora operativa y se vuelve un asunto de continuidad patrimonial.</p>
+      </div></div>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s08">Implicaciones de ejecución →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 08 ═══════════ -->
+<section class="view sec" id="s08">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>08</b>Implicaciones de ejecución</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s07"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s09"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">08 · Implicaciones de ejecución</div>
+    <div class="sec-head">
+      <h2>Qué tendría que ser capaz de hacer la organización</h2>
+      <p class="lede">Si la intención declarada es seguir creciendo de forma orgánica, con calidad artesanal, hacia el Bajío y con cuatro marcas, hay cuatro capacidades que pasan a ser críticas.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="tabcard tc-mint"><span class="tab">01</span><div class="body">
+        <h3>Planear la demanda en lugar de reaccionar a ella</h3>
+        <p>Hoy el sistema descrito públicamente <em>monitorea</em> la venta y <em>reacciona</em> rápido. Es una capacidad valiosa y poco común. Pero reaccionar tiene un costo por evento: viajes no planeados, transferencias de urgencia, horas extra.</p>
+        <p>A 113 puntos, cuatro marcas y dos estados, la diferencia entre anticipar y reaccionar se vuelve una línea de costo, no un detalle operativo.</p>
+      </div></div>
+      <div class="tabcard tc-cream"><span class="tab">02</span><div class="body">
+        <h3>Convertir horas en producto con menos horas disponibles</h3>
+        <p>De 2027 a 2030 la jornada baja ocho horas semanales sin ajuste salarial. En un modelo artesanal eso equivale a un incremento estructural de costo de mano de obra por pieza, salvo que el trabajo se reorganice.</p>
+        <p>La lógica Lean Sigma ya instalada en planta es el punto de partida correcto. La pregunta es si está aplicada también en tienda, en reparto y en soporte.</p>
+      </div></div>
+      <div class="tabcard tc-cream"><span class="tab">03</span><div class="body">
+        <h3>Estandarizar la tienda a través de formatos distintos</h3>
+        <p>Una sucursal de aeropuerto, un kiosco de central camionera, una tienda de colonia popular con marca Tía Lola y una unidad premium en plaza no pueden operar con el mismo estándar de surtido, horario ni dotación.</p>
+        <p>Sin un modelo explícito por formato, la variabilidad entre puntos crece y se vuelve difícil saber si una sucursal rinde poco por ubicación, por surtido o por gestión.</p>
+      </div></div>
+      <div class="tabcard tc-lime"><span class="tab">04</span><div class="body">
+        <h3>Instalar el mecanismo, no solo la intención</h3>
+        <p>La dirección ya nombró la necesidad. Institucionalizar en operación significa algo concreto: indicadores que signifiquen lo mismo en todas las marcas, rutinas de seguimiento con dueño y frecuencia, criterios de decisión escritos y un estándar de trabajo que sobreviva a la rotación.</p>
+        <p>Es también lo que hace transferible el negocio a la siguiente generación sin que dependa del criterio de la fundadora.</p>
+      </div></div>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s09">IA y agentes →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 09 ═══════════ -->
+<section class="view sec" id="s09">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>09</b>IA y agentes</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s08"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s10"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">09 · Oportunidades de IA y agentes</div>
+    <div class="sec-head">
+      <h2>Cuatro aplicaciones con un problema concreto detrás</h2>
+      <p class="lede">No incluimos IA por ser tendencia. La incluimos donde hay una decisión repetitiva, con información dispersa, que hoy se toma con criterio humano bajo presión de tiempo. Ninguna toca la receta ni sustituye el trabajo artesanal.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>Pronóstico de demanda por punto, marca y SKU</h3>
+        <p>La decisión diaria de cuánto hornear de cada producto para cada punto, con curvas que difieren por formato, día, temporada y clima.</p>
+        <div class="flow">
+          <div class="fs"><span class="k">Proceso</span><span class="t">Programación diaria de producción</span></div>
+          <div class="fs"><span class="k">Fricción</span><span class="t">Se corrige al detectar la venta, no antes de hornear</span></div>
+          <div class="fs"><span class="k">Agente</span><span class="t">Modelo que aprende el patrón por punto y SKU</span></div>
+          <div class="fs"><span class="k">Acción</span><span class="t">Propone corrida y alerta riesgo de faltante o sobrante</span></div>
+          <div class="fs out"><span class="k">Resultado</span><span class="t">Menos merma y menos faltante sin cambiar el producto</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Agente de reposición y balanceo entre puntos</h3>
+        <p>Cuando una sucursal se queda sin un sabor, la respuesta declarada es no esperar al siguiente reparto. Eso resuelve el servicio pero genera movimientos no planeados.</p>
+        <div class="flow">
+          <div class="fs"><span class="k">Proceso</span><span class="t">Reposición intradía desde planta a red</span></div>
+          <div class="fs"><span class="k">Fricción</span><span class="t">Cada urgencia se resuelve como evento aislado</span></div>
+          <div class="fs"><span class="k">Agente</span><span class="t">Supervisor que ve inventario de toda la red</span></div>
+          <div class="fs"><span class="k">Acción</span><span class="t">Propone transferencia entre puntos cercanos antes de un viaje nuevo</span></div>
+          <div class="fs out"><span class="k">Resultado</span><span class="t">Misma disponibilidad con menos kilómetros y menos horas</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Destino inteligente del producto en riesgo</h3>
+        <p>El canal de expendios ya existe. Lo sistematizable es la decisión de qué mandar ahí, cuándo, a qué punto y con qué descuento — para recuperar margen y no solo volumen.</p>
+        <div class="flow">
+          <div class="fs"><span class="k">Proceso</span><span class="t">Clasificación de producto imperfecto o próximo a fecha</span></div>
+          <div class="fs"><span class="k">Fricción</span><span class="t">Decisión manual, tardía y desigual entre turnos</span></div>
+          <div class="fs"><span class="k">Agente</span><span class="t">Motor de recuperación de margen</span></div>
+          <div class="fs"><span class="k">Acción</span><span class="t">Asigna destino, cantidad y precio según demanda del expendio</span></div>
+          <div class="fs out"><span class="k">Resultado</span><span class="t">Recuperación consistente, no dependiente del criterio individual</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Programación de turnos bajo jornada decreciente</h3>
+        <p>Entre 2027 y 2030 hay que cubrir los mismos horarios de servicio con menos horas por persona. Cuadrar mallas a mano, para planta y cien puntos, es un problema combinatorio.</p>
+        <div class="flow">
+          <div class="fs"><span class="k">Proceso</span><span class="t">Programación de turnos en planta y tienda</span></div>
+          <div class="fs"><span class="k">Fricción</span><span class="t">Reducción anual de horas sin ajuste de salario</span></div>
+          <div class="fs"><span class="k">Agente</span><span class="t">Optimizador de cobertura contra demanda por franja</span></div>
+          <div class="fs"><span class="k">Acción</span><span class="t">Propone mallas que protegen las horas pico de venta</span></div>
+          <div class="fs out"><span class="k">Resultado</span><span class="t">Absorber la reducción sin contratar en proporción ni perder venta</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout mesh">
+      <h3>Una condición previa, y es la parte difícil</h3>
+      <p>Ninguna de estas cuatro aplicaciones funciona sin datos limpios y consistentes de venta, producción, merma e inventario por punto y por marca. La empresa ya monitorea venta casi en tiempo real, lo cual es la mitad del camino. <strong>La otra mitad — merma medida en el punto donde ocurre, con criterio único entre marcas — es donde normalmente se rompe.</strong></p>
+      <p>Por eso no proponemos empezar por la tecnología. Proponemos empezar por medir, y usar tecnología donde la medición demuestre que hay recuperación posible. No estimamos aquí ninguna cifra de impacto: no tenemos la información para hacerlo con seriedad.</p>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s10">Outlook 2026–2029 →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 10 ═══════════ -->
+<section class="view sec" id="s10">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>10</b>Outlook 2026–2029</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s09"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s11"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">10 · Perspectiva 2026 – 2029</div>
+    <div class="sec-head">
+      <h2>Tres escenarios y lo que significan</h2>
+      <p class="lede">No proyectamos cifras. Describimos trayectorias plausibles y sus consecuencias operativas.</p>
+    </div>
+
+    <div class="grid g3">
+      <div class="card scen">
+        <div class="st">Base case</div><h3>Continuidad</h3>
+        <p>Crecimiento orgánico moderado, consolidación de León, apertura selectiva de una o dos plazas del Bajío. Costos de insumo con inflación contenida. Reducción de jornada aplicada según calendario.</p>
+        <div class="means"><span class="k">Qué significaría</span><p>La presión llega en cámara lenta: dos horas menos cada enero. Es absorbible, pero solo si la productividad por hora mejora al mismo ritmo. Sin un mecanismo explícito, la absorción ocurre vía horas extra y contrataciones marginales.</p></div>
+      </div>
+      <div class="card scen b">
+        <div class="st">Acceleration case</div><h3>Aceleración</h3>
+        <p>La nueva planta de Dolce Natura libera capacidad, León valida el modelo fuera de Jalisco y la expansión se acelera a Querétaro, San Luis Potosí y Aguascalientes.</p>
+        <div class="means"><span class="k">Qué significaría</span><p>El radio logístico se estira más allá de lo que un producto sin conservadores tolera desde una sola base. Aparece la decisión de arquitectura: producción satélite, formato adaptado o portafolio distinto por plaza. Conviene tomarla con datos, no con la urgencia de la apertura.</p></div>
+      </div>
+      <div class="card scen c">
+        <div class="st">Pressure case</div><h3>Presión</h3>
+        <p>Nuevo repunte de insumos, consumidor que sigue reduciendo volumen y frecuencia, y costo laboral creciendo por jornada más salario mínimo simultáneamente.</p>
+        <div class="means"><span class="k">Qué significaría</span><p>La restricción declarada — no bajar calidad para abaratar — se vuelve costosa de sostener. La única salida compatible es operativa: merma, productividad y mezcla. Quien no tenga esas tres medidas con precisión tendrá que elegir entre margen y promesa de marca.</p></div>
+      </div>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s11">Hipótesis y prediagnóstico →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 11 ═══════════ -->
+<section class="view sec" id="s11">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>11</b>Hipótesis y prediagnóstico</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s10"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s12"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">11 · Hipótesis de oportunidad</div>
+    <div class="sec-head">
+      <h2>Cuatro hipótesis que valdría la pena validar con datos</h2>
+      <p class="lede">Son hipótesis, no conclusiones. Cada una se formula para poder ser refutada con información que la empresa ya tiene. Si los datos las desmienten, el ejercicio sigue siendo útil.</p>
+    </div>
+
+    <div class="grid" style="gap:18px">
+      <div class="hyp">
+        <div class="hh"><span class="hn">HIPÓTESIS 01</span><h3>La merma total del sistema no está medida con un criterio único entre las cuatro marcas, y por lo tanto no se administra como una sola cifra.</h3></div>
+        <div class="hb">
+          <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Merma en % sobre producción, abierta por etapa: planta, tránsito, tienda y devolución — con la misma definición en las cuatro marcas.</span></div>
+          <div class="hf"><span class="k">Impacto posible</span><span class="v">Recuperación directa de margen sin tocar precio ni receta. No cuantificamos: depende del nivel actual, que no es público.</span></div>
+          <div class="hf"><span class="k">Información necesaria</span><span class="v">Reportes de producción y venta por SKU y punto, registro de devoluciones, movimientos hacia expendios.</span></div>
+          <div class="hf"><span class="k">Área involucrada</span><span class="v">Producción, distribución, operación de tienda, finanzas.</span></div>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hh"><span class="hn">HIPÓTESIS 02</span><h3>La dispersión de productividad entre sucursales del mismo formato es mayor de lo que el equipo directivo asume, y esa dispersión es la reserva para absorber la reducción de jornada.</h3></div>
+        <div class="hb">
+          <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Venta por hora-persona y piezas por hora-persona, comparadas entre puntos del mismo formato y marca.</span></div>
+          <div class="hf"><span class="k">Impacto posible</span><span class="v">Si el cuartil superior es replicable, ahí está la absorción de 2027–2030 sin contratación proporcional.</span></div>
+          <div class="hf"><span class="k">Información necesaria</span><span class="v">Nómina por punto, horarios reales trabajados, venta por punto y franja horaria.</span></div>
+          <div class="hf"><span class="k">Área involucrada</span><span class="v">Operación, recursos humanos, finanzas.</span></div>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hh"><span class="hn">HIPÓTESIS 03</span><h3>El nivel de servicio por sucursal no se mide sistemáticamente, y la venta perdida es invisible en el estado de resultados.</h3></div>
+        <div class="hb">
+          <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Horas con faltante de los SKU de mayor rotación, por punto y franja horaria. Frecuencia de reposiciones no programadas.</span></div>
+          <div class="hf"><span class="k">Impacto posible</span><span class="v">Venta recuperable en el momento de mayor disposición a pagar, sin costo de adquisición de cliente.</span></div>
+          <div class="hf"><span class="k">Información necesaria</span><span class="v">Bitácoras de reposición, registro de agotados, ticket promedio por franja.</span></div>
+          <div class="hf"><span class="k">Área involucrada</span><span class="v">Operación de tienda, distribución, comercial.</span></div>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hh"><span class="hn">HIPÓTESIS 04</span><h3>El costo real de servir difiere de forma significativa entre formatos y plazas, y ese diferencial no está reflejado en la decisión de surtido ni en la de apertura.</h3></div>
+        <div class="hb">
+          <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Costo de distribución por punto y por pieza entregada: ZMG contra plazas regionales contra León.</span></div>
+          <div class="hf"><span class="k">Impacto posible</span><span class="v">Criterio objetivo para decidir portafolio por plaza y evaluar el siguiente salto geográfico del Bajío.</span></div>
+          <div class="hf"><span class="k">Información necesaria</span><span class="v">Rutas, frecuencias, costo de flota, volumen entregado por punto.</span></div>
+          <div class="hf"><span class="k">Área involucrada</span><span class="v">Supply chain, finanzas, expansión.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="eyebrow dk" style="margin-top:56px">Prediagnóstico propuesto</div>
+    <h2 style="font-size:clamp(24px,3.4vw,34px);margin-bottom:28px;max-width:24ch">Cómo se validan sin interrumpir la operación</h2>
+
+    <div class="grid g3">
+      <div class="tabcard tc-mint"><span class="tab">Alcance</span><div class="body"><h3>Dos a tres semanas</h3><p>Recorrido del complejo de producción y de una muestra representativa de puntos: las cuatro marcas, los formatos de calle, plaza, aeropuerto y expendio, y al menos una plaza fuera de la ZMG.</p></div></div>
+      <div class="tabcard tc-cream"><span class="tab">Método</span><div class="body"><h3>Medición donde ocurre</h3><p>Observación de proceso con toma de tiempos, análisis de la información existente, entrevistas con mandos medios y personal de piso. No es una auditoría: es un levantamiento para dimensionar oportunidad.</p></div></div>
+      <div class="tabcard tc-lime"><span class="tab">Entregable</span><div class="body"><h3>Oportunidad cuantificada</h3><p>Las cuatro hipótesis confirmadas o descartadas con evidencia propia de la empresa, dimensionadas en pesos, con una secuencia de implementación priorizada por esfuerzo y retorno.</p></div></div>
+    </div>
+
+    <div class="callout">
+      <h3>El compromiso contractual de London</h3>
+      <p>En los proyectos de implementación, London Consulting Group garantiza por contrato un retorno mínimo de <strong>1 a 1</strong> sobre la inversión del cliente. El promedio histórico de la firma es de <strong>5 a 1</strong>. El prediagnóstico es previo a cualquier compromiso y no obliga a contratar.</p>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s12">Metodología y fuentes →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 12 ═══════════ -->
+<section class="view sec" id="s12">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>12</b>Metodología, fuentes y credenciales</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s11"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s13"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">12 · Metodología y fuentes</div>
+    <div class="sec-head">
+      <h2>Todo lo afirmado aquí es rastreable</h2>
+      <p class="lede">Familia Marisa es una empresa privada sin obligación de reporte financiero público. Por eso este documento no contiene ninguna estimación financiera. Lo que es interpretación nuestra está marcado como hipótesis.</p>
+    </div>
+
+    <div class="grid g4">
+      <div class="card" style="padding:20px"><span class="tg tg-f">Hecho</span><p style="font-size:13px">Información directamente respaldada por una fuente identificable y fechada.</p></div>
+      <div class="card" style="padding:20px"><span class="tg tg-s">Señal</span><p style="font-size:13px">Indicio de una tendencia que por sí solo no demuestra una conclusión.</p></div>
+      <div class="card" style="padding:20px"><span class="tg tg-h">Hipótesis</span><p style="font-size:13px">Interpretación estratégica derivada de los hechos. Refutable.</p></div>
+      <div class="card" style="padding:20px"><span class="tg tg-i">Implicación</span><p style="font-size:13px">Qué podría significar esa hipótesis para el negocio.</p></div>
+    </div>
+
+    <h3 style="font-size:20px;margin:48px 0 18px">Fuentes consultadas</h3>
+    <div>
+      <div class="src"><span class="d">MAR 2024</span><span class="t"><strong>El Informador</strong> — “Marisa Lazo cocina expansión para el Bajío”. Sucursal 107, nueva planta Dolce Natura, León, Querétaro / SLP / Aguascalientes, crecimiento orgánico.<br><a href="https://www.informador.mx/economia/Empresas-Marisa-Lazo-cocina-expansion-para-el-Bajio-20240310-0095.html">informador.mx</a></span></div>
+      <div class="src"><span class="d">SEP 2025</span><span class="t"><strong>Periódico AM</strong> — “Pastelería Marisa suma 11 sucursales en León”. Dato de 113 expendios nacionales; declaraciones sobre calidad, delegación y cultura.<br><a href="https://www.am.com.mx/economia/2025/09/11/pasteleria-marisa-suma-11-sucursales-en-leon-mi-mision-es-inspirar-ser-referente-dice-fundadora-751767.html">am.com.mx</a></span></div>
+      <div class="src"><span class="d">ENE 2026</span><span class="t"><strong>El Español</strong> — Cobertura de la entrevista de Juan Lombana. Lean Sigma, estaciones, kitting, monitoreo casi en tiempo real, canal de expendios, cuatro marcas, +60,000 piezas semanales, ~1,300 colaboradores.<br><a href="https://www.elespanol.com/mujer/estilo-vida/20260130/marisa-lazo-duena-pasteleria-hacemos-pasteles-semana-sin-maquinaria-industrial/1003744099713_0.html">elespanol.com</a></span></div>
+      <div class="src"><span class="d">2023</span><span class="t"><strong>Expansión · 100 Mujeres</strong> — Declaración sobre institucionalización; Inés y María José Arregui Lazo dentro de la empresa preparando la transición.<br><a href="https://cdn-3.expansion.mx/infographic/2023/03/16-18/53/14-00000186-e605-dbf7-a5ae-f605a5a20002-default/perfiles/marisaLazo.html">expansion.mx</a></span></div>
+      <div class="src"><span class="d">MAY 2026</span><span class="t"><strong>Milenio</strong> — Declaración sobre el equipo enfocado en expansión y criterios de decisión más consistentes.<br><a href="https://www.milenio.com/negocios/liderazgo-maternidad-historia-marisa-lazo-pastelerias">milenio.com</a></span></div>
+      <div class="src"><span class="d">DIC 2024</span><span class="t"><strong>PLAYERS of Life Guadalajara</strong> — Paola Lazo dirige Fundación Marisa; aperturas de Oslo; Premio al Emprendimiento Jalisco 2024.<br><a href="https://playersoflife.com/guadalajara/fundacion-marisa-suma-a-paola-lazo-como-nueva-directora/">playersoflife.com</a></span></div>
+      <div class="src"><span class="d">OCT–NOV 2025</span><span class="t"><strong>GCMA · NielsenIQ · CANAINPA</strong> — Variación de insumos; gasto de hogares +8% con volumen −5%; costos de producción +12% a 25%.<br><a href="https://gcma.com.mx/mexico-business-news-aumento-precios-pan-redefine/">gcma.com.mx</a> · <a href="https://lasillarota.com/negocios/2025/10/13/precios-del-pan-de-dulce-suben-de-pesos-consumidores-reducen-consumo-473404.html">lasillarota.com</a></span></div>
+      <div class="src"><span class="d">MAR–MAY 2026</span><span class="t"><strong>DOF · STPS</strong> — Reforma constitucional el 3 de marzo de 2026; reforma a la LFT el 1 de mayo. Calendario 48/46/44/42/40 horas de 2026 a 2030, inicio efectivo el 1 de enero de 2027, sin reducción de sueldos.<br><a href="https://www.gob.mx/stps/documentos/reduccion-de-la-jornada-laboral-a-40-horas-preguntas-frecuentes">gob.mx/stps</a> · <a href="https://www.jornada.com.mx/noticia/2026/05/01/politica/publican-en-dof-reforma-para-jornada-laboral-de-40-horas">jornada.com.mx</a></span></div>
+      <div class="src"><span class="d">2024–2026</span><span class="t"><strong>Benchmark</strong> — El Globo: +170 tiendas en 24 ciudades, Grupo Bimbo desde 2005. La Esperanza: +100 sucursales, planta Blé en Tecámac desde 2012. Neufeld: 31 sucursales en 2021 y presencia densa en plataformas de reparto.<br><a href="https://www.ambito.com/mexico/economia/la-familia-que-abrio-una-pasteleria-cdmx-luego-se-vio-obligada-cerrarlo-y-hoy-dia-es-un-imperio-mas-1710-sucursales-24-ciudades-mexicanas-n6270016">ambito.com</a> · <a href="https://emprendedor.com/la-esperanza-de-panaderia-de-barrio-en-iztapalapa-a-una-cadena-con-mas-de-100-sucursales/">emprendedor.com</a></span></div>
+      <div class="src"><span class="d">SEP 2026</span><span class="t"><strong>Canales propios de Familia Marisa</strong> — pasteleriasmarisa.com.mx, tialola.com.mx, marisalazo.com, LinkedIn, Instagram y fichas de sucursales en Rappi México. Consultados en septiembre de 2026.</span></div>
+      <div class="src"><span class="d">SEP 2026</span><span class="t"><strong>London Consulting Group</strong> — Casos de éxito, cartas de recomendación y retornos documentados.<br><a href="https://londoncg.mx/growth-stories">londoncg.mx/growth-stories</a></span></div>
+    </div>
+
+    <p class="note" style="margin-top:24px"><strong>Limitaciones declaradas.</strong> No se identificó comunicación pública posterior a marzo de 2024 sobre la puesta en marcha de la planta de Dolce Natura. Los conteos de puntos de venta difieren entre fuentes. Los datos de Neufeld son parciales. No existe información pública sobre facturación, márgenes, merma, rotación ni inversión de ninguna de las empresas analizadas. Ninguna cifra de este documento fue estimada, inferida o completada por London.</p>
+
+    <div class="panel" style="margin-top:48px">
+      <div class="eyebrow">Sobre London Consulting Group</div>
+      <h3 style="font-size:clamp(22px,3vw,32px);margin-bottom:18px;max-width:22ch;letter-spacing:-.025em">La diferencia está en quién se queda a implementar</h3>
+      <p style="color:rgba(242,238,235,.84);font-size:16px;max-width:62ch">London no entrega un documento con recomendaciones. Nuestros consultores se integran a la operación, rediseñan los procesos en el lugar donde ocurren y se quedan hasta que el cambio funciona y el equipo del cliente lo sostiene sin nosotros.</p>
+      <div class="grid g4" style="margin-top:32px">
+        <div class="cred"><span class="n">1:1</span><span class="l">Retorno garantizado por contrato</span><span class="s">Compromiso mínimo sobre la inversión del cliente</span></div>
+        <div class="cred"><span class="n">5:1</span><span class="l">Retorno promedio histórico</span><span class="s">A lo largo del portafolio de proyectos</span></div>
+        <div class="cred"><span class="n">3.8:1</span><span class="l">Panovo · Grupo PROAN</span><span class="s">Alimentos — “Baking innovation into operational excellence”</span></div>
+        <div class="cred"><span class="n">13:1</span><span class="l">7-Eleven</span><span class="s">Retail multi-sucursal con producto perecedero</span></div>
+      </div>
+      <p style="color:rgba(242,238,235,.7);font-size:14px;margin-top:24px;margin-bottom:0">Experiencia adicional aplicable: Artelí (5.4:1) y Santandreu (11.4:1) en retail; Café El Marino (3.8:1) y Bepensa (3.9:1) en bienes de consumo; La Norteñita (2.7:1) y Agro Gonzámex (14.7:1) en empresas familiares en transición generacional. Casos y cartas en <a href="https://londoncg.mx/growth-stories" style="color:var(--lime)">londoncg.mx/growth-stories</a>.</p>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s13">Siguiente paso →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 13 ═══════════ -->
+<section class="view sec" id="s13">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>→</b>Siguiente paso</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s12"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" disabled><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="ctabox">
+      <div class="eyebrow">Siguiente paso</div>
+      <h2>Treinta minutos para saber si estas hipótesis se sostienen.</h2>
+      <p>No preparamos este documento para presentarle London. Lo preparamos porque las cuatro hipótesis nos parecen lo suficientemente concretas como para que valga la pena contrastarlas con quien conoce el negocio por dentro. Si tres de las cuatro están mal planteadas, eso también es información útil — para usted y para nosotros.</p>
+      <p style="font-size:15px;color:rgba(255,254,252,.78)">Conversación de intercambio, sin agenda comercial. Si de ahí surge interés, el prediagnóstico podría ubicarse en la planeación de 2027, que es cuando la aritmética de la jornada empieza a correr.</p>
+      <a class="btn" href="mailto:?subject=Familia%20Marisa%20%C3%97%20London%20%E2%80%94%20Validar%20hip%C3%B3tesis">Agendar los 30 minutos</a>
+      <a class="btn ghost" href="https://londoncg.mx/growth-stories">Ver casos documentados</a>
+      <div class="sign">
+        <strong>Leonardo Pimentel</strong>
+        Director de Operaciones · London Consulting Group México<br>
+        Análisis preparado para Marisa Lazo, fundadora y directora de Familia Marisa · Septiembre 2026
+      </div>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s01">Releer la tesis →</button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var views = Array.prototype.slice.call(document.querySelectorAll('.view'));
+  function paint(id){
+    views.forEach(function(v){ v.classList.toggle('on', v.id === id); });
+    window.scrollTo(0,0);
+  }
+  function go(id){
+    var target = document.getElementById(id) ? id : 'hub';
+    paint(target);
+    var want = target === 'hub' ? location.pathname + location.search : '#' + target;
+    if(location.hash.slice(1) !== target){ history.pushState(null, '', want); }
+    var h = document.querySelector('#' + target + ' h1, #' + target + ' h2');
+    if(h){ h.setAttribute('tabindex','-1'); try{ h.focus({preventScroll:true}); }catch(e){} }
+  }
+  document.addEventListener('click', function(e){
+    var el = e.target.closest ? e.target.closest('[data-go]') : null;
+    if(!el) return;
+    e.preventDefault();
+    go(el.getAttribute('data-go'));
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') go('hub');
+  });
+  window.addEventListener('popstate', function(){
+    paint(location.hash.slice(1) || 'hub');
+  });
+  var initial = location.hash.slice(1);
+  if(initial && document.getElementById(initial)) paint(initial);
+})();
+</script>
+
+</body>
+</html>
