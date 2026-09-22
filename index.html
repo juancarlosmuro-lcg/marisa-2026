@@ -67,8 +67,19 @@ svg{display:block;max-width:100%}
 .eyebrow::before{content:"";width:26px;height:2px;background:var(--lime);flex:none}
 .eyebrow.dk{color:var(--g600)}
 .eyebrow.dk::before{background:var(--g500)}
+.brandrow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:30px}
+.bl{background:var(--cream);border:1px solid rgba(242,238,235,.35);border-radius:var(--r-md);padding:15px 12px 14px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:9px}
+.bl img{height:36px;width:auto;max-width:100%;object-fit:contain;display:block}
+.bl b{font-size:11.5px;font-weight:800;color:var(--g800);letter-spacing:-.01em;line-height:1.2}
+.bl i{font-size:10px;font-style:normal;color:var(--n500);line-height:1.35}
+.bl.alt{background:var(--cream);border:1px dashed var(--g400)}
+@media (max-width:1040px){.brandrow{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.brandrow{grid-template-columns:repeat(2,1fr)}.bl i{display:none}}
 .hub-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.chip{font-size:12px;font-weight:700;padding:6px 15px;border-radius:var(--r-pill);border:1px solid rgba(242,238,235,.22);color:var(--g300)}
+.chip{font-size:12px;font-weight:500;padding:7px 15px;border-radius:var(--r-pill);border:1px solid rgba(242,238,235,.22);color:rgba(242,238,235,.62)}
+.chip b{color:var(--g300);font-weight:800;margin-right:7px}
+.chip.alt{border-style:dashed}
+.chip.alt b{color:var(--lime)}
 #hub h1{font-size:clamp(34px,6.6vw,74px);max-width:16ch;margin-bottom:26px;letter-spacing:-.035em}
 #hub h1 em{font-style:normal;background:linear-gradient(100deg,var(--lime),var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hub-lede{font-size:clamp(16px,2vw,20px);max-width:58ch;color:rgba(242,238,235,.82);line-height:1.6}
@@ -90,6 +101,11 @@ svg{display:block;max-width:100%}
 .tile .tt{font-size:16px;font-weight:700;color:var(--n0);line-height:1.28;letter-spacing:-.015em;display:block;margin-bottom:8px;position:relative;z-index:1}
 .tile .td{font-size:12.5px;color:rgba(242,238,235,.58);line-height:1.5;display:block;position:relative;z-index:1}
 .tile.wide{grid-column:span 2}
+.tile.hot{border-color:rgba(201,226,101,.4)}
+.tile.hot .tn{position:relative;padding-left:16px}
+.tile.hot .tn::before{content:"";position:absolute;left:0;top:3px;width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(201,226,101,.7);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(201,226,101,0)}100%{box-shadow:0 0 0 0 rgba(201,226,101,0)}}
+@media (prefers-reduced-motion:reduce){.tile.hot .tn::before{animation:none}}
 .tile.cta-tile{background:linear-gradient(135deg,var(--g600),var(--g500));border-color:transparent}
 .tile.cta-tile .tn{color:var(--g900)}
 .tile.cta-tile .td{color:rgba(7,62,56,.75)}
@@ -197,6 +213,54 @@ svg{display:block;max-width:100%}
 .quote .at{font-size:12px;color:var(--n400);line-height:1.5}
 .quote .at strong{color:var(--g700);display:block;font-size:14px;margin-bottom:3px}
 
+
+.casecard{background:var(--n0);border:1px solid var(--n200);border-radius:var(--r-lg);padding:24px;height:100%;display:flex;flex-direction:column}
+.casecard .ch{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid var(--n200)}
+.casecard .ch img{height:30px;width:auto;max-width:130px;object-fit:contain;display:block}
+.casecard .roi{font-family:var(--font-numeric);font-size:30px;font-weight:300;color:var(--g600);letter-spacing:-.03em;line-height:1;white-space:nowrap}
+.casecard .roi em{font-style:normal;font-size:.5em;font-weight:700;margin-left:2px}
+.casecard h4{font-size:16px;font-weight:800;letter-spacing:-.015em;margin-bottom:10px;line-height:1.3}
+.casecard p{font-size:14px;color:var(--n500);line-height:1.55;margin-bottom:16px}
+.cres{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:auto}
+.cres span{background:var(--g100);border-radius:var(--r-sm);padding:10px 9px;display:flex;flex-direction:column;gap:3px;font-size:10.5px;color:var(--g800);line-height:1.3}
+.cres b{font-family:var(--font-numeric);font-size:16px;font-weight:700;color:var(--g700);letter-spacing:-.02em}
+.cfoot{font-size:11px;color:var(--n400);margin-top:12px;display:block}
+@media (max-width:640px){.cres{grid-template-columns:repeat(2,1fr)}}
+
+/* ---- Bloque tecnológico de IA ---- */
+.tech{background:#06302C;border-radius:var(--r-xl);padding:clamp(26px,4vw,44px);position:relative;overflow:hidden;color:var(--cream)}
+.tech::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(3,181,133,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(3,181,133,.07) 1px,transparent 1px);background-size:34px 34px;pointer-events:none}
+.tech::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:var(--mesh);opacity:.22;filter:blur(50px);pointer-events:none}
+.tech>*{position:relative;z-index:1}
+.tech h3{color:var(--n0)}
+.agrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.agent{background:rgba(255,254,252,.055);border:1px solid rgba(201,226,101,.2);border-radius:var(--r-md);padding:18px;display:flex;flex-direction:column;transition:border-color .25s,background .25s,transform .25s}
+.agent:hover{border-color:rgba(201,226,101,.6);background:rgba(255,254,252,.1);transform:translateY(-3px)}
+.agent .ah{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.agent .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);flex:none;box-shadow:0 0 0 0 rgba(201,226,101,.65);animation:pulse 2.8s infinite}
+.agent .ac{font-family:var(--font-numeric);font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--lime)}
+.agent h4{font-size:15px;font-weight:700;color:var(--n0);line-height:1.3;letter-spacing:-.01em;margin-bottom:8px}
+.agent p{font-size:12.8px;color:rgba(242,238,235,.68);line-height:1.5;margin:0 0 12px}
+.agent .out{margin-top:auto;padding-top:11px;border-top:1px solid rgba(242,238,235,.13);font-size:11.5px;color:var(--g300);display:flex;gap:7px;align-items:flex-start}
+.agent .out b{color:var(--lime);font-weight:800;flex:none}
+.techfam{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.techfam span{font-size:11.5px;font-weight:700;padding:6px 14px;border-radius:var(--r-pill);border:1px solid rgba(242,238,235,.2);color:var(--g300)}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:22px 0 0}
+.chain b{font-family:var(--font-numeric);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:var(--r-pill);background:rgba(201,226,101,.14);color:var(--lime)}
+.chain i{color:rgba(242,238,235,.4);font-style:normal}
+.stackbox{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+@media (max-width:1040px){.agrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.agrid,.stackbox{grid-template-columns:1fr}}
+
+.fork{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+.fk{background:rgba(255,254,252,.06);border:1px solid rgba(242,238,235,.16);border-left:3px solid var(--g500);border-radius:var(--r-md);padding:20px}
+.fk.b{border-left-color:var(--lime)}
+.fkt{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--g300);display:block;margin-bottom:12px}
+.fk.b .fkt{color:var(--lime)}
+.fk p{font-size:14px;color:rgba(242,238,235,.78);line-height:1.55;margin-bottom:10px}
+.fk p.fkw{margin-bottom:0;color:rgba(242,238,235,.92)}
+@media (max-width:720px){.fork{grid-template-columns:1fr}}
+
 /* ---- Mapa interactivo ---- */
 .vizhead{display:flex;justify-content:space-between;align-items:flex-start;gap:28px;margin-bottom:20px}
 .vizhead .sub{margin-bottom:0}
@@ -212,12 +276,15 @@ svg{display:block;max-width:100%}
 .fchip i{width:9px;height:9px;border-radius:50%;display:block}
 .fchip:hover{border-color:var(--g300)}
 .fchip.on{background:var(--g800);border-color:var(--g800);color:var(--cream)}
-.mapbox{background:var(--n50);border-radius:var(--r-md);padding:10px;overflow:hidden}
+.mapgrid2{display:grid;grid-template-columns:1.65fr 1fr;gap:14px;align-items:start}
+.mapbox{background:var(--n50);border-radius:var(--r-md);padding:12px;overflow:hidden}
+.mapbox .maplab{margin-bottom:4px}
 .mapbox svg{width:100%;height:auto;display:block}
 .maplegend{display:flex;flex-wrap:wrap;gap:20px;margin-top:14px;font-size:12px;color:var(--n500)}
 .maplegend span{display:flex;align-items:center;gap:8px}
 .maplegend i{width:14px;height:14px;border-radius:4px;display:block;flex:none}
 .maplegend i.dash{border:1.5px dashed var(--n300);border-radius:50%;background:transparent}
+.maplegend i.fnd{background:#FFFEFC;border:2px solid #C9E265;border-radius:50%}
 .cityinfo{margin-top:18px;background:var(--g100);border:1px solid var(--g300);border-radius:var(--r-md);padding:20px;min-height:104px}
 .cityinfo .cn{font-size:17px;font-weight:800;color:var(--g800);letter-spacing:-.015em;display:block;margin-bottom:8px}
 .cityinfo .cb{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
@@ -274,7 +341,10 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
 .ctabox{background:var(--mesh-soft);border-radius:var(--r-xl);padding:clamp(32px,5vw,64px);color:var(--n0)}
 .ctabox h2{font-size:clamp(26px,4.2vw,44px);margin-bottom:22px;max-width:18ch;color:var(--n0)}
 .ctabox p{font-size:17px;color:rgba(255,254,252,.92);max-width:62ch}
-.btn{display:inline-block;background:var(--g900);color:var(--mint);font-weight:800;font-size:15px;padding:16px 34px;border-radius:var(--r-pill);margin-top:16px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--g900);color:var(--mint);font-weight:800;font-size:15px;padding:16px 30px;border-radius:var(--r-pill);margin-top:16px}
+.btn svg{width:19px;height:19px;flex:none}
+.sign a.sl{color:var(--mint);font-weight:700}
+.sign a.sl:hover{color:var(--n0)}
 .btn:hover{background:#052E29;color:var(--mint)}
 .btn.ghost{background:rgba(255,254,252,.15);color:var(--n0);margin-left:10px}
 .btn.ghost:hover{background:rgba(255,254,252,.26);color:var(--n0)}
@@ -286,7 +356,7 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
 .tg-h{background:var(--warn-bg);color:var(--warn)}
 .tg-i{background:var(--n100);color:var(--n600)}
 
-@media (max-width:1040px){.idx{grid-template-columns:repeat(2,1fr)}.kpis{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(2,1fr)}.vizhead{flex-direction:column;gap:14px}.locator{text-align:left;width:140px}.locator svg{width:140px}}
+@media (max-width:1040px){.idx{grid-template-columns:repeat(2,1fr)}.kpis{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(2,1fr)}.mapgrid2{grid-template-columns:1fr}.vizhead{flex-direction:column;gap:14px}.locator{text-align:left;width:140px}.locator svg{width:140px}}
 @media (max-width:720px){
   :root{--pad:20px}
   .idx{grid-template-columns:1fr}.tile.wide{grid-column:span 1}
@@ -315,18 +385,21 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
     </div>
 
     <div class="eyebrow">Análisis de ejecución 2023 – 2029</div>
-    <div class="hub-chips">
-      <span class="chip">Pastelerías Marisa</span><span class="chip">Tía Lola</span>
-      <span class="chip">Dolce Natura</span><span class="chip">Oslo</span>
+    <div class="brandrow">
+      <span class="bl"><img src="data:image/png;base64,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" alt="Pastelerías Marisa"><b>Pastelerías Marisa</b><i>Pastelería artesanal · segmento medio–alto</i></span>
+      <span class="bl"><img src="data:image/png;base64,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" alt="Tía Lola"><b>Tía Lola</b><i>Pastelería a precio accesible</i></span>
+      <span class="bl"><img src="data:image/png;base64,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" alt="Dolce Natura"><b>Dolce Natura</b><i>Helado y paleta artesanal premium</i></span>
+      <span class="bl"><img src="data:image/png;base64,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" alt="Oslo Helados"><b>Oslo</b><i>Helado, paleta y pastel helado · precio de entrada</i></span>
+      <span class="bl alt"><img src="data:image/png;base64,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" alt="Fundación Marisa"><b>Fundación Marisa</b><i>Brazo social · equidad de género</i></span>
     </div>
     <h1>Resolvieron cómo producir a escala sin industrializar. <em>2027 pondrá a prueba otra cosa.</em></h1>
-    <p class="hub-lede">Doce secciones, cada una de dos minutos de lectura. Empiece por donde quiera: la tesis, el benchmark o las hipótesis que proponemos validar.</p>
+    <p class="hub-lede">Trece secciones, cada una de dos minutos de lectura. Entra por donde quieras: la tesis, el benchmark, los agentes de IA o las hipótesis que proponemos validar.</p>
 
     <div class="kpis">
       <div class="kpi"><span class="n">113</span><span class="l">Puntos de venta nacionales</span><span class="s">Periódico AM · sep 2025</span></div>
       <div class="kpi"><span class="n">1,300</span><span class="l">Colaboradores</span><span class="s">El Español · ene 2026</span></div>
       <div class="kpi"><span class="n">60<sup>mil</sup></span><span class="l">Piezas producidas por semana</span><span class="s">El Español · ene 2026</span></div>
-      <div class="kpi"><span class="n">4</span><span class="l">Marcas con posicionamiento propio</span><span class="s">El Informador · mar 2024</span></div>
+      <div class="kpi"><span class="n">4</span><span class="l">Marcas comerciales con nicho propio</span><span class="s">El Informador · mar 2024</span></div>
     </div>
 
     <div class="idx-head">
@@ -339,15 +412,16 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
       <button class="tile" data-go="s02"><span class="tn">02</span><span class="tt">Cinco hallazgos</span><span class="td">Lo que los últimos 36 meses dejaron sobre la mesa</span></button>
       <button class="tile" data-go="s03"><span class="tn">03</span><span class="tt">El mercado cambió</span><span class="td">Insumos, consumidor y jornada laboral · 2023–2026</span></button>
       <button class="tile" data-go="s04"><span class="tn">04</span><span class="tt">La compañía cambió</span><span class="td">Línea de tiempo y cobertura reportada</span></button>
-      <button class="tile" data-go="s05"><span class="tn">05</span><span class="tt">Marcas y geografía</span><span class="td">Cuatro carriles, una capacidad instalada</span></button>
+      <button class="tile" data-go="s05"><span class="tn">05</span><span class="tt">Marcas y geografía</span><span class="td">Cuatro nichos, una capacidad instalada · mapa filtrable</span></button>
       <button class="tile" data-go="s06"><span class="tn">06</span><span class="tt">Benchmark</span><span class="td">Contra quién y en qué variables</span></button>
       <button class="tile" data-go="s07"><span class="tn">07</span><span class="tt">Señales de liderazgo</span><span class="td">Lo que la dirección ya dijo en público</span></button>
       <button class="tile" data-go="s08"><span class="tn">08</span><span class="tt">Implicaciones</span><span class="td">Cuatro capacidades que se vuelven críticas</span></button>
-      <button class="tile" data-go="s09"><span class="tn">09</span><span class="tt">IA y agentes</span><span class="td">Cuatro aplicaciones con un problema real detrás</span></button>
-      <button class="tile" data-go="s10"><span class="tn">10</span><span class="tt">Outlook 2026–2029</span><span class="td">Base, aceleración y presión</span></button>
-      <button class="tile" data-go="s11"><span class="tn">11</span><span class="tt">Hipótesis y prediagnóstico</span><span class="td">Qué proponemos validar y cómo</span></button>
-      <button class="tile" data-go="s12"><span class="tn">12</span><span class="tt">Metodología y fuentes</span><span class="td">Todo lo afirmado es rastreable · Credenciales LCG</span></button>
-      <button class="tile cta-tile wide" data-go="s13"><span class="tn">→</span><span class="tt">Validar la hipótesis en 30 minutos</span><span class="td">Conversación de intercambio, sin agenda comercial</span></button>
+      <button class="tile hot" data-go="s09"><span class="tn">09</span><span class="tt">Agentes de IA</span><span class="td">Doce aplicaciones agénticas para la operación diaria</span></button>
+      <button class="tile hot" data-go="s10"><span class="tn">10</span><span class="tt">Datos, ERP y ecosistema digital</span><span class="td">Gobernanza de datos y la integración punta a punta</span></button>
+      <button class="tile" data-go="s11"><span class="tn">11</span><span class="tt">Outlook 2026–2029</span><span class="td">Base, aceleración y presión</span></button>
+      <button class="tile" data-go="s12"><span class="tn">12</span><span class="tt">Hipótesis y prediagnóstico</span><span class="td">Ocho hipótesis y cómo las validamos en tus tiendas</span></button>
+      <button class="tile" data-go="s13"><span class="tn">13</span><span class="tt">Metodología y fuentes</span><span class="td">Todo lo afirmado es rastreable · Credenciales LCG</span></button>
+      <button class="tile cta-tile wide" data-go="s14"><span class="tn">→</span><span class="tt">Agendemos 30 minutos</span><span class="td">WhatsApp o correo directo con Leonardo Pimentel, Director de Operaciones</span></button>
     </div>
   </div>
 </section>
@@ -369,7 +443,7 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
     <div class="grid g3">
       <div class="tabcard tc-mint"><span class="tab">Lo resuelto</span><div class="body">
         <h3>La eficiencia dentro de la planta</h3>
-        <p>Estaciones especializadas, <em>kitting</em>, estandarización de movimientos con lógica Lean Sigma tomada de la industria automotriz. Este documento no propone nada sobre ese frente: ya funciona.</p>
+        <p>Estaciones especializadas, <em>kitting</em>, estandarización de movimientos con lógica Lean Six Sigma tomada de la industria automotriz. Este documento no propone nada sobre ese frente: ya funciona.</p>
       </div></div>
       <div class="tabcard tc-dark"><span class="tab">Lo que cambió</span><div class="body">
         <h3>La operación se volvió una red</h3>
@@ -387,7 +461,7 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
           <div class="eyebrow">Core business hypothesis</div>
           <h3 style="font-size:clamp(22px,3vw,32px);line-height:1.25;margin-bottom:20px;letter-spacing:-.025em">El cuello de botella migró de la producción a la coordinación de la red.</h3>
           <p style="color:rgba(242,238,235,.84);font-size:16px;margin-bottom:14px">La empresa domina la eficiencia dentro de la planta. Lo que 2027 pondrá a prueba es la eficiencia <em>entre</em> la planta y 113 puntos de cuatro marcas — la decisión diaria de qué producir, para dónde, cuánto y a qué precio — justo cuando la reforma laboral empiece a restar horas disponibles al recurso más escaso.</p>
-          <p style="color:var(--lime);font-size:16px;font-weight:700;margin-bottom:0">2026 es el único año del calendario sin reducción obligatoria.</p>
+          <p style="color:var(--lime);font-size:16px;font-weight:700;margin-bottom:0">2026 es el último año con jornada de 48 horas. El primer recorte obligatorio entra el 1 de enero de 2027 y la escala sigue bajando cada enero hasta 2030.</p>
         </div>
         <div>
           <svg viewBox="0 0 400 300" aria-label="El cuello de botella se desplaza de la planta hacia la red">
@@ -438,7 +512,7 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
       </div></div>
       <div class="tabcard tc-cream"><span class="tab">02 · HECHO</span><div class="body">
         <h3>La mejora continua ya está instalada — en la planta</h3>
-        <p>Lean Sigma, trabajo por estaciones y <em>kitting</em> están descritos públicamente como el método que sostiene más de 60,000 piezas semanales sin premezclas ni saborizantes artificiales. El sistema existe. La pregunta es hasta dónde llega aguas abajo.</p>
+        <p>Lean Six Sigma, trabajo por estaciones y <em>kitting</em> están descritos públicamente como el método que sostiene más de 60,000 piezas semanales sin premezclas ni saborizantes artificiales. El sistema existe. La pregunta es hasta dónde llega aguas abajo.</p>
       </div></div>
       <div class="tabcard tc-mint"><span class="tab">03 · SEÑAL</span><div class="body">
         <h3>La merma ya tiene canal, pero no necesariamente sistema</h3>
@@ -479,7 +553,7 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
       <div class="stat mint"><span class="n">8<sup>%</sup></span><span class="l">Más gasto de los hogares en pan</span><span class="s">Variación anual · NielsenIQ, oct 2025</span></div>
       <div class="stat cream"><span class="n">−5<sup>%</sup></span><span class="l">Volumen de compra</span><span class="s">Menos visitas, piezas más chicas · NielsenIQ</span></div>
       <div class="stat lime"><span class="n">25<sup>%</sup></span><span class="l">Alza máxima en costos de producción</span><span class="s">Rango 12–25% según región · CANAINPA</span></div>
-      <div class="stat deep"><span class="n">13<sup>%</sup></span><span class="l">Alza del salario mínimo 2026</span><span class="s">$278.80 → $315.04 diarios · STPS</span></div>
+      <div class="stat deep"><span class="n">13<sup>%</sup></span><span class="l">Alza del salario mínimo que aplica en Jalisco</span><span class="s">Zona general: $278.80 → $315.04 diarios · CONASAMI, DOF 9 dic 2025</span></div>
     </div>
 
     <div class="grid g2" style="margin-top:14px">
@@ -547,6 +621,15 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
       </div>
     </div>
 
+    <p class="note" style="margin-top:14px">
+      <strong>Precisión sobre el salario mínimo.</strong> México tiene dos zonas salariales, no tres:
+      la Zona Libre de la Frontera Norte ($440.87 diarios en 2026, +5%) y el resto del país
+      ($315.04, +13%). Jalisco —incluidos Guadalajara, Zapopan y Tlaquepaque— aplica la zona general,
+      así que el incremento relevante para Familia Marisa es el de 13%. Además existe un tabulador
+      de 61 salarios mínimos profesionales por oficio, superiores al general, en el que caen varios
+      puestos de un negocio de alimentos con venta al público.
+    </p>
+
     <div class="callout warn">
       <h3>Por qué esto pesa más en un modelo artesanal que en uno industrial</h3>
       <p>Una planta automatizada absorbe una reducción de jornada con turnos y capacidad instalada. Un modelo que rompe huevos uno a uno, ralla zanahoria y pica fruta la absorbe con <strong>horas-persona</strong>. Entre 2027 y 2030 se retiran ocho horas semanales por colaborador sin poder ajustar salario. Sobre una plantilla del orden de 1,300 personas, esa es la variable de costo estructural más grande del periodo — y la única cuyo calendario ya está publicado.</p>
@@ -581,7 +664,7 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
         <div class="tli"><span class="tld">2024</span><h4>Oslo se consolida como cuarta marca</h4><p>Llega a tres tiendas en la zona metropolitana. El portafolio queda en cuatro posicionamientos separados por precio y categoría.</p></div>
         <div class="tli"><span class="tld">Diciembre 2024</span><h4>Paola Lazo dirige Fundación Marisa</h4><p>Separación de responsabilidades entre el brazo social y la operación, consistente con un proceso de ordenamiento institucional.</p></div>
         <div class="tli key"><span class="tld">Septiembre 2025</span><h4>113 puntos de venta a nivel nacional</h4><p>Dato publicado con motivo del Foro de Proveeduría Automotriz en León, donde anuncia el paso de nueve a once sucursales en esa ciudad.</p></div>
-        <div class="tli"><span class="tld">Enero 2026</span><h4>Se hace público el método operativo</h4><p>Lean Sigma, estaciones, kitting, monitoreo de venta casi en tiempo real, canal de expendios y lógica de cuatro marcas como carriles separados.</p></div>
+        <div class="tli"><span class="tld">Enero 2026</span><h4>Se hace público el método operativo</h4><p>Lean Six Sigma, estaciones, kitting, monitoreo de venta casi en tiempo real, canal de expendios y lógica de cuatro marcas como carriles separados.</p></div>
         <div class="tli key"><span class="tld">Mar – May 2026</span><h4>Se publica la reforma de jornada</h4><p>Reforma constitucional el 3 de marzo, reforma a la LFT el 1 de mayo. 2026 queda como año de transición.</p></div>
       </div>
 
@@ -710,7 +793,9 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
         <button class="fchip" data-brand="oslo"><i style="background:#2FCB9E"></i>Oslo</button>
       </div>
 
+      <div class="mapgrid2">
       <div class="mapbox">
+        <span class="maplab">Corredor Occidente – Bajío</span>
         <svg id="mxZoom" viewBox="0 0 784 465" aria-label="Mapa del corredor Occidente-Bajío con límites estatales y las ciudades de presencia documentada">
           <g id="mxStates">
         <path d="M378 128 387 123 406 125 423 135 442 130 456 113 475 104 467 94 467 85 482 89 514 109 508 115 512 119 506 125 500 152 503 153 501 162 504 164 501 170 493 172 486 191 475 199 469 213 449 236 452 241 459 243 466 256 458 271 456 284 444 284 435 288 409 290 400 298 395 297 387 304 386 309 372 313 371 317 365 311 354 309 353 314 347 315 347 325 343 332 345 336 349 333 359 335 376 342 379 352 374 358 382 377 379 389 394 388 397 392 397 399 387 410 383 420 373 417 367 421 332 450 323 442 313 450 299 450 299 441 295 434 298 429 299 407 295 404 290 397 288 380 285 379 274 390 260 397 240 397 226 407 215 407 199 411 196 409 190 415 183 414 178 421 172 422 163 420 162 417 153 418 155 410 151 409 146 412 129 399 130 396 125 391 123 379 103 365 77 326 72 316 71 300 60 289 56 279 64 271 97 266 104 261 107 254 100 245 117 222 125 218 135 220 149 210 154 209 166 218 180 222 210 250 212 257 215 257 205 234 211 230 218 193 235 192 244 186 259 181 263 175 264 150 258 144 250 125 230 123 226 111 226 104 213 96 206 98 205 94 204 85 209 62 214 56 219 58 221 44 235 39 237 41 232 55 234 57 246 47 238 20 248 14 255 12 268 17 267 21 255 32 248 51 248 65 256 75 258 74 260 69 260 38 278 33 290 41 293 54 276 81 278 86 287 86 290 83 299 86 303 84 307 76 317 68 312 61 313 55 321 52 331 53 333 57 329 63 343 67 335 96 312 107 291 124 290 142 283 151 275 153 279 164 283 166 291 165 292 172 287 177 270 183 269 187 281 190 287 201 291 203 301 202 314 209 329 204 337 206 344 202 345 193 348 190 354 188 361 190 387 171 391 165 393 154 381 146 378 138 378 128Z" fill="#DFF9F0" stroke="#03B585" stroke-width="1.4" stroke-linejoin="round"/>
@@ -742,11 +827,17 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
           <g id="mxCities"></g>
         </svg>
       </div>
+      <div class="mapbox">
+        <span class="maplab">Zona Metropolitana de Guadalajara · detalle por municipio</span>
+        <svg id="zmgZoom" viewBox="0 0 420 420" aria-label="Detalle de la zona metropolitana de Guadalajara por municipio"></svg>
+      </div>
+      </div>
 
       <div class="maplegend">
         <span><i style="background:#DFF9F0;border:1.4px solid #03B585"></i>Estados con operación documentada</span>
         <span><i style="background:#E9E3DC;border:1px solid #D2C9BD"></i>Estados vecinos, contexto</span>
         <span><i class="dash"></i>Plaza anunciada, sin apertura documentada</span>
+        <span><i class="fnd"></i>Fundación Marisa · brazo social, fuera del alcance</span>
       </div>
 
       <div class="cityinfo" id="cityInfo"></div>
@@ -913,7 +1004,7 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
       <div class="tabcard tc-cream"><span class="tab">02</span><div class="body">
         <h3>Convertir horas en producto con menos horas disponibles</h3>
         <p>De 2027 a 2030 la jornada baja ocho horas semanales sin ajuste salarial. En un modelo artesanal eso equivale a un incremento estructural de costo de mano de obra por pieza, salvo que el trabajo se reorganice.</p>
-        <p>La lógica Lean Sigma ya instalada en planta es el punto de partida correcto. La pregunta es si está aplicada también en tienda, en reparto y en soporte.</p>
+        <p>La lógica Lean Six Sigma ya instalada en planta es el punto de partida correcto. La pregunta es si está aplicada también en tienda, en reparto y en soporte.</p>
       </div></div>
       <div class="tabcard tc-cream"><span class="tab">03</span><div class="body">
         <h3>Estandarizar la tienda a través de formatos distintos</h3>
@@ -934,92 +1025,219 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
   </div>
 </section>
 
-<!-- ═══════════ 09 ═══════════ -->
+<!-- ═══════════ 09 · IA ═══════════ -->
 <section class="view sec" id="s09">
   <div class="bar"><div class="bar-in">
     <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
-    <span class="bar-title"><b>09</b>IA y agentes</span>
+    <span class="bar-title"><b>09</b>Agentes de IA</span>
     <span class="bar-nav"><button class="nbtn" data-go="s08"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s10"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
   </div></div>
   <div class="wrap sec-body">
-    <div class="eyebrow dk">09 · Oportunidades de IA y agentes</div>
+    <div class="eyebrow dk">09 · Agentes de inteligencia artificial</div>
     <div class="sec-head">
-      <h2>Cuatro aplicaciones con un problema concreto detrás</h2>
-      <p class="lede">No incluimos IA por ser tendencia. La incluimos donde hay una decisión repetitiva, con información dispersa, que hoy se toma con criterio humano bajo presión de tiempo. Ninguna toca la receta ni sustituye el trabajo artesanal.</p>
+      <h2>Doce decisiones que hoy se toman a pulso y pueden tomarse con datos</h2>
+      <p class="lede">
+        La receta no se toca. El trabajo artesanal tampoco: es exactamente lo que hace valiosa a la marca
+        y ninguna de estas aplicaciones lo sustituye. Lo que sí se puede automatizar es todo lo que ocurre
+        <em>alrededor</em> del producto — cuánto producir, para dónde, a qué costo y qué pasó con lo que sobró.
+        Ahí es donde hoy se pierde margen sin que aparezca en ningún reporte.
+      </p>
     </div>
+
+    <div class="tech">
+      <div class="eyebrow">Portafolio agéntico propuesto</div>
+      <h3 style="font-size:clamp(20px,2.8vw,28px);max-width:26ch;letter-spacing:-.025em">Cada agente resuelve una decisión concreta, repetitiva y con información dispersa</h3>
+      <div class="chain">
+        <b>Proceso</b><i>→</i><b>Fricción</b><i>→</i><b>Agente</b><i>→</i><b>Acción</b><i>→</i><b>Resultado</b>
+      </div>
+      <div class="agrid">
+        <div class="agent"><div class="ah"><span class="dot"></span><span class="ac">01 · Operación diaria</span></div><h4>Pedido sugerido por tienda</h4><p>Calcula la corrida y el pedido de cada punto contra el patrón real de venta por SKU, día, temporada y clima, en lugar de repetir el histórico del mes pasado.</p><div class="out"><b>→</b><span>Menos faltante y menos sobrante sin tocar la receta</span></div></div>
+        <div class="agent"><div class="ah"><span class="dot"></span><span class="ac">02 · Operación diaria</span></div><h4>Trazabilidad de merma por tienda</h4><p>Registra dónde se genera la merma —planta, tránsito, exhibición o devolución— y la devuelve al pedido del día siguiente como aprendizaje, no como reporte.</p><div class="out"><b>→</b><span>La merma deja de ser una cifra al cierre y pasa a ser una decisión</span></div></div>
+        <div class="agent"><div class="ah"><span class="dot"></span><span class="ac">03 · Operación diaria</span></div><h4>Inventario en tiempo real</h4><p>Vigila existencias por punto y marca y propone transferencias entre tiendas cercanas antes de mandar un viaje nuevo desde planta.</p><div class="out"><b>→</b><span>Misma disponibilidad con menos kilómetros</span></div></div>
+        <div class="agent"><div class="ah"><span class="dot"></span><span class="ac">04 · Comercial</span></div><h4>Venta perdida</h4><p>Detecta las horas en que el SKU de mayor rotación estuvo agotado y estima lo que no se vendió: hoy esa cifra no existe en ningún reporte.</p><div class="out"><b>→</b><span>Vuelve visible la pérdida más cara y menos medida</span></div></div>
+        <div class="agent"><div class="ah"><span class="dot"></span><span class="ac">05 · Comercial</span></div><h4>Track de venta en tiempo real</h4><p>Complementa el monitoreo actual con alertas de desviación por tienda, franja y marca, en el momento en que ocurren.</p><div class="out"><b>→</b><span>De reaccionar en el día a reaccionar en la hora</span></div></div>
+        <div class="agent"><div class="ah"><span class="dot"></span><span class="ac">06 · Comercial</span></div><h4>Inteligencia comercial de tiendas</h4><p>Agrupa puntos por comportamiento real —no por ubicación— y detecta qué mueve la venta en cada grupo.</p><div class="out"><b>→</b><span>Decisiones de surtido por tipo de tienda, no por promedio</span></div></div>
+        <div class="agent"><div class="ah"><span class="dot"></span><span class="ac">07 · Comercial</span></div><h4>Voz del cliente y NPS</h4><p>Consolida reseñas, encuestas y comentarios de plataformas de reparto y los convierte en causa raíz por sucursal.</p><div class="out"><b>→</b><span>El cliente deja de opinar en el vacío</span></div></div>
+        <div class="agent"><div class="ah"><span class="dot"></span><span class="ac">08 · Benchmark</span></div><h4>Contribución por tienda y por zona</h4><p>Cruza la contribución de cada punto con su costo de servir y con la presencia de competidores en la misma plaza.</p><div class="out"><b>→</b><span>Criterio objetivo para abrir, cerrar o reconvertir</span></div></div>
+        <div class="agent"><div class="ah"><span class="dot"></span><span class="ac">09 · Logística</span></div><h4>Costo de servir por punto</h4><p>Integra ruta, frecuencia, volumen entregado y devolución para calcular cuánto cuesta realmente atender cada tienda.</p><div class="out"><b>→</b><span>El costo por pieza entregada deja de ser un promedio</span></div></div>
+        <div class="agent"><div class="ah"><span class="dot"></span><span class="ac">10 · Logística</span></div><h4>Flota, combustible y mantenimiento</h4><p>Si la flota es propia: rendimiento por unidad, conducta de manejo, mantenimiento preventivo y consumo. Si es tercerizada: cumplimiento y tarifa del proveedor.</p><div class="out"><b>→</b><span>La respuesta cambia el alcance por completo</span></div></div>
+        <div class="agent"><div class="ah"><span class="dot"></span><span class="ac">11 · Activos</span></div><h4>Energía y refrigeración</h4><p>Consumo por sucursal, desviaciones de temperatura en cámaras y vitrinas, y mantenimiento preventivo del equipo de frío.</p><div class="out"><b>→</b><span>En helado y perecedero, el frío es costo y es calidad</span></div></div>
+        <div class="agent"><div class="ah"><span class="dot"></span><span class="ac">12 · Servicio interno</span></div><h4>Nivel de servicio a sucursal</h4><p>Mide qué tan bien atiende la planta a su cliente interno: completitud, puntualidad y calidad de cada entrega a tienda.</p><div class="out"><b>→</b><span>La tienda deja de absorber los errores de aguas arriba</span></div></div>
+      </div>
+      <div class="techfam">
+        <span>Agentes conversacionales sobre datos propios</span>
+        <span>Aplicaciones móviles para piso de tienda</span>
+        <span>Modelos de pronóstico por SKU y punto</span>
+        <span>Alertas por excepción, no reportes</span>
+      </div>
+    </div>
+
+    <div class="eyebrow dk" style="margin-top:44px">Casos documentados de London</div>
+    <h3 style="font-size:clamp(20px,2.8vw,28px);max-width:30ch;margin-bottom:22px;letter-spacing:-.025em">Dos proyectos donde la tecnología no fue el proyecto, sino la palanca</h3>
 
     <div class="grid g2">
-      <div class="card">
-        <h3>Pronóstico de demanda por punto, marca y SKU</h3>
-        <p>La decisión diaria de cuánto hornear de cada producto para cada punto, con curvas que difieren por formato, día, temporada y clima.</p>
-        <div class="flow">
-          <div class="fs"><span class="k">Proceso</span><span class="t">Programación diaria de producción</span></div>
-          <div class="fs"><span class="k">Fricción</span><span class="t">Se corrige al detectar la venta, no antes de hornear</span></div>
-          <div class="fs"><span class="k">Agente</span><span class="t">Modelo que aprende el patrón por punto y SKU</span></div>
-          <div class="fs"><span class="k">Acción</span><span class="t">Propone corrida y alerta riesgo de faltante o sobrante</span></div>
-          <div class="fs out"><span class="k">Resultado</span><span class="t">Menos merma y menos faltante sin cambiar el producto</span></div>
+      <div class="casecard">
+        <div class="ch"><img src="data:image/png;base64,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" alt="KRAM"><span class="roi">7.1<em>:1</em></span></div>
+        <h4>KRAM · Confitería y dulcería de importación</h4>
+        <p>Ciclo comercial, compras e importaciones, almacén y logística, y tecnología: conexión directa
+        al ERP, integración de Business Intelligence sin comprar módulos adicionales, agentes de IA,
+        aplicaciones móviles propias y consolidación de un <em>data lake</em>.</p>
+        <div class="cres">
+          <span><b>+70%</b>Ventas globales</span>
+          <span><b>+9.1pp</b>Margen neto</span>
+          <span><b>−56%</b>Costo logístico de entrega</span>
+          <span><b>+44pp</b>Mercancía con vida de anaquel óptima</span>
+          <span><b>+14.7pp</b>Fill rate</span>
+          <span><b>+46pp</b>Madurez organizacional</span>
         </div>
+        <span class="cfoot">Dos proyectos realizados · Andrés Sevilla, Director General</span>
       </div>
-      <div class="card">
-        <h3>Agente de reposición y balanceo entre puntos</h3>
-        <p>Cuando una sucursal se queda sin un sabor, la respuesta declarada es no esperar al siguiente reparto. Eso resuelve el servicio pero genera movimientos no planeados.</p>
-        <div class="flow">
-          <div class="fs"><span class="k">Proceso</span><span class="t">Reposición intradía desde planta a red</span></div>
-          <div class="fs"><span class="k">Fricción</span><span class="t">Cada urgencia se resuelve como evento aislado</span></div>
-          <div class="fs"><span class="k">Agente</span><span class="t">Supervisor que ve inventario de toda la red</span></div>
-          <div class="fs"><span class="k">Acción</span><span class="t">Propone transferencia entre puntos cercanos antes de un viaje nuevo</span></div>
-          <div class="fs out"><span class="k">Resultado</span><span class="t">Misma disponibilidad con menos kilómetros y menos horas</span></div>
+
+      <div class="casecard">
+        <div class="ch"><img src="data:image/png;base64,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" alt="Café El Marino"><span class="roi">3.8<em>:1</em></span></div>
+        <h4>Café El Marino · Bienes de consumo con red de distribución</h4>
+        <p>Estructura organizacional y gobierno, área comercial, cadena de abastecimiento y logística,
+        y cultura organizacional. El objetivo declarado fue pasar de empresa tradicional a empresa
+        <em>data-driven</em>, con sistemas más intuitivos para el usuario interno.</p>
+        <div class="cres">
+          <span><b>+63%</b>Nivel de madurez organizacional</span>
+          <span><b>−10%</b>Gastos de reparto</span>
+          <span><b>−12%</b>Gastos de operación</span>
+          <span><b>+8%</b>Utilidad de operación</span>
+          <span><b>+12%</b>Ventas totales</span>
+          <span><b>+97%</b>Fill rate a autoservicio y clubes</span>
         </div>
-      </div>
-      <div class="card">
-        <h3>Destino inteligente del producto en riesgo</h3>
-        <p>El canal de expendios ya existe. Lo sistematizable es la decisión de qué mandar ahí, cuándo, a qué punto y con qué descuento — para recuperar margen y no solo volumen.</p>
-        <div class="flow">
-          <div class="fs"><span class="k">Proceso</span><span class="t">Clasificación de producto imperfecto o próximo a fecha</span></div>
-          <div class="fs"><span class="k">Fricción</span><span class="t">Decisión manual, tardía y desigual entre turnos</span></div>
-          <div class="fs"><span class="k">Agente</span><span class="t">Motor de recuperación de margen</span></div>
-          <div class="fs"><span class="k">Acción</span><span class="t">Asigna destino, cantidad y precio según demanda del expendio</span></div>
-          <div class="fs out"><span class="k">Resultado</span><span class="t">Recuperación consistente, no dependiente del criterio individual</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Programación de turnos bajo jornada decreciente</h3>
-        <p>Entre 2027 y 2030 hay que cubrir los mismos horarios de servicio con menos horas por persona. Cuadrar mallas a mano, para planta y cien puntos, es un problema combinatorio.</p>
-        <div class="flow">
-          <div class="fs"><span class="k">Proceso</span><span class="t">Programación de turnos en planta y tienda</span></div>
-          <div class="fs"><span class="k">Fricción</span><span class="t">Reducción anual de horas sin ajuste de salario</span></div>
-          <div class="fs"><span class="k">Agente</span><span class="t">Optimizador de cobertura contra demanda por franja</span></div>
-          <div class="fs"><span class="k">Acción</span><span class="t">Propone mallas que protegen las horas pico de venta</span></div>
-          <div class="fs out"><span class="k">Resultado</span><span class="t">Absorber la reducción sin contratar en proporción ni perder venta</span></div>
-        </div>
+        <span class="cfoot">Juan Carlos Lizárraga Mercado, CEO</span>
       </div>
     </div>
 
-    <div class="callout mesh">
-      <h3>Una condición previa, y es la parte difícil</h3>
-      <p>Ninguna de estas cuatro aplicaciones funciona sin datos limpios y consistentes de venta, producción, merma e inventario por punto y por marca. La empresa ya monitorea venta casi en tiempo real, lo cual es la mitad del camino. <strong>La otra mitad — merma medida en el punto donde ocurre, con criterio único entre marcas — es donde normalmente se rompe.</strong></p>
-      <p>Por eso no proponemos empezar por la tecnología. Proponemos empezar por medir, y usar tecnología donde la medición demuestre que hay recuperación posible. No estimamos aquí ninguna cifra de impacto: no tenemos la información para hacerlo con seriedad.</p>
-    </div>
+    <div class="tabcard tc-cream" style="margin-top:20px"><span class="tab">LA CONDICIÓN PREVIA</span><div class="body">
+      <h3>Nada de esto funciona sin datos limpios</h3>
+      <p>Los doce agentes dependen de información consistente de venta, producción, merma e inventario
+      por punto y por marca. Ya monitoreas venta casi en tiempo real: esa es la mitad del camino. La otra
+      mitad —merma medida donde ocurre, con un criterio único entre las cuatro marcas— es donde
+      normalmente se rompe.</p>
+      <p>Por eso proponemos empezar por medir y usar tecnología donde la medición demuestre que hay
+      recuperación posible. No estimamos aquí ninguna cifra de impacto para Familia Marisa: eso es
+      justamente lo que produce el estudio de factibilidad.</p>
+    </div></div>
 
     <div class="footnav">
       <button class="fn-btn" data-go="hub">← Volver al índice</button>
-      <button class="fn-btn next" data-go="s10">Outlook 2026–2029 →</button>
+      <button class="fn-btn next" data-go="s10">Datos, ERP y ecosistema digital →</button>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ 10 ═══════════ -->
+<!-- ═══════════ 10 · DATOS Y ERP ═══════════ -->
 <section class="view sec" id="s10">
   <div class="bar"><div class="bar-in">
     <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
-    <span class="bar-title"><b>10</b>Outlook 2026–2029</span>
+    <span class="bar-title"><b>10</b>Datos, ERP y ecosistema digital</span>
     <span class="bar-nav"><button class="nbtn" data-go="s09"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s11"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
   </div></div>
   <div class="wrap sec-body">
-    <div class="eyebrow dk">10 · Perspectiva 2026 – 2029</div>
+    <div class="eyebrow dk">10 · Gobernanza de datos y ecosistema digital</div>
+    <div class="sec-head">
+      <h2>De poco sirve Lean Six Sigma en la planta si el pedido llega tarde y a mano</h2>
+      <p class="lede">
+        Una operación puede tener el proceso productivo impecable y aun así perder margen en las
+        costuras: entre el punto de venta y la fábrica, entre la fábrica y el reparto, entre el reparto
+        y la cobranza. En cadenas con red propia, ahí es donde suele estar el dinero que nadie está
+        buscando.
+      </p>
+    </div>
+
+    <div class="panel">
+      <div class="eyebrow">La bifurcación que define el alcance</div>
+      <h3 style="font-size:clamp(20px,2.8vw,28px);max-width:26ch;margin-bottom:18px;letter-spacing:-.025em">Dos arquitecturas posibles. Dos proyectos completamente distintos.</h3>
+      <div class="fork">
+        <div class="fk">
+          <span class="fkt">Escenario A · Sistema integrado</span>
+          <p>Un ERP con módulos conectados: punto de venta, producción, inventarios, compras y cobranza
+          comparten catálogo y viven en la misma base.</p>
+          <p class="fkw">El trabajo entonces es <strong>explotación</strong>: sacarle al sistema lo que ya
+          puede dar. Business Intelligence sobre la base existente, agentes encima del dato limpio y
+          rediseño de la rutina de decisión. Es el camino más corto al resultado — y es exactamente lo
+          que hicimos en KRAM sin comprar un solo módulo adicional.</p>
+        </div>
+        <div class="fk b">
+          <span class="fkt">Escenario B · Sistemas conviviendo</span>
+          <p>Cada marca llegó con su propia forma de registrar —Tía Lola se adquirió en 2015, después
+          Dolce Natura y Oslo— y entre sistema y sistema hay captura manual y hojas de cálculo.</p>
+          <p class="fkw">El trabajo entonces empieza por <strong>integración</strong>: catálogo único,
+          interfaces entre sistemas y eliminación de la doble captura. Más largo, pero con un retorno
+          mayor, porque cada punto de captura manual que se elimina es un error y una hora que
+          desaparecen todos los días.</p>
+        </div>
+      </div>
+      <p style="color:var(--lime);font-size:15px;font-weight:700;margin-top:22px;margin-bottom:0">
+        Determinar en cuál de los dos está Familia Marisa toma una sesión de dos horas con tu equipo de
+        sistemas. Es la primera parada del estudio de factibilidad.
+      </p>
+    </div>
+
+    <div class="stackbox">
+      <div class="tabcard tc-cream"><span class="tab">A VALIDAR · 01</span><div class="body">
+        <h3>¿Está integrada la cadena punta a punta?</h3>
+        <p>La prueba es simple: cuando una tienda detecta que se está quedando sin un producto,
+        ¿el pedido viaja solo hasta el programa de producción, o alguien lo captura, lo llama o lo
+        manda por mensaje?</p>
+        <p>Cuando no hay interconexión digital, aparecen los pedidos urgentes y los cambios de último
+        minuto. Cada uno de ellos es un error potencial, horas extra y un viaje no planeado.</p>
+      </div></div>
+      <div class="tabcard tc-mint"><span class="tab">A VALIDAR · 02</span><div class="body">
+        <h3>¿Los sistemas hablan entre sí o trabajan por silos?</h3>
+        <p>Punto de venta, sistema de fábrica, inventarios, reposición, compras, cobranza y nómina.
+        En una empresa que creció por adquisición de marcas —Tía Lola en 2015, Dolce Natura, Oslo—
+        lo habitual es que cada una haya llegado con su propia forma de registrar.</p>
+        <p>Si un mismo producto tiene cuatro códigos distintos según la marca, ningún indicador
+        consolidado es confiable, por bueno que sea el tablero.</p>
+      </div></div>
+      <div class="tabcard tc-lime"><span class="tab">A VALIDAR · 03</span><div class="body">
+        <h3>¿Dónde viven realmente los indicadores?</h3>
+        <p>En la mayoría de las cadenas con red propia, el reporte semanal se arma a mano los lunes con datos que salen de dos o tres fuentes distintas. Medimos cuántas horas-persona cuesta producirlo y cuántos días de retraso trae la información cuando llega a la junta.</p>
+        <p>El costo de la información mal gobernada casi nunca se presupuesta, pero se paga: en tiempo
+        de mandos medios y en decisiones tomadas con datos de la semana pasada.</p>
+      </div></div>
+      <div class="tabcard tc-dark"><span class="tab">A VALIDAR · 04</span><div class="body">
+        <h3>¿Una sola definición por indicador?</h3>
+        <p>Gobernanza de datos no es un proyecto de tecnología: es acordar qué significa “merma”,
+        “venta perdida” o “nivel de servicio”, quién es dueño de cada número y con qué frecuencia se
+        revisa.</p>
+        <p>Es también lo que hace transferible el negocio a la siguiente generación: un indicador que
+        significa lo mismo para todos sobrevive a cualquier cambio de persona.</p>
+      </div></div>
+    </div>
+
+    <div class="callout">
+      <h3>Por qué esta sección va antes del prediagnóstico</h3>
+      <p>
+        El orden importa. Primero se ordena el dato, después se automatiza la decisión. Intentarlo al
+        revés produce tableros bonitos sobre información que nadie cree, y es la forma más común de
+        gastar un presupuesto de transformación digital sin mover un solo indicador de negocio.
+      </p>
+    </div>
+
+    <div class="footnav">
+      <button class="fn-btn" data-go="hub">← Volver al índice</button>
+      <button class="fn-btn next" data-go="s11">Outlook 2026–2029 →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 11 · OUTLOOK ═══════════ -->
+<section class="view sec" id="s11">
+  <div class="bar"><div class="bar-in">
+    <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
+    <span class="bar-title"><b>11</b>Outlook 2026–2029</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s10"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s12"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+  </div></div>
+  <div class="wrap sec-body">
+    <div class="eyebrow dk">11 · Perspectiva 2026 – 2029</div>
     <div class="sec-head">
       <h2>Tres escenarios y lo que significan</h2>
-      <p class="lede">No proyectamos cifras. Describimos trayectorias plausibles y sus consecuencias operativas.</p>
+      <p class="lede">No proyectamos cifras. Describimos trayectorias plausibles y sus consecuencias operativas concretas.</p>
     </div>
 
     <div class="grid g3">
@@ -1036,43 +1254,43 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
       <div class="card scen c">
         <div class="st">Pressure case</div><h3>Presión</h3>
         <p>Nuevo repunte de insumos, consumidor que sigue reduciendo volumen y frecuencia, y costo laboral creciendo por jornada más salario mínimo simultáneamente.</p>
-        <div class="means"><span class="k">Qué significaría</span><p>La restricción declarada — no bajar calidad para abaratar — se vuelve costosa de sostener. La única salida compatible es operativa: merma, productividad y mezcla. Quien no tenga esas tres medidas con precisión tendrá que elegir entre margen y promesa de marca.</p></div>
+        <div class="means"><span class="k">Qué significaría</span><p>La restricción declarada —no bajar calidad para abaratar— se vuelve costosa de sostener. La única salida compatible es operativa: merma, productividad, energía y mezcla. Quien no tenga esas medidas con precisión tendrá que elegir entre margen y promesa de marca.</p></div>
       </div>
     </div>
 
     <div class="footnav">
       <button class="fn-btn" data-go="hub">← Volver al índice</button>
-      <button class="fn-btn next" data-go="s11">Hipótesis y prediagnóstico →</button>
+      <button class="fn-btn next" data-go="s12">Hipótesis y prediagnóstico →</button>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ 11 ═══════════ -->
-<section class="view sec" id="s11">
+<!-- ═══════════ 12 · HIPÓTESIS ═══════════ -->
+<section class="view sec" id="s12">
   <div class="bar"><div class="bar-in">
     <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
-    <span class="bar-title"><b>11</b>Hipótesis y prediagnóstico</span>
-    <span class="bar-nav"><button class="nbtn" data-go="s10"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s12"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+    <span class="bar-title"><b>12</b>Hipótesis y prediagnóstico</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s11"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s13"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
   </div></div>
   <div class="wrap sec-body">
-    <div class="eyebrow dk">11 · Hipótesis de oportunidad</div>
+    <div class="eyebrow dk">12 · Hipótesis de oportunidad</div>
     <div class="sec-head">
-      <h2>Cuatro hipótesis que valdría la pena validar con datos</h2>
-      <p class="lede">Son hipótesis, no conclusiones. Cada una se formula para poder ser refutada con información que la empresa ya tiene. Si los datos las desmienten, el ejercicio sigue siendo útil.</p>
+      <h2>Ocho hipótesis que valdría la pena validar con datos</h2>
+      <p class="lede">Son hipótesis, no conclusiones. Cada una está formulada para poder ser refutada con información que ya existe dentro de la empresa. Si los datos las desmienten, el ejercicio sigue siendo útil.</p>
     </div>
 
     <div class="grid" style="gap:18px">
       <div class="hyp">
         <div class="hh"><span class="hn">HIPÓTESIS 01</span><h3>La merma total del sistema no está medida con un criterio único entre las cuatro marcas, y por lo tanto no se administra como una sola cifra.</h3></div>
         <div class="hb">
-          <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Merma en % sobre producción, abierta por etapa: planta, tránsito, tienda y devolución — con la misma definición en las cuatro marcas.</span></div>
-          <div class="hf"><span class="k">Impacto posible</span><span class="v">Recuperación directa de margen sin tocar precio ni receta. No cuantificamos: depende del nivel actual, que no es público.</span></div>
+          <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Merma en % sobre producción, abierta por etapa: planta, tránsito, exhibición, devolución y expendio, con la misma definición en las cuatro marcas.</span></div>
+          <div class="hf"><span class="k">Impacto posible</span><span class="v">Recuperación directa de margen sin tocar precio ni receta.</span></div>
           <div class="hf"><span class="k">Información necesaria</span><span class="v">Reportes de producción y venta por SKU y punto, registro de devoluciones, movimientos hacia expendios.</span></div>
           <div class="hf"><span class="k">Área involucrada</span><span class="v">Producción, distribución, operación de tienda, finanzas.</span></div>
         </div>
       </div>
       <div class="hyp">
-        <div class="hh"><span class="hn">HIPÓTESIS 02</span><h3>La dispersión de productividad entre sucursales del mismo formato es mayor de lo que el equipo directivo asume, y esa dispersión es la reserva para absorber la reducción de jornada.</h3></div>
+        <div class="hh"><span class="hn">HIPÓTESIS 02</span><h3>La dispersión de productividad entre sucursales del mismo formato es mayor de lo que la dirección asume, y esa dispersión es la reserva para absorber la reducción de jornada.</h3></div>
         <div class="hb">
           <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Venta por hora-persona y piezas por hora-persona, comparadas entre puntos del mismo formato y marca.</span></div>
           <div class="hf"><span class="k">Impacto posible</span><span class="v">Si el cuartil superior es replicable, ahí está la absorción de 2027–2030 sin contratación proporcional.</span></div>
@@ -1083,7 +1301,7 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
       <div class="hyp">
         <div class="hh"><span class="hn">HIPÓTESIS 03</span><h3>El nivel de servicio por sucursal no se mide sistemáticamente, y la venta perdida es invisible en el estado de resultados.</h3></div>
         <div class="hb">
-          <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Horas con faltante de los SKU de mayor rotación, por punto y franja horaria. Frecuencia de reposiciones no programadas.</span></div>
+          <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Horas con faltante de los SKU de mayor rotación por punto y franja. Frecuencia de reposiciones no programadas.</span></div>
           <div class="hf"><span class="k">Impacto posible</span><span class="v">Venta recuperable en el momento de mayor disposición a pagar, sin costo de adquisición de cliente.</span></div>
           <div class="hf"><span class="k">Información necesaria</span><span class="v">Bitácoras de reposición, registro de agotados, ticket promedio por franja.</span></div>
           <div class="hf"><span class="k">Área involucrada</span><span class="v">Operación de tienda, distribución, comercial.</span></div>
@@ -1093,43 +1311,122 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
         <div class="hh"><span class="hn">HIPÓTESIS 04</span><h3>El costo real de servir difiere de forma significativa entre formatos y plazas, y ese diferencial no está reflejado en la decisión de surtido ni en la de apertura.</h3></div>
         <div class="hb">
           <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Costo de distribución por punto y por pieza entregada: ZMG contra plazas regionales contra León.</span></div>
-          <div class="hf"><span class="k">Impacto posible</span><span class="v">Criterio objetivo para decidir portafolio por plaza y evaluar el siguiente salto geográfico del Bajío.</span></div>
-          <div class="hf"><span class="k">Información necesaria</span><span class="v">Rutas, frecuencias, costo de flota, volumen entregado por punto.</span></div>
+          <div class="hf"><span class="k">Impacto posible</span><span class="v">Criterio objetivo para decidir portafolio por plaza y evaluar el siguiente salto del Bajío.</span></div>
+          <div class="hf"><span class="k">Información necesaria</span><span class="v">Rutas, frecuencias, costo de flota, volumen entregado y devuelto por punto.</span></div>
           <div class="hf"><span class="k">Área involucrada</span><span class="v">Supply chain, finanzas, expansión.</span></div>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hh"><span class="hn">HIPÓTESIS 05</span><h3>El modelo de reparto no está optimizado para una red que ya cruza dos estados y opera producto sin conservadores, y la palanca disponible es distinta según sea flota propia o tercerizada.</h3></div>
+        <div class="hb">
+          <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Composición de la flota, costo por kilómetro, rendimiento de combustible por unidad, cumplimiento de ventana de entrega y, si es tercerizada, tarifa y nivel de servicio del proveedor.</span></div>
+          <div class="hf"><span class="k">Impacto posible</span><span class="v">Con flota propia trabajamos ruteo, mantenimiento preventivo, conducta de manejo y combustible. Con flota tercerizada, tarifa, gobierno del proveedor y acuerdos de nivel de servicio. En El Marino, este frente redujo 10% los gastos de reparto.</span></div>
+          <div class="hf"><span class="k">Información necesaria</span><span class="v">Padrón de unidades o contrato logístico, bitácoras de ruta, consumo de combustible, incidencias de entrega.</span></div>
+          <div class="hf"><span class="k">Área involucrada</span><span class="v">Supply chain, mantenimiento, compras.</span></div>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hh"><span class="hn">HIPÓTESIS 06</span><h3>El gasto de energía y refrigeración es una de las líneas de costo más altas de la operación y no se administra por sucursal.</h3></div>
+        <div class="hb">
+          <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Consumo eléctrico por punto normalizado por metro cuadrado y por venta. Desviaciones de temperatura en cámaras y vitrinas. Programa de mantenimiento preventivo de equipo de frío.</span></div>
+          <div class="hf"><span class="k">Impacto posible</span><span class="v">En un negocio con dos marcas de helado y producto perecedero en toda la red, el frío es simultáneamente costo, merma y riesgo de calidad.</span></div>
+          <div class="hf"><span class="k">Información necesaria</span><span class="v">Recibos de CFE por punto, inventario de equipos de refrigeración, bitácoras de mantenimiento.</span></div>
+          <div class="hf"><span class="k">Área involucrada</span><span class="v">Operación, mantenimiento, finanzas.</span></div>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hh"><span class="hn">HIPÓTESIS 07</span><h3>Los sistemas de información operan por silos y el pedido de tienda a planta no viaja de forma digital punta a punta, lo que genera pedidos urgentes, cambios de último minuto y errores.</h3></div>
+        <div class="hb">
+          <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Tiempo desde que una tienda detecta faltante hasta que el pedido entra al programa de producción. Porcentaje de pedidos modificados después de emitidos. Número de capturas manuales en el flujo.</span></div>
+          <div class="hf"><span class="k">Impacto posible</span><span class="v">Cada pedido urgente cuesta horas extra, un viaje no planeado y, con frecuencia, un error de surtido.</span></div>
+          <div class="hf"><span class="k">Información necesaria</span><span class="v">Mapa de sistemas, ERP y punto de venta, flujo de pedido y reposición, catálogo de productos por marca.</span></div>
+          <div class="hf"><span class="k">Área involucrada</span><span class="v">Sistemas, operación, producción, comercial.</span></div>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hh"><span class="hn">HIPÓTESIS 08</span><h3>No existe una definición única de los indicadores clave entre las cuatro marcas, por lo que los números consolidados no son comparables entre sí.</h3></div>
+        <div class="hb">
+          <div class="hf"><span class="k">Indicador a revisar</span><span class="v">Diccionario de indicadores: cuántas definiciones distintas conviven para merma, venta perdida, nivel de servicio y productividad. Horas-persona invertidas en armar el reporte semanal.</span></div>
+          <div class="hf"><span class="k">Impacto posible</span><span class="v">Sin definiciones comunes, ningún tablero ni agente de IA produce información confiable, por bueno que sea.</span></div>
+          <div class="hf"><span class="k">Información necesaria</span><span class="v">Reportes directivos vigentes, hojas de cálculo de apoyo, tableros existentes y su fuente.</span></div>
+          <div class="hf"><span class="k">Área involucrada</span><span class="v">Dirección general, finanzas, sistemas.</span></div>
         </div>
       </div>
     </div>
 
     <div class="eyebrow dk" style="margin-top:56px">Prediagnóstico propuesto</div>
-    <h2 style="font-size:clamp(24px,3.4vw,34px);margin-bottom:28px;max-width:24ch">Cómo se validan sin interrumpir la operación</h2>
+    <h2 style="font-size:clamp(24px,3.4vw,34px);margin-bottom:16px;max-width:26ch">Estudio de factibilidad · 2 a 3 semanas</h2>
+    <p class="sec-head lede" style="margin-bottom:34px">
+      Es la metodología con la que London entra a cualquier cuenta. No es una auditoría ni una
+      presentación: es trabajo de campo en tus tiendas y en la planta, con tu gente, para dimensionar
+      la oportunidad en pesos antes de que decidas nada.
+    </p>
 
-    <div class="grid g3">
-      <div class="tabcard tc-mint"><span class="tab">Alcance</span><div class="body"><h3>Dos a tres semanas</h3><p>Recorrido del complejo de producción y de una muestra representativa de puntos: las cuatro marcas, los formatos de calle, plaza, aeropuerto y expendio, y al menos una plaza fuera de la ZMG.</p></div></div>
-      <div class="tabcard tc-cream"><span class="tab">Método</span><div class="body"><h3>Medición donde ocurre</h3><p>Observación de proceso con toma de tiempos, análisis de la información existente, entrevistas con mandos medios y personal de piso. No es una auditoría: es un levantamiento para dimensionar oportunidad.</p></div></div>
-      <div class="tabcard tc-lime"><span class="tab">Entregable</span><div class="body"><h3>Oportunidad cuantificada</h3><p>Las cuatro hipótesis confirmadas o descartadas con evidencia propia de la empresa, dimensionadas en pesos, con una secuencia de implementación priorizada por esfuerzo y retorno.</p></div></div>
+    <div class="grid g2">
+      <div class="tabcard tc-dark"><span class="tab">FASE 1</span><div class="body">
+        <h3>Alcance y estrategia del estudio</h3>
+        <p>Entendimiento de los retos estratégicos, definición de alcance por áreas, responsables y ubicación
+        geográfica, designación del contacto o <em>sponsor</em> del estudio, y entendimiento del modelo de
+        gobierno: consejo, socios y tomadores de decisión.</p>
+      </div></div>
+      <div class="tabcard tc-mint"><span class="tab">FASE 2</span><div class="body">
+        <h3>Recolección de información básica</h3>
+        <p>Firma de NDA, inducción general de la empresa, organigramas, estados financieros, indicadores de
+        juntas directivas y operativas, manuales de proceso o sistemas de calidad, y reunión de perfilamiento.</p>
+        <p>Aquí es donde necesitamos acceso a tus bases de datos. Sin eso, el ejercicio se queda en
+        observación y pierde la mitad de su valor.</p>
+      </div></div>
+      <div class="tabcard tc-lime"><span class="tab">FASE 3</span><div class="body">
+        <h3>Comunicación y entrevistas</h3>
+        <p>Diseño y acuerdo del plan de entrevistas con apoyo del <em>sponsor</em>, <em>kick off</em> oficial
+        con objetivos, alcance y factores clave de éxito, ejecución de las entrevistas y reuniones de
+        validación de oportunidades.</p>
+        <p>Las entrevistas son el corazón del estudio: mandos medios y personal de piso saben dónde está el
+        problema mucho antes que cualquier reporte.</p>
+      </div></div>
+      <div class="tabcard tc-cream"><span class="tab">FASE 4</span><div class="body">
+        <h3>Propuesta de proyecto</h3>
+        <p>Oportunidades identificadas y cuantificadas, beneficios esperados, metodología de implementación,
+        cronograma, inversión y ROI.</p>
+        <p>Si las oportunidades no justifican el proyecto, lo decimos. Ese también es un resultado válido
+        del estudio.</p>
+      </div></div>
+    </div>
+
+    <div class="callout" style="margin-top:20px">
+      <h3>Lo que necesitaríamos de tu parte</h3>
+      <p>
+        Permiso para recorrer una muestra representativa de tiendas —las cuatro marcas y los formatos de
+        calle, plaza, aeropuerto, central camionera y expendio, más al menos una plaza fuera de la ZMG—,
+        acceso al complejo de producción, disponibilidad de tu equipo directivo y de mandos medios para
+        entrevistas, y acceso a las bases de datos de venta, producción, merma, inventario y nómina.
+      </p>
+      <p>
+        Todo bajo acuerdo de confidencialidad firmado antes de recibir el primer dato.
+      </p>
     </div>
 
     <div class="callout">
       <h3>El compromiso contractual de London</h3>
-      <p>En los proyectos de implementación, London Consulting Group garantiza por contrato un retorno mínimo de <strong>1 a 1</strong> sobre la inversión del cliente. El promedio histórico de la firma es de <strong>5 a 1</strong>. El prediagnóstico es previo a cualquier compromiso y no obliga a contratar.</p>
+      <p>En los proyectos de implementación, London Consulting Group garantiza por contrato un retorno mínimo de <strong>1 a 1</strong> sobre la inversión del cliente. El promedio histórico de la firma es de <strong>5 a 1</strong>. El estudio de factibilidad es previo a cualquier compromiso y no obliga a contratar.</p>
     </div>
 
     <div class="footnav">
       <button class="fn-btn" data-go="hub">← Volver al índice</button>
-      <button class="fn-btn next" data-go="s12">Metodología y fuentes →</button>
+      <button class="fn-btn next" data-go="s13">Metodología y fuentes →</button>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ 12 ═══════════ -->
-<section class="view sec" id="s12">
+<!-- ═══════════ 13 · METODOLOGÍA ═══════════ -->
+<section class="view sec" id="s13">
   <div class="bar"><div class="bar-in">
     <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
-    <span class="bar-title"><b>12</b>Metodología, fuentes y credenciales</span>
-    <span class="bar-nav"><button class="nbtn" data-go="s11"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s13"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+    <span class="bar-title"><b>13</b>Metodología, fuentes y credenciales</span>
+    <span class="bar-nav"><button class="nbtn" data-go="s12"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" data-go="s14"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
   </div></div>
   <div class="wrap sec-body">
-    <div class="eyebrow dk">12 · Metodología y fuentes</div>
+    <div class="eyebrow dk">13 · Metodología y fuentes</div>
     <div class="sec-head">
       <h2>Todo lo afirmado aquí es rastreable</h2>
       <p class="lede">Familia Marisa es una empresa privada sin obligación de reporte financiero público. Por eso este documento no contiene ninguna estimación financiera. Lo que es interpretación nuestra está marcado como hipótesis.</p>
@@ -1144,20 +1441,39 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
 
     <h3 style="font-size:20px;margin:48px 0 18px">Fuentes consultadas</h3>
     <div>
-      <div class="src"><span class="d">MAR 2024</span><span class="t"><strong>El Informador</strong> — “Marisa Lazo cocina expansión para el Bajío”. Sucursal 107, nueva planta Dolce Natura, León, Querétaro / SLP / Aguascalientes, crecimiento orgánico.<br><a href="https://www.informador.mx/economia/Empresas-Marisa-Lazo-cocina-expansion-para-el-Bajio-20240310-0095.html">informador.mx</a></span></div>
+      <div class="src"><span class="d">MAR 2024</span><span class="t"><strong>El Informador</strong> — “Marisa Lazo cocina expansión para el Bajío”. Sucursal 107, nueva planta Dolce Natura, León, Querétaro / SLP / Aguascalientes, crecimiento orgánico sin deuda.<br><a href="https://www.informador.mx/economia/Empresas-Marisa-Lazo-cocina-expansion-para-el-Bajio-20240310-0095.html">informador.mx</a></span></div>
       <div class="src"><span class="d">SEP 2025</span><span class="t"><strong>Periódico AM</strong> — “Pastelería Marisa suma 11 sucursales en León”. Dato de 113 expendios nacionales; declaraciones sobre calidad, delegación y cultura.<br><a href="https://www.am.com.mx/economia/2025/09/11/pasteleria-marisa-suma-11-sucursales-en-leon-mi-mision-es-inspirar-ser-referente-dice-fundadora-751767.html">am.com.mx</a></span></div>
-      <div class="src"><span class="d">ENE 2026</span><span class="t"><strong>El Español</strong> — Cobertura de la entrevista de Juan Lombana. Lean Sigma, estaciones, kitting, monitoreo casi en tiempo real, canal de expendios, cuatro marcas, +60,000 piezas semanales, ~1,300 colaboradores.<br><a href="https://www.elespanol.com/mujer/estilo-vida/20260130/marisa-lazo-duena-pasteleria-hacemos-pasteles-semana-sin-maquinaria-industrial/1003744099713_0.html">elespanol.com</a></span></div>
+      <div class="src"><span class="d">ENE 2026</span><span class="t"><strong>El Español</strong> — Cobertura de la entrevista de Juan Lombana. Lean Six Sigma, trabajo por estaciones, kitting, monitoreo casi en tiempo real, canal de expendios, cuatro marcas, más de 60,000 piezas semanales y alrededor de 1,300 colaboradores.<br><a href="https://www.elespanol.com/mujer/estilo-vida/20260130/marisa-lazo-duena-pasteleria-hacemos-pasteles-semana-sin-maquinaria-industrial/1003744099713_0.html">elespanol.com</a></span></div>
       <div class="src"><span class="d">2023</span><span class="t"><strong>Expansión · 100 Mujeres</strong> — Declaración sobre institucionalización; Inés y María José Arregui Lazo dentro de la empresa preparando la transición.<br><a href="https://cdn-3.expansion.mx/infographic/2023/03/16-18/53/14-00000186-e605-dbf7-a5ae-f605a5a20002-default/perfiles/marisaLazo.html">expansion.mx</a></span></div>
       <div class="src"><span class="d">MAY 2026</span><span class="t"><strong>Milenio</strong> — Declaración sobre el equipo enfocado en expansión y criterios de decisión más consistentes.<br><a href="https://www.milenio.com/negocios/liderazgo-maternidad-historia-marisa-lazo-pastelerias">milenio.com</a></span></div>
-      <div class="src"><span class="d">DIC 2024</span><span class="t"><strong>PLAYERS of Life Guadalajara</strong> — Paola Lazo dirige Fundación Marisa; aperturas de Oslo; Premio al Emprendimiento Jalisco 2024.<br><a href="https://playersoflife.com/guadalajara/fundacion-marisa-suma-a-paola-lazo-como-nueva-directora/">playersoflife.com</a></span></div>
-      <div class="src"><span class="d">OCT–NOV 2025</span><span class="t"><strong>GCMA · NielsenIQ · CANAINPA</strong> — Variación de insumos; gasto de hogares +8% con volumen −5%; costos de producción +12% a 25%.<br><a href="https://gcma.com.mx/mexico-business-news-aumento-precios-pan-redefine/">gcma.com.mx</a> · <a href="https://lasillarota.com/negocios/2025/10/13/precios-del-pan-de-dulce-suben-de-pesos-consumidores-reducen-consumo-473404.html">lasillarota.com</a></span></div>
-      <div class="src"><span class="d">MAR–MAY 2026</span><span class="t"><strong>DOF · STPS</strong> — Reforma constitucional el 3 de marzo de 2026; reforma a la LFT el 1 de mayo. Calendario 48/46/44/42/40 horas de 2026 a 2030, inicio efectivo el 1 de enero de 2027, sin reducción de sueldos.<br><a href="https://www.gob.mx/stps/documentos/reduccion-de-la-jornada-laboral-a-40-horas-preguntas-frecuentes">gob.mx/stps</a> · <a href="https://www.jornada.com.mx/noticia/2026/05/01/politica/publican-en-dof-reforma-para-jornada-laboral-de-40-horas">jornada.com.mx</a></span></div>
-      <div class="src"><span class="d">2024–2026</span><span class="t"><strong>Benchmark</strong> — El Globo: +170 tiendas en 24 ciudades, Grupo Bimbo desde 2005. La Esperanza: +100 sucursales, planta Blé en Tecámac desde 2012. Neufeld: 31 sucursales en 2021 y presencia densa en plataformas de reparto.<br><a href="https://www.ambito.com/mexico/economia/la-familia-que-abrio-una-pasteleria-cdmx-luego-se-vio-obligada-cerrarlo-y-hoy-dia-es-un-imperio-mas-1710-sucursales-24-ciudades-mexicanas-n6270016">ambito.com</a> · <a href="https://emprendedor.com/la-esperanza-de-panaderia-de-barrio-en-iztapalapa-a-una-cadena-con-mas-de-100-sucursales/">emprendedor.com</a></span></div>
-      <div class="src"><span class="d">SEP 2026</span><span class="t"><strong>Canales propios de Familia Marisa</strong> — pasteleriasmarisa.com.mx, tialola.com.mx, marisalazo.com, LinkedIn, Instagram y fichas de sucursales en Rappi México. Consultados en septiembre de 2026.</span></div>
-      <div class="src"><span class="d">SEP 2026</span><span class="t"><strong>London Consulting Group</strong> — Casos de éxito, cartas de recomendación y retornos documentados.<br><a href="https://londoncg.mx/growth-stories">londoncg.mx/growth-stories</a></span></div>
+      <div class="src"><span class="d">2024–2026</span><span class="t"><strong>marisalazo.com</strong> — Perfil de la fundadora: Tía Lola adquirida en 2015, Pastelerías Marisa con más de 55 sucursales en Jalisco y León, y más de 100 puntos sumando las marcas. Presidenta del consejo del Tecnológico de Monterrey, campus Guadalajara.<br><a href="https://marisalazo.com/">marisalazo.com</a></span></div>
+      <div class="src"><span class="d">DIC 2024</span><span class="t"><strong>PLAYERS of Life Guadalajara</strong> — Paola Lazo dirige Fundación Marisa; Oslo llega a tres tiendas; Premio al Emprendimiento Jalisco 2024. Primera unidad de Oslo en Santa Tere (mayo 2023) y segunda en Santa Margarita, Zapopan (2024).<br><a href="https://playersoflife.com/guadalajara/fundacion-marisa-suma-a-paola-lazo-como-nueva-directora/">playersoflife.com</a></span></div>
+      <div class="src"><span class="d">SEP 2026</span><span class="t"><strong>Puntos de venta documentados</strong> — Directorio propio de tialola.com.mx, página de sucursales de pasteleriasmarisa.com.mx, dolcenatura.com, fichas de sucursal de las marcas en Rappi México y directorios locales. Es la base del mapa de la sección 05.<br><a href="https://tialola.com.mx/">tialola.com.mx</a> · <a href="https://www.rappi.com.mx/restaurantes/delivery/21064-pastelerias-marisa">rappi.com.mx</a></span></div>
+      <div class="src"><span class="d">OCT–NOV 2025</span><span class="t"><strong>GCMA · NielsenIQ · CANAINPA</strong> — Variación anual de insumos de panificación; gasto de hogares +8% con volumen −5%; costos de producción entre 12% y 25% arriba.<br><a href="https://gcma.com.mx/mexico-business-news-aumento-precios-pan-redefine/">gcma.com.mx</a> · <a href="https://lasillarota.com/negocios/2025/10/13/precios-del-pan-de-dulce-suben-de-pesos-consumidores-reducen-consumo-473404.html">lasillarota.com</a></span></div>
+      <div class="src"><span class="d">MAR–MAY 2026</span><span class="t"><strong>DOF · STPS</strong> — Reforma constitucional publicada el 3 de marzo de 2026 y reforma a la Ley Federal del Trabajo el 1 de mayo. Calendario 48/46/44/42/40 horas de 2026 a 2030, inicio efectivo el 1 de enero de 2027, sin reducción de sueldos ni prestaciones.<br><a href="https://www.gob.mx/stps/documentos/reduccion-de-la-jornada-laboral-a-40-horas-preguntas-frecuentes">gob.mx/stps</a> · <a href="https://www.jornada.com.mx/noticia/2026/05/01/politica/publican-en-dof-reforma-para-jornada-laboral-de-40-horas">jornada.com.mx</a></span></div>
+      <div class="src"><span class="d">DIC 2025</span><span class="t"><strong>CONASAMI · DOF</strong> — Resolución de salarios mínimos 2026 publicada el 9 de diciembre de 2025. Dos zonas: general $315.04 (+13%) y Zona Libre de la Frontera Norte $440.87 (+5%). Jalisco aplica la zona general. Además, tabulador de 61 salarios mínimos profesionales.<br><a href="https://www.eluniversal.com.mx/consultas/blog/rrhh/salario-minimo-2026-montos-por-zona-geografica/">eluniversal.com.mx</a></span></div>
+      <div class="src"><span class="d">2024–2026</span><span class="t"><strong>Benchmark</strong> — El Globo: más de 170 tiendas en 24 ciudades, propiedad de Grupo Bimbo desde 2005. La Esperanza: más de 100 sucursales y planta propia en Tecámac desde 2012. Neufeld: 31 sucursales reportadas en 2021 y presencia densa en plataformas de reparto.<br><a href="https://www.ambito.com/mexico/economia/la-familia-que-abrio-una-pasteleria-cdmx-luego-se-vio-obligada-cerrarlo-y-hoy-dia-es-un-imperio-mas-1710-sucursales-24-ciudades-mexicanas-n6270016">ambito.com</a> · <a href="https://emprendedor.com/la-esperanza-de-panaderia-de-barrio-en-iztapalapa-a-una-cadena-con-mas-de-100-sucursales/">emprendedor.com</a></span></div>
+      <div class="src"><span class="d">SEP 2026</span><span class="t"><strong>London Consulting Group</strong> — Casos de éxito, cartas de recomendación y retornos documentados publicados por la firma.<br><a href="https://londoncg.mx/growth-stories">londoncg.mx/growth-stories</a></span></div>
     </div>
 
-    <p class="note" style="margin-top:24px"><strong>Limitaciones declaradas.</strong> No se identificó comunicación pública posterior a marzo de 2024 sobre la puesta en marcha de la planta de Dolce Natura. Los conteos de puntos de venta difieren entre fuentes. Los datos de Neufeld son parciales. No existe información pública sobre facturación, márgenes, merma, rotación ni inversión de ninguna de las empresas analizadas. Ninguna cifra de este documento fue estimada, inferida o completada por London.</p>
+    <p class="note" style="margin-top:24px">
+      <strong>Alcance y limitaciones.</strong> Este análisis se construyó únicamente con fuentes
+      públicas. No se identificó comunicación posterior a marzo de 2024 sobre la puesta en marcha de la
+      planta de Dolce Natura. Los conteos de puntos de venta difieren entre fuentes, por lo que solo
+      graficamos los dos datos exactos y fechados. El mapa de la sección 05 recoge presencia documentada
+      por municipio, no el censo completo de la red. No existe información pública sobre facturación,
+      márgenes, merma, rotación, consumo energético ni inversión, y ninguna cifra de este documento fue
+      estimada, inferida o completada por London.
+    </p>
+    <p class="note">
+      <strong>Tres definiciones que fijan el alcance.</strong> La arquitectura de sistemas, el modelo de
+      reparto —flota propia o tercerizada— y la forma en que hoy se visualizan los indicadores no son
+      datos que una empresa privada publique, ni tendría por qué hacerlo. En este documento se tratan
+      como <em>bifurcaciones de alcance</em>: describimos qué implica cada escenario y qué trabajo
+      correspondería a cada uno, porque esa es la decisión que cambia el tamaño y la duración del
+      proyecto. Confirmarlas es la primera parada del estudio de factibilidad, no un requisito para
+      sostener la tesis de este análisis.
+    </p>
 
     <div class="panel" style="margin-top:48px">
       <div class="eyebrow">Sobre London Consulting Group</div>
@@ -1166,38 +1482,60 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
       <div class="grid g4" style="margin-top:32px">
         <div class="cred"><span class="n">1:1</span><span class="l">Retorno garantizado por contrato</span><span class="s">Compromiso mínimo sobre la inversión del cliente</span></div>
         <div class="cred"><span class="n">5:1</span><span class="l">Retorno promedio histórico</span><span class="s">A lo largo del portafolio de proyectos</span></div>
-        <div class="cred"><span class="n">3.8:1</span><span class="l">Panovo · Grupo PROAN</span><span class="s">Alimentos — “Baking innovation into operational excellence”</span></div>
+        <div class="cred"><span class="n">7.1:1</span><span class="l">KRAM</span><span class="s">Confitería: ERP, Business Intelligence, agentes de IA y apps móviles propias</span></div>
         <div class="cred"><span class="n">13:1</span><span class="l">7-Eleven</span><span class="s">Retail multi-sucursal con producto perecedero</span></div>
       </div>
-      <p style="color:rgba(242,238,235,.7);font-size:14px;margin-top:24px;margin-bottom:0">Experiencia adicional aplicable: Artelí (5.4:1) y Santandreu (11.4:1) en retail; Café El Marino (3.8:1) y Bepensa (3.9:1) en bienes de consumo; La Norteñita (2.7:1) y Agro Gonzámex (14.7:1) en empresas familiares en transición generacional. Casos y cartas en <a href="https://londoncg.mx/growth-stories" style="color:var(--lime)">londoncg.mx/growth-stories</a>.</p>
+      <p style="color:rgba(242,238,235,.7);font-size:14px;margin-top:24px;margin-bottom:0">
+        Experiencia adicional aplicable: Panovo · Grupo PROAN (3.8:1) en panificación industrial; Artelí
+        (5.4:1) y Santandreu (11.4:1) en retail; Café El Marino (3.8:1) y Bepensa (3.9:1) en bienes de
+        consumo; La Norteñita (2.7:1) y Agro Gonzámex (14.7:1) en empresas familiares en transición
+        generacional. Casos y cartas de recomendación en
+        <a href="https://londoncg.mx/growth-stories" style="color:var(--lime)">londoncg.mx/growth-stories</a>.
+      </p>
     </div>
 
     <div class="footnav">
       <button class="fn-btn" data-go="hub">← Volver al índice</button>
-      <button class="fn-btn next" data-go="s13">Siguiente paso →</button>
+      <button class="fn-btn next" data-go="s14">Siguiente paso →</button>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ 13 ═══════════ -->
-<section class="view sec" id="s13">
+<!-- ═══════════ 14 · CTA ═══════════ -->
+<section class="view sec" id="s14">
   <div class="bar"><div class="bar-in">
     <button class="back" data-go="hub"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg>Índice</button>
     <span class="bar-title"><b>→</b>Siguiente paso</span>
-    <span class="bar-nav"><button class="nbtn" data-go="s12"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" disabled><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
+    <span class="bar-nav"><button class="nbtn" data-go="s13"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2 L3 6 L7 10"/></svg></button><button class="nbtn" disabled><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2 L9 6 L5 10"/></svg></button></span>
   </div></div>
   <div class="wrap sec-body">
     <div class="ctabox">
       <div class="eyebrow">Siguiente paso</div>
-      <h2>Treinta minutos para saber si estas hipótesis se sostienen.</h2>
-      <p>No preparamos este documento para presentarle London. Lo preparamos porque las cuatro hipótesis nos parecen lo suficientemente concretas como para que valga la pena contrastarlas con quien conoce el negocio por dentro. Si tres de las cuatro están mal planteadas, eso también es información útil — para usted y para nosotros.</p>
-      <p style="font-size:15px;color:rgba(255,254,252,.78)">Conversación de intercambio, sin agenda comercial. Si de ahí surge interés, el prediagnóstico podría ubicarse en la planeación de 2027, que es cuando la aritmética de la jornada empieza a correr.</p>
-      <a class="btn" href="mailto:?subject=Familia%20Marisa%20%C3%97%20London%20%E2%80%94%20Validar%20hip%C3%B3tesis">Agendar los 30 minutos</a>
-      <a class="btn ghost" href="https://londoncg.mx/growth-stories">Ver casos documentados</a>
+      <h2>Treinta minutos para contrastar estas ocho hipótesis contigo.</h2>
+      <p>
+        Preparamos este análisis porque queremos trabajar con Familia Marisa, y nos pareció que la mejor
+        forma de pedirte una reunión era llegar con algo que ya valiera la pena leer. Las ocho hipótesis
+        son concretas y refutables: tú sabes cuáles se sostienen y cuáles no, y esa conversación es
+        exactamente la que queremos tener.
+      </p>
+      <p style="font-size:15px;color:rgba(255,254,252,.82)">
+        Si de ahí sale interés, el siguiente paso es un estudio de factibilidad de dos a tres semanas en
+        tus tiendas y en la planta, previo a cualquier compromiso, para dimensionar la oportunidad en pesos
+        antes de que decidas nada. Puede ubicarse en tu planeación de 2027, que es cuando la aritmética de
+        la jornada empieza a correr.
+      </p>
+      <a class="btn" href="https://wa.me/523318628273?text=Hola%20Leonardo%2C%20soy%20Marisa%20Lazo.%20Vi%20el%20an%C3%A1lisis%20que%20prepararon%20para%20Familia%20Marisa%20y%20me%20gustar%C3%ADa%20agendar%20los%2030%20minutos." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3a8.2 8.2 0 1 1 7.1 3.8z"/></svg>
+        Escríbele a Leonardo por WhatsApp
+      </a>
+      <a class="btn ghost" href="mailto:leonardo.pimentel@londoncg.mx?subject=Familia%20Marisa%20%C3%97%20London%20%E2%80%94%20Agendar%2030%20minutos">Prefiero por correo</a>
+
       <div class="sign">
         <strong>Leonardo Pimentel</strong>
         Director de Operaciones · London Consulting Group México<br>
-        Análisis preparado para Marisa Lazo, fundadora y directora de Familia Marisa · Septiembre 2026
+        <a href="https://wa.me/523318628273?text=Hola%20Leonardo%2C%20soy%20Marisa%20Lazo.%20Vi%20el%20an%C3%A1lisis%20que%20prepararon%20para%20Familia%20Marisa%20y%20me%20gustar%C3%ADa%20agendar%20los%2030%20minutos." target="_blank" rel="noopener" class="sl">33 1862 8273</a> ·
+        <a href="mailto:leonardo.pimentel@londoncg.mx" class="sl">leonardo.pimentel@londoncg.mx</a><br>
+        <span style="opacity:.75">Análisis preparado para Marisa Lazo, fundadora y directora de Familia Marisa · Septiembre 2026</span>
       </div>
     </div>
 
@@ -1219,7 +1557,7 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
     var target = document.getElementById(id) ? id : 'hub';
     paint(target);
     var want = target === 'hub' ? location.pathname + location.search : '#' + target;
-    if(location.hash.slice(1) !== target){ history.pushState(null, '', want); }
+    if(location.hash.slice(1) !== target){ try{ history.pushState(null, '', want); }catch(e){ location.hash = target==='hub' ? '' : target; } }
     var h = document.querySelector('#' + target + ' h1, #' + target + ' h2');
     if(h){ h.setAttribute('tabindex','-1'); try{ h.focus({preventScroll:true}); }catch(e){} }
   }
@@ -1259,102 +1597,189 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
   };
   var ORDER=['marisa','lola','dolce','oslo'];
 
+  /* Presencia documentada en fuentes públicas (sitios propios, Rappi, directorios y prensa).
+     Nivel de detalle: municipio. No es el censo completo de la red. */
   var CITIES=[
-    {id:'zmg',name:'Zona Metropolitana de Guadalajara',short:'Guadalajara · ZMG',
-     lon:-103.344,lat:20.674,r:19,dx:-28,dy:5,anchor:'end',core:true,
+    {id:'gdl',name:'Guadalajara',short:'Guadalajara',lon:-103.344,lat:20.674,r:19,dx:-26,dy:4,anchor:'end',core:true,
      brands:['marisa','lola','dolce','oslo'],
-     detail:'Núcleo de la red y base productiva: el complejo de producción opera aquí, con una séptima instalación anunciada para Dolce Natura en 2024. Conviven las cuatro marcas y los formatos de calle, plaza, aeropuerto (Sala B del AICG) y Nueva Central Camionera.',
-     src:'El Informador, mar 2024 · PLAYERS of Life, dic 2024 · El Español, ene 2026'},
-    {id:'leon',name:'León, Guanajuato',short:'León',
-     lon:-101.681,lat:21.122,r:15,dx:20,dy:5,anchor:'start',
+     anchors:'Marisa: Galeana 144 (Centro), Américas 538, Ávila Camacho 2224, De los Arcos 660, Circunvalación 154, Independencia Nte 2655, Lázaro Cárdenas 2385, Golfo de Cortés 4182 (Monraz), Revolución 2238. · Tía Lola: Centro Médico (Belisario Domínguez 912), Juan Pablo II (Gómez Morín 3421), Santa Tere (Juan Álvarez 1571). · Dolce Natura: Monraz (Golfo de Cortés 4176/4182), Rafael Sanzio 150. · Oslo: Santa Tere, primera unidad abierta en mayo de 2023.',
+     detail:'Municipio fundacional y sede de la operación. Es el único punto de la red donde conviven las cuatro marcas comerciales y también la sede de Fundación Marisa, el brazo social del grupo.',
+     src:'Sitios propios, fichas de sucursal en Rappi y directorios locales, consultados en septiembre de 2026'},
+    {id:'zap',name:'Zapopan',short:'Zapopan',lon:-103.404,lat:20.721,r:16,dx:-22,dy:-12,anchor:'end',
+     brands:['marisa','lola','dolce','oslo'],
+     anchors:'Marisa: Plaza Fontana (Santa Margarita 4140), Bugambilias 2299, López Mateos Sur 5040, Juan Gil Preciado 1600, Clouthier 326-A, Guadalupe 6180-B, Acueducto 3901-A, Naciones Unidas 5428, Vallarta 6039, Pino Suárez 1039, Valle Imperial 260, Andares. · Tía Lola: Constitución, Copérnico, San Isidro, Santa Mago, Mercado del Mar. · Dolce Natura: Chapalita (Guadalupe 1623), Midtown Jalisco. · Oslo: Santa Margarita, segunda unidad abierta en 2024.',
+     detail:'El municipio con mayor densidad documentada de puntos de venta y el que concentra los formatos de plaza comercial de gama alta.',
+     src:'Sitios propios, Rappi y directorios locales, septiembre de 2026'},
+    {id:'tlaq',name:'San Pedro Tlaquepaque',short:'Tlaquepaque',lon:-103.293,lat:20.641,r:14,dx:16,dy:20,anchor:'start',
      brands:['marisa','lola'],
+     anchors:'Marisa: 8 de Julio 2067 (San Sebastianito, también punto de recolección del canal en línea), Av. Conchita 4629, Adolf B. Horn 3 y el kiosko de la Nueva Central Camionera. · Tía Lola: Magnolias (Antigua carretera a Chapala 1899), Plaza Ventura, Villa Fontana.',
+     detail:'Aquí conviven el formato de calle, el de plaza y el kiosko de central camionera: tres curvas de demanda distintas dentro del mismo municipio. Es también la dirección de recolección del canal en línea.',
+     src:'Sitio de Pastelerías Marisa, tialola.com.mx y Rappi, septiembre de 2026'},
+    {id:'tona',name:'Tonalá',short:'Tonalá',lon:-103.234,lat:20.624,r:11,dx:16,dy:5,anchor:'start',
+     brands:['marisa','lola'],
+     anchors:'Marisa: Av. Tonaltecas 375 (Tonalá Centro). · Tía Lola: Plaza Viva (Av. Patria 850).',
+     detail:'Plaza oriente de la zona metropolitana, con presencia documentada de las dos marcas de pastelería.',
+     src:'Rappi y tialola.com.mx, septiembre de 2026'},
+    {id:'tlaj',name:'Tlajomulco de Zúñiga',short:'Tlajomulco',lon:-103.446,lat:20.475,r:12,dx:0,dy:26,anchor:'middle',
+     brands:['marisa','lola'],
+     anchors:'Marisa: Av. Concepción 21 (La Unión del Cuatro), López Mateos Sur 5560 (Los Gavilanes). · Tía Lola: Multiplaza (Av. Concepción 6800), Plaza Ubika (La Tijera).',
+     detail:'El municipio de mayor crecimiento habitacional de la ZMG. La presencia documentada se concentra en los corredores de La Tijera y la Unión del Cuatro.',
+     src:'Rappi y tialola.com.mx, septiembre de 2026'},
+    {id:'leon',name:'León, Guanajuato',short:'León',lon:-101.681,lat:21.122,r:15,dx:20,dy:5,anchor:'start',
+     brands:['marisa','lola'],
+     anchors:'Marisa: Mariano Escobedo Pte 2001 (León Moderno), Juan Alonso de Torres Pte 1701 (Valle del Campestre), Juan Alonso de Torres (Sierra Nogal). · Tía Lola: Blvd. Antonio Madrazo (Jardines de los Naranjos), Camino a Ibarrilla 826.',
      detail:'La primera plaza fuera de Jalisco. Pasó de nueve a once sucursales entre marzo de 2024 y octubre de 2025, incluyendo una unidad Tía Lola. La fundadora la describió como “nuestro gran experimento para ver cómo nos va fuera del Estado”.',
-     src:'El Informador, mar 2024 · Periódico AM, sep 2025'},
-    {id:'tepa',name:'Tepatitlán de Morelos, Jalisco',short:'Tepatitlán',
-     lon:-102.763,lat:20.817,r:10,dx:16,dy:-8,anchor:'start',
+     src:'El Informador, mar 2024 · Periódico AM, sep 2025 · Rappi, sep 2026'},
+    {id:'tepa',name:'Tepatitlán de Morelos, Jalisco',short:'Tepatitlán',lon:-102.763,lat:20.817,r:10,dx:16,dy:-8,anchor:'start',
      brands:['marisa'],
+     anchors:'Presencia declarada por la dirección en prensa; no identificamos ficha de sucursal pública con domicilio.',
      detail:'Plaza regional de Los Altos de Jalisco, dentro del radio logístico natural desde el complejo de Guadalajara.',
      src:'El Informador, mar 2024'},
-    {id:'ajijic',name:'Ajijic · Ribera de Chapala, Jalisco',short:'Ajijic',
-     lon:-103.259,lat:20.298,r:10,dx:0,dy:26,anchor:'middle',
+    {id:'ajijic',name:'Ajijic · Ribera de Chapala, Jalisco',short:'Ajijic',lon:-103.259,lat:20.298,r:10,dx:0,dy:26,anchor:'middle',
      brands:['marisa'],
+     anchors:'Presencia declarada por la dirección en prensa; no identificamos ficha de sucursal pública con domicilio.',
      detail:'Plaza regional al sur de la ZMG, con un perfil de consumo distinto al metropolitano por su población residente extranjera y de retiro.',
      src:'El Informador, mar 2024'},
-    {id:'ocotlan',name:'Ocotlán, Jalisco',short:'Ocotlán',
-     lon:-102.775,lat:20.351,r:10,dx:0,dy:26,anchor:'middle',
+    {id:'ocotlan',name:'Ocotlán, Jalisco',short:'Ocotlán',lon:-102.775,lat:20.351,r:10,dx:0,dy:26,anchor:'middle',
      brands:['marisa'],
+     anchors:'Presencia declarada por la dirección en prensa; no identificamos ficha de sucursal pública con domicilio.',
      detail:'Plaza regional sobre el corredor hacia el Bajío, punto intermedio entre la ZMG y León.',
      src:'El Informador, mar 2024'}
   ];
 
+  /* Brazo social, fuera del alcance comercial de este análisis */
+  var FUNDACION={name:'Fundación Marisa',lon:-103.344,lat:20.674,
+    detail:'Brazo social del grupo, con más de cinco años de operación y foco en equidad de género. Paola Lazo asumió su dirección en diciembre de 2024. Queda fuera del alcance de este análisis, pero la separación de la fundación respecto de la operación es en sí misma una señal de ordenamiento institucional.'};
+
+  /* Plazas anunciadas públicamente, sin apertura documentada */
   var NEXT=[
     {name:'Querétaro',lon:-100.389,lat:20.588,dy:24},
     {name:'San Luis Potosí',lon:-100.985,lat:22.151,dy:24},
     {name:'Aguascalientes',lon:-102.296,lat:21.885,dy:-16}
   ];
 
+  var ZMG=['gdl','zap','tlaq','tona','tlaj'];
   var active='all';
   var layer=document.getElementById('mxCities');
+
+  function marker(g,q,c,on,scale){
+    scale=scale||1; var r=c.r*scale;
+    if(on){
+      var seg=(active==='all')?c.brands:[active];
+      g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r+5,fill:'#FFFEFC','fill-opacity':'.85'}));
+      if(seg.length>1){
+        seg.slice().reverse().forEach(function(b,i){
+          g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r*(1-(seg.length-1-i)*0.19),fill:BRANDS[b].c}));
+        });
+      }else{
+        g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r,fill:BRANDS[seg[0]].c}));
+      }
+      g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r,fill:'none',stroke:'#FFFEFC','stroke-width':'2.5'}));
+    }else{
+      g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r,fill:'#FFFEFC','fill-opacity':'.8',stroke:'#B3A89A','stroke-dasharray':'3 3','stroke-width':'1.4'}));
+    }
+    return r;
+  }
 
   function draw(){
     if(!layer) return;
     while(layer.firstChild) layer.removeChild(layer.firstChild);
 
-    /* plazas anunciadas sin apertura documentada */
     NEXT.forEach(function(n){
       var q=P(n.lon,n.lat);
       layer.appendChild(el('circle',{cx:q[0],cy:q[1],r:9,fill:'#FFFEFC','fill-opacity':'.7',stroke:'#B3A89A','stroke-dasharray':'3 3','stroke-width':'1.4'}));
       layer.appendChild(txt(el('text',{x:q[0],y:q[1]+n.dy,'text-anchor':'middle','font-family':'Manrope','font-size':'11.5',fill:'#8C8378'}),n.name));
     });
 
-    /* conectores desde el núcleo */
-    var core=P(CITIES[0].lon,CITIES[0].lat);
-    CITIES.slice(1).forEach(function(c){
+    /* nucleo metropolitano agregado */
+    var metro=CITIES.filter(function(c){return ZMG.indexOf(c.id)>-1;});
+    var mb={}; metro.forEach(function(c){c.brands.forEach(function(b){mb[b]=1;});});
+    var mbrands=ORDER.filter(function(b){return mb[b];});
+    var core=P(-103.35,20.66);
+    var onMetro=(active==='all')||mbrands.indexOf(active)>-1;
+
+    CITIES.filter(function(c){return ZMG.indexOf(c.id)<0;}).forEach(function(c){
       var q=P(c.lon,c.lat);
       layer.appendChild(el('line',{x1:core[0],y1:core[1],x2:q[0],y2:q[1],stroke:'#085E54','stroke-opacity':'.28','stroke-width':'1.2','stroke-dasharray':'5 5'}));
     });
 
-    CITIES.forEach(function(c){
+    var gm=el('g',{'class':'mapcity','data-city':'gdl'});
+    marker(gm,core,{r:23,brands:mbrands},onMetro);
+    var l1=el('text',{x:core[0]-32,y:core[1]+1,'text-anchor':'end','font-family':'Manrope','font-size':'14','font-weight':'700',fill:'#27231F'});
+    txt(l1,'Zona Metropolitana'); gm.appendChild(l1);
+    var l2=el('text',{x:core[0]-32,y:core[1]+16,'text-anchor':'end','font-family':'Manrope','font-size':'12.5','font-weight':'700',fill:'#27231F'});
+    txt(l2,'de Guadalajara'); gm.appendChild(l2);
+    var l3=el('text',{x:core[0]-32,y:core[1]+31,'text-anchor':'end','font-family':'Manrope','font-size':'10.5',fill:'#8C8378'});
+    txt(l3,'5 municipios · detalle a la derecha'); gm.appendChild(l3);
+    layer.appendChild(gm);
+
+    /* Fundacion Marisa */
+    var f=P(FUNDACION.lon+0.30,FUNDACION.lat-0.42);
+    var fg=el('g',{'class':'mapcity','data-city':'fundacion'});
+    fg.appendChild(el('circle',{cx:f[0],cy:f[1],r:10,fill:'#FFFEFC',stroke:'#C9E265','stroke-width':'2.5'}));
+    fg.appendChild(el('line',{x1:core[0],y1:core[1]+20,x2:f[0],y2:f[1]-10,stroke:'#C9E265','stroke-opacity':'.6','stroke-dasharray':'3 4'}));
+    var fl=el('text',{x:f[0],y:f[1]+25,'text-anchor':'middle','font-family':'Manrope','font-size':'11.5','font-weight':'700',fill:'#6E8C2A'});
+    txt(fl,'Fundación Marisa'); fg.appendChild(fl);
+    layer.appendChild(fg);
+
+    CITIES.filter(function(c){return ZMG.indexOf(c.id)<0;}).forEach(function(c){
       var q=P(c.lon,c.lat);
       var on=(active==='all')||c.brands.indexOf(active)>-1;
       var g=el('g',{'class':'mapcity','data-city':c.id});
-
-      if(on){
-        var seg=(active==='all')?c.brands:[active];
-        g.appendChild(el('circle',{cx:q[0],cy:q[1],r:c.r+5,fill:'#FFFEFC','fill-opacity':'.85'}));
-        if(seg.length>1){
-          seg.slice().reverse().forEach(function(b,i){
-            var rr=c.r*(1-(seg.length-1-i)*0.19);
-            g.appendChild(el('circle',{cx:q[0],cy:q[1],r:rr,fill:BRANDS[b].c}));
-          });
-        }else{
-          g.appendChild(el('circle',{cx:q[0],cy:q[1],r:c.r,fill:BRANDS[seg[0]].c}));
-        }
-        g.appendChild(el('circle',{cx:q[0],cy:q[1],r:c.r,fill:'none',stroke:'#FFFEFC','stroke-width':'2.5'}));
-      }else{
-        g.appendChild(el('circle',{cx:q[0],cy:q[1],r:c.r,fill:'#FFFEFC','fill-opacity':'.8',stroke:'#B3A89A','stroke-dasharray':'3 3','stroke-width':'1.4'}));
-      }
-
-      var lab=el('text',{x:q[0]+c.dx,y:q[1]+c.dy,'text-anchor':c.anchor,'font-family':'Manrope',
-        'font-size':c.core?'14':'12.5','font-weight':'700',fill:on?'#27231F':'#8C8378'});
+      var r=marker(g,q,c,on);
+      var lab=el('text',{x:q[0]+c.dx,y:q[1]+c.dy,'text-anchor':c.anchor,'font-family':'Manrope','font-size':'12.5','font-weight':'700',fill:on?'#27231F':'#8C8378'});
       txt(lab,c.short); g.appendChild(lab);
-
       if(!on){
-        var sx=c.anchor==='end'?q[0]+c.dx:(c.anchor==='start'?q[0]+c.dx:q[0]);
-        var sub=el('text',{x:sx,y:q[1]+c.dy+14,'text-anchor':c.anchor,'font-family':'Manrope','font-size':'10',fill:'#A79C8E'});
+        var sub=el('text',{x:q[0]+(c.anchor==='middle'?0:c.dx),y:q[1]+c.dy+14,'text-anchor':c.anchor,'font-family':'Manrope','font-size':'10',fill:'#A79C8E'});
         txt(sub,'sin documentación pública'); g.appendChild(sub);
       }
       layer.appendChild(g);
     });
+
+    drawZMG();
+  }
+
+  /* ---- Panel metropolitano: posiciones por coordenada real ---- */
+  function drawZMG(){
+    var svg=document.getElementById('zmgZoom'); if(!svg) return;
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    var L0=-103.56, A1=20.81, C2=Math.cos(20.6*Math.PI/180), K2=940;
+    function Q(lon,lat){return [(lon-L0)*C2*K2+32,(A1-lat)*K2+34];}
+    var i;
+    for(i=0;i<=4;i++){
+      svg.appendChild(el('line',{x1:32,y1:34+i*84,x2:396,y2:34+i*84,stroke:'#E4DDD4','stroke-dasharray':'2 6'}));
+      svg.appendChild(el('line',{x1:32+i*91,y1:34,x2:32+i*91,y2:370,stroke:'#E4DDD4','stroke-dasharray':'2 6'}));
+    }
+    CITIES.filter(function(c){return ZMG.indexOf(c.id)>-1;}).forEach(function(c){
+      var q=Q(c.lon,c.lat);
+      var on=(active==='all')||c.brands.indexOf(active)>-1;
+      var g=el('g',{'class':'mapcity','data-city':c.id});
+      var r=marker(g,q,c,on,0.95);
+      var lab=el('text',{x:q[0],y:q[1]+c.r+18,'text-anchor':'middle','font-family':'Manrope','font-size':'12.5','font-weight':'700',fill:on?'#27231F':'#8C8378'});
+      txt(lab,c.short); g.appendChild(lab);
+      if(!on){
+        var sub=el('text',{x:q[0],y:q[1]+c.r+31,'text-anchor':'middle','font-family':'Manrope','font-size':'9.5',fill:'#A79C8E'});
+        txt(sub,'sin documentación'); g.appendChild(sub);
+      }
+      svg.appendChild(g);
+    });
+    svg.appendChild(txt(el('text',{x:32,y:398,'font-family':'Manrope','font-size':'10',fill:'#9A9086'}),'Municipios ubicados por coordenada real. Sin límites municipales:'));
+    svg.appendChild(txt(el('text',{x:32,y:411,'font-family':'Manrope','font-size':'10',fill:'#9A9086'}),'no existe geometría municipal pública que pudiéramos verificar.'));
   }
 
   function showCity(id){
     var box=document.getElementById('cityInfo'); if(!box) return;
+    if(id==='fundacion'){
+      box.innerHTML='<span class="cn">'+FUNDACION.name+'</span>'+
+        '<div class="cb"><span class="off">Fuera del alcance comercial</span></div>'+
+        '<p>'+FUNDACION.detail+'</p><span class="cs">Fuente: pasteleriasmarisa.com.mx · PLAYERS of Life, dic 2024</span>';
+      return;
+    }
     var c=null,i;
     for(i=0;i<CITIES.length;i++){ if(CITIES[i].id===id) c=CITIES[i]; }
     if(!c){
-      box.innerHTML='<span class="cn">Presencia documentada por ciudad</span>'+
-        '<p>Filtre por marca arriba para ver dónde está documentada cada una, o toque una ciudad del mapa para conocer qué encontramos publicado sobre ella.</p>';
+      box.innerHTML='<span class="cn">Presencia documentada por municipio y marca</span>'+
+        '<p>Filtra por marca arriba para ver dónde está documentada cada una, o toca un municipio del mapa para ver los domicilios que encontramos publicados.</p>';
       return;
     }
     var chips=ORDER.map(function(b){
@@ -1362,7 +1787,9 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
       return '<span class="'+(has?'':'off')+'">'+BRANDS[b].n+(has?'':' · sin documentar')+'</span>';
     }).join('');
     box.innerHTML='<span class="cn">'+c.name+'</span><div class="cb">'+chips+'</div>'+
-      '<p>'+c.detail+'</p><span class="cs">Fuente: '+c.src+'</span>';
+      '<p>'+c.detail+'</p>'+
+      '<p style="margin-top:10px;font-size:13px;color:var(--n600)"><strong>Domicilios documentados.</strong> '+c.anchors+'</p>'+
+      '<span class="cs">Fuente: '+c.src+'</span>';
   }
 
   var filters=document.getElementById('mapFilters');
@@ -1376,7 +1803,7 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
       var hits=CITIES.filter(function(c){return c.brands.indexOf(active)>-1;});
       document.getElementById('cityInfo').innerHTML='<span class="cn">'+BRANDS[active].n+'</span>'+
         '<div class="cb">'+hits.map(function(c){return '<span>'+c.short+'</span>';}).join('')+'</div>'+
-        '<p>Ciudades con presencia documentada en fuentes públicas para esta marca. Las ciudades atenuadas no tienen documentación pública de esta marca, lo cual no implica ausencia de operación.</p>';
+        '<p>Municipios con presencia documentada en fuentes públicas para esta marca. Los atenuados no tienen documentación pública de esta marca, lo cual no implica ausencia de operación.</p>';
     });
   }
 
