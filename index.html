@@ -113,6 +113,31 @@ svg{display:block;max-width:100%}
 .tile.cta-tile .td{color:rgba(7,62,56,.75)}
 .tile.cta-tile:hover{background:linear-gradient(135deg,var(--g500),var(--g400))}
 
+/* ---- Escala de madurez organizacional (NMO) ---- */
+.nmo{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:16px}
+.nmo span{display:flex;flex-direction:column;background:rgba(3,181,133,.09);border:1px solid rgba(8,94,84,.14);
+  border-radius:var(--r-sm);padding:10px 11px;min-width:0}
+.nmo span:nth-child(1){background:rgba(3,181,133,.05)}
+.nmo span:nth-child(2){background:rgba(3,181,133,.09)}
+.nmo span:nth-child(3){background:rgba(3,181,133,.14)}
+.nmo span:nth-child(4){background:rgba(3,181,133,.2)}
+.nmo span:nth-child(5){background:rgba(3,181,133,.27)}
+.nmo b{font-family:var(--font-numeric);font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--g600);
+  display:block;margin-bottom:3px}
+.nmo span{font-size:12.5px;font-weight:700;color:var(--g800);line-height:1.2}
+.nmo i{font-style:normal;font-size:10.5px;font-weight:500;color:var(--n500);line-height:1.35;margin-top:5px;display:block}
+
+/* ---- Bloques de Growth Management ---- */
+.gmgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:16px}
+.gmgrid span{display:flex;flex-direction:column;background:var(--n0);border:1px solid var(--n200);
+  border-top:3px solid var(--g500);border-radius:var(--r-sm);padding:13px 14px;min-width:0;
+  font-size:11.5px;color:var(--n500);line-height:1.42}
+.gmgrid b{font-size:13px;font-weight:800;color:var(--g800);letter-spacing:-.01em;line-height:1.2;margin-bottom:3px}
+.gmgrid em{font-style:normal;font-family:var(--font-numeric);font-size:10.5px;font-weight:700;
+  color:var(--g600);letter-spacing:.04em;margin-bottom:7px;display:block}
+@media (max-width:900px){.nmo{grid-template-columns:repeat(2,1fr)}.gmgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.nmo,.gmgrid{grid-template-columns:1fr}}
+
 /* SECTION CHROME */
 .view.sec{background:var(--cream);color:var(--n800)}
 .bar{position:sticky;top:0;z-index:70;background:rgba(242,238,235,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--n200)}
@@ -1342,26 +1367,28 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
     <div class="eyebrow dk" style="margin-top:56px">Prediagnóstico propuesto</div>
     <h2 style="font-size:clamp(24px,3.4vw,34px);margin-bottom:16px;max-width:26ch">Estudio de factibilidad · 2 a 3 semanas</h2>
     <p class="sec-head lede" style="margin-bottom:34px">
-      Es la metodología con la que London entra a cualquier cuenta. No es una auditoría ni una
-      presentación: es trabajo de campo en tus tiendas y en la planta, con tu gente, para dimensionar
-      la oportunidad en pesos antes de que decidas nada.
+      Es la metodología con la que inicia todo viaje de transformación de nuestros clientes. No es una
+      auditoría ni una presentación: es trabajo de campo en tus tiendas y en la planta, con tu gente,
+      para dimensionar la oportunidad en pesos antes de que decidas nada.
     </p>
 
     <div class="grid g2">
-      <div class="tabcard tc-dark"><span class="tab">FASE 1</span><div class="body">
+      <div class="tabcard tc-dark"><span class="tab">INPUT 1</span><div class="body">
         <h3>Alcance y estrategia del estudio</h3>
         <p>Entendimiento de los retos estratégicos, definición de alcance por áreas, responsables y ubicación
         geográfica, designación del contacto o <em>sponsor</em> del estudio, y entendimiento del modelo de
         gobierno: consejo, socios y tomadores de decisión.</p>
       </div></div>
-      <div class="tabcard tc-mint"><span class="tab">FASE 2</span><div class="body">
+
+      <div class="tabcard tc-mint"><span class="tab">INPUT 2</span><div class="body">
         <h3>Recolección de información básica</h3>
         <p>Firma de NDA, inducción general de la empresa, organigramas, estados financieros, indicadores de
         juntas directivas y operativas, manuales de proceso o sistemas de calidad, y reunión de perfilamiento.</p>
         <p>Aquí es donde necesitamos acceso a tus bases de datos. Sin eso, el ejercicio se queda en
         observación y pierde la mitad de su valor.</p>
       </div></div>
-      <div class="tabcard tc-lime"><span class="tab">FASE 3</span><div class="body">
+
+      <div class="tabcard tc-lime"><span class="tab">INPUT 3</span><div class="body">
         <h3>Comunicación y entrevistas</h3>
         <p>Diseño y acuerdo del plan de entrevistas con apoyo del <em>sponsor</em>, <em>kick off</em> oficial
         con objetivos, alcance y factores clave de éxito, ejecución de las entrevistas y reuniones de
@@ -1369,26 +1396,65 @@ th.rh{font-weight:700;color:var(--n800);background:var(--n50);white-space:nowrap
         <p>Las entrevistas son el corazón del estudio: mandos medios y personal de piso saben dónde está el
         problema mucho antes que cualquier reporte.</p>
       </div></div>
-      <div class="tabcard tc-cream"><span class="tab">FASE 4</span><div class="body">
-        <h3>Propuesta de proyecto</h3>
-        <p>Oportunidades identificadas y cuantificadas, beneficios esperados, metodología de implementación,
-        cronograma, inversión y ROI.</p>
-        <p>Si las oportunidades no justifican el proyecto, lo decimos. Ese también es un resultado válido
-        del estudio.</p>
+
+      <div class="tabcard tc-cream"><span class="tab">INPUT 4</span><div class="body">
+        <h3>Gemba Walk</h3>
+        <p><em>Gemba</em> significa «el lugar real» en japonés: donde el trabajo ocurre y donde se genera el
+        valor. Es un recorrido estructurado por tu planta, tus tiendas y tus centros de distribución para
+        observar el proceso donde sucede, no como lo describe un manual.</p>
+        <p>Observamos flujos de producto y de personas, tiempos de ciclo, puntos de espera, manejo de merma,
+        acomodo y reposición en piso. Y preguntamos a quien ejecuta la tarea, no a quien la supervisa.
+        La distancia entre el proceso documentado y el proceso real es, casi siempre, donde está el dinero.</p>
+      </div></div>
+
+      <div class="tabcard tc-dark"><span class="tab">INPUT 5</span><div class="body">
+        <h3>Estadística agéntica</h3>
+        <p>Con las bases de datos que nos compartes, ejecutamos estudios estadísticos apoyados en
+        inteligencia artificial agéntica para identificar las principales áreas de oportunidad del negocio.</p>
+        <p>Los agentes cruzan venta, producción, merma, inventario y nómina buscando patrones que no se ven
+        revisando cada base por separado: dispersión de productividad entre puntos, correlaciones entre
+        formato y rentabilidad, comportamientos atípicos por marca o por plaza.</p>
+      </div></div>
+
+      <div class="tabcard tc-mint"><span class="tab">INPUT 6</span><div class="body">
+        <h3>Nivel de Madurez Organizacional (NMO)</h3>
+        <p>La madurez organizacional mide la capacidad de una empresa para la mejora continua. A mayor
+        madurez, mayor eficiencia en calidad y en uso de recursos. Se evalúan tres dimensiones:
+        <strong>personas y cultura, procesos y estructuras, y tecnología</strong>, con benchmarks operativos
+        y financieros de empresas similares.</p>
+        <div class="nmo">
+          <span><b>01</b>Inicial<i>Opera sin marco estructurado, con procesos esporádicos y resultados inconsistentes.</i></span>
+          <span><b>02</b>Emergente<i>Reconoce la importancia de estandarizar, pero sin implementación consistente.</i></span>
+          <span><b>03</b>Definido<i>Procesos estandarizados y documentados, aplicados con regularidad.</i></span>
+          <span><b>04</b>Gestionado<i>Gestión basada en métricas y datos, con ajustes predictivos.</i></span>
+          <span><b>05</b>Optimizado<i>Lidera en mejora continua e innovación, con alta adaptabilidad.</i></span>
+        </div>
+        <p style="margin-top:14px">Cada nivel refleja una evolución progresiva. El resultado no es una
+        calificación: es el punto de partida contra el que se mide el avance del proyecto.</p>
+      </div></div>
+
+      <div class="tabcard tc-lime" style="grid-column:1/-1"><span class="tab">INPUT 7</span><div class="body">
+        <h3>Growth Management</h3>
+        <p>Encuesta que mide la mentalidad y el <em>mindset</em> de los líderes de la organización, junto con
+        los aspectos organizacionales clave para el éxito de una compañía. Evalúa 11 elementos agrupados en
+        cuatro bloques, con <strong>68 reactivos</strong> en total.</p>
+        <div class="gmgrid">
+          <span><b>Estrategia y objetivos</b><em>16 reactivos · 30%</em>Alineación y claridad entre objetivos individuales, de equipo y estrategia de la compañía, y efectividad de la estructura y los roles en el cumplimiento de metas.</span>
+          <span><b>Liderazgo y cultura</b><em>19 reactivos · 30%</em>Calidad del liderazgo y su impacto en el clima laboral, colaboración y compromiso de los colaboradores, y capacidad de los líderes para fomentar un ambiente positivo.</span>
+          <span><b>Adaptabilidad y cambio</b><em>16 reactivos · 30%</em>Capacidad de la organización y sus líderes para adaptarse al cambio, fomentar la innovación y la mejora continua, y cómo los colaboradores adoptan los cambios.</span>
+          <span><b>Digitalización y eficiencia</b><em>17 reactivos · 10%</em>Uso y adopción de herramientas digitales y tecnológicas para mejorar eficiencia y productividad, y su contribución al logro de objetivos.</span>
+        </div>
       </div></div>
     </div>
 
-    <div class="callout" style="margin-top:20px">
-      <h3>Lo que necesitaríamos de tu parte</h3>
-      <p>
-        Permiso para recorrer una muestra representativa de tiendas —las cuatro marcas y los formatos de
-        calle, plaza, aeropuerto, central camionera y expendio, más al menos una plaza fuera de la ZMG—,
-        acceso al complejo de producción, disponibilidad de tu equipo directivo y de mandos medios para
-        entrevistas, y acceso a las bases de datos de venta, producción, merma, inventario y nómina.
-      </p>
-      <p>
-        Todo bajo acuerdo de confidencialidad firmado antes de recibir el primer dato.
-      </p>
+    <div class="eyebrow dk" style="margin-top:44px">El entregable</div>
+    <h3 style="font-size:clamp(20px,2.8vw,28px);max-width:32ch;margin-bottom:14px;letter-spacing:-.025em">Propuesta de proyecto</h3>
+    <div class="callout">
+      <p>Construida sobre los siete inputs anteriores y las oportunidades identificadas durante el
+      prediagnóstico: oportunidades cuantificadas en pesos, beneficios esperados, metodología de
+      implementación, cronograma, inversión y ROI.</p>
+      <p>Si las oportunidades no justifican el proyecto, lo decimos. Ese también es un resultado válido
+      del estudio.</p>
     </div>
 
     <div class="callout">
